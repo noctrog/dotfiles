@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# But these
+!.gitignore
+!.vimrc
+!.gvimrc
+!.zshrc
+!.bashrc
+!.config/
