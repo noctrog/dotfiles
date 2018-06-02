@@ -277,5 +277,8 @@ bindsym $mod+p exec urxvt -name float_term -e python
 assign [class="Firefox"] $ws8 
 assign [class="Telegram"] $ws10
 
+# Hide title for extremely common windows
+# for_window [title="LXTerminal|Firefox|Chromium|Chrome$"] border pixel 1
+for_window [title="Firefox|Chromium|Chrome$"] border pixel 0
 
 #strip_workspace_numbers yes
