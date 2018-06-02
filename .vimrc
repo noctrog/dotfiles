@@ -58,6 +58,9 @@ let g:clang_complete_macros = 1
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+" NERDTree load at startup
+autocmd VimEnter * NERDTree
+
 " Airline
 let g:airline_powerline_fonts = 1
 
