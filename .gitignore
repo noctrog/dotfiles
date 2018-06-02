@@ -1,5 +1,5 @@
 # Ignore everything
-*
+/*
 
 # But these
 !.gitignore
@@ -8,6 +8,11 @@
 !.gvimrc
 !.zshrc
 !.bashrc
-!.config/
 !.Xresources
 
+#Unignore some config subfolders
+!/.config/
+
+.config/*
+!.config/i3
+!.config/polybar
