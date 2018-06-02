@@ -1,0 +1,8 @@
+urxvt*depth: 32
+URxvt*saveLines: 12000
+URxvt*font: xft:Source Code Pro, xft:PowerlineSymbols
+URxvt*boldFont: xft:Source Code Pro, xft:PowerlineSymbols 
+URxvt*scrollBar: false
+URxvt*scrollBar_right: false
+URxvt*scrollstyle: rxvt
+URxvt.perl-ext-common: ,resize-font,

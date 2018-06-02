@@ -3,8 +3,11 @@
 
 # But these
 !.gitignore
+!.gitconfig
 !.vimrc
 !.gvimrc
 !.zshrc
 !.bashrc
 !.config/
+!.Xresources
+
