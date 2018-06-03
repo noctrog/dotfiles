@@ -11,6 +11,7 @@ Plug 'Rip-Rip/clang_complete'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 
