@@ -12,6 +12,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/goyo.vim'
+Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'
 call plug#end()
 
 
@@ -50,6 +52,23 @@ set ruler
 set undolevels=1000
 set backspace=indent,eol,start
 set fillchars+=stl:\ ,stlnc:\
+
+" Normal mode mappings
+nmap <leader>w :w!<cr>
+
+map <C-j> <C-W>j
+map <C-h> <C-W>h
+map <C-k> <C-W>k
+map <C-l> <C-W>l
+
+map <leader>tn :tabnew<cr>
+map <leader>tc :tabclose<cr>
+map <leader>to :tabonly<cr>
+map <leader>to :tabmove
+
+" Goyo mappings
+map <leader>z :Goyo<cr>
+
 " Clang Complete
 let g:clang_library_path='/usr/lib64/libclang.so.6'
 let g:clang_complete_macros = 1
@@ -59,8 +78,17 @@ let g:clang_complete_macros = 1
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" NERDTree load at startup
-autocmd VimEnter * NERDTree
+" NERDTree 
+"autocmd VimEnter * NERDTree
+noremap <leader>nn :NERDTreeToggle<cr>
+noremap <leader>nb :NERDTreeFromBookmark
+noremap <leader>nf :NERDTreeFind<cr>
+
+" Vim-session
+noremap <leader>ss :SaveSession<Space>
+noremap <leader>so :OpenSession<Space>
+noremap <leader>sc :CloseSession
+noremap <leader>sd :DeleteSession!<Space>
 
 " Airline
 let g:airline_powerline_fonts = 1
