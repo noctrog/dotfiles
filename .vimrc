@@ -56,6 +56,7 @@ set fillchars+=stl:\ ,stlnc:\
 
 " Normal mode mappings
 nmap <leader>w :w!<cr>
+nmap <leader>t :terminal<cr>
 
 map <C-j> <C-W>j
 map <C-h> <C-W>h

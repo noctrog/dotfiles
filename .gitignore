@@ -9,6 +9,7 @@
 !.zshrc
 !.bashrc
 !.Xresources
+!.Xmodmap
 
 #Unignore some config subfolders
 !/.config/

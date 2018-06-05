@@ -233,6 +233,10 @@ exec_always wal -c -a 80 -i /home/ramon/Pictures/Wallpapers/wall.png
 
 
 exec compton -b -f
+
+# Caps Key now is Meta when hold and Escape when release
+exec --no-startup-id xmodmap ~/.Xmodmap&
+exec --no-startup-id xcape -e "Hyper_L=Escape"
 # -----------------
 # --- shortcuts ---
 # -----------------
