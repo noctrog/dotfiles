@@ -14,6 +14,7 @@ Plug 'majutsushi/tagbar'
 Plug 'junegunn/goyo.vim'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
+Plug 'lervag/vimtex'
 call plug#end()
 
 
@@ -96,6 +97,11 @@ let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+
+" Vimtex
+let g:polyglot_disabled = ['latex']
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'zathura'
 
 " unicode symbols
 let g:airline_left_sep = '»'
