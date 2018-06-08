@@ -15,6 +15,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 Plug 'lervag/vimtex'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 call plug#end()
 
 
@@ -47,6 +50,7 @@ set shiftwidth=4
 set smartindent
 set smarttab
 set softtabstop=2
+
  
 "" Advanced
 set ruler	 
@@ -127,5 +131,14 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+
 syntax on
 colorscheme onedark
+
+" Transparent background 
+hi Normal ctermbg=NONE
