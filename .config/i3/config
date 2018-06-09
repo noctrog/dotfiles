@@ -232,7 +232,7 @@ exec_always wal -c -a 80 -i /home/ramon/Pictures/Wallpapers/wall.png
 # exec --no-startup-id redshift-gtk
 
 
-exec compton -b -f
+exec compton --config ~/.config/compton.conf
 
 # Caps Key now is Meta when hold and Escape when release
 exec --no-startup-id xmodmap ~/.Xmodmap&

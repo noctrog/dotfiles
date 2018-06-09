@@ -89,6 +89,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 noremap <leader>nn :NERDTreeToggle<cr>
 noremap <leader>nb :NERDTreeFromBookmark
 noremap <leader>nf :NERDTreeFind<cr>
+noremap <leader>nc :NERDTreeCWD<cr>
 
 " Vim-session
 noremap <leader>ss :SaveSession<Space>
