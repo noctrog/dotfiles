@@ -51,7 +51,10 @@ set smartindent
 set smarttab
 set softtabstop=2
 
- 
+" Disable beep and flash
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
 "" Advanced
 set ruler	 
 set undolevels=1000
