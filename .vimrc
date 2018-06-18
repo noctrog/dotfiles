@@ -96,7 +96,7 @@ noremap <leader>nc :NERDTreeCWD<cr>
 
 " Vim-session
 noremap <leader>ss :SaveSession<Space>
-noremap <leader>so :OpenSession<Space>
+noremap <leader>so :OpenSession!<Space>
 noremap <leader>sc :CloseSession
 noremap <leader>sd :DeleteSession!<Space>
 
