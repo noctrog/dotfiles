@@ -17,6 +17,7 @@ Plug 'xolox/vim-misc'
 Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -140,6 +141,8 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+" Vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 syntax on
 colorscheme onedark
