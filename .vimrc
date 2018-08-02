@@ -33,6 +33,7 @@ set visualbell
 set enc=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf8,prc
+set undofile
 
 augroup numbertoggle
   autocmd!
@@ -142,6 +143,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Vimwiki
+set nocompatible
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 syntax on
