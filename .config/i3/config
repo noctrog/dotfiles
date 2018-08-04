@@ -237,6 +237,9 @@ exec compton --config ~/.config/compton.conf
 # Caps Key now is Meta when hold and Escape when release
 exec --no-startup-id xmodmap ~/.Xmodmap&
 exec --no-startup-id xcape -e "Hyper_L=Escape"
+
+# Dunst
+exec --no-startup-id dunst &
 # -----------------
 # --- shortcuts ---
 # -----------------
