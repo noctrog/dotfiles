@@ -76,6 +76,10 @@ map <leader>tc :tabclose<cr>
 map <leader>to :tabonly<cr>
 map <leader>to :tabmove
 
+" Omnicomplete
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
 " Goyo mappings
 map <leader>z :Goyo<cr>
 
