@@ -78,6 +78,9 @@ map <leader>tc :tabclose<cr>
 map <leader>to :tabonly<cr>
 map <leader>to :tabmove
 
+map <leader>bn :bnext<CR>
+map <leader>bp :bprevious<CR>
+
 " Omnicomplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
@@ -109,6 +112,10 @@ noremap <leader>sd :DeleteSession!<Space>
 
 " Airline
 let g:airline_powerline_fonts = 1
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
