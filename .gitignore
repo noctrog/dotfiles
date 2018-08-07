@@ -13,8 +13,12 @@
 
 #Unignore some config subfolders
 !/.config/
+!/.newsboat/
 
 .config/*
 !.config/i3
 !.config/polybar
 !.config/compton.conf
+
+.newsboat/*
+!.newsboat/config
