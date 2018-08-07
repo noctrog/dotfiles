@@ -10,6 +10,7 @@
 !.bashrc
 !.Xresources
 !.Xmodmap
+!.dunstrc
 
 #Unignore some config subfolders
 !/.config/
