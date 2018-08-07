@@ -22,3 +22,4 @@
 
 .newsboat/*
 !.newsboat/config
+!.newsboat/urls
