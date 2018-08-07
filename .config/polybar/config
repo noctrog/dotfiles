@@ -29,10 +29,10 @@ alert = ${xrdb:color5}
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 
-#bottom = true
+bottom = true
 
 width = 100%
-height = 24
+height = 15
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
