@@ -20,6 +20,7 @@
 !.config/i3
 !.config/polybar
 !.config/compton.conf
+!.config/dunst
 
 .newsboat/*
 !.newsboat/config
