@@ -68,18 +68,27 @@ set fillchars+=stl:\ ,stlnc:\
 nmap <leader>w :w!<cr>
 nmap <leader>t :terminal<cr>
 
-map <C-j> <C-W>j
-map <C-h> <C-W>h
-map <C-k> <C-W>k
-map <C-l> <C-W>l
+nmap <C-j> <C-W>j
+nmap <C-h> <C-W>h
+nmap <C-k> <C-W>k
+nmap <C-l> <C-W>l
 
-map <leader>tn :tabnew<cr>
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-map <leader>to :tabmove
+" tabs
+nmap <leader>tn :tabnew<cr>
+nmap <leader>tc :tabclose<cr>
+nmap <leader>to :tabonly<cr>
+nmap <leader>to :tabmove
 
-map <leader>bn :bnext<CR>
-map <leader>bp :bprevious<CR>
+" buffer 
+nmap <leader>bn :bnext<CR>
+nmap <leader>bp :bprevious<CR>
+
+" MAKE
+" Command Make will call make and then cwindow which
+" opens a 3 line error window if any errors are found.
+" If no errors, it closes any open cwindow.
+:command -nargs=* Make make <args> | cwindow 3
+:map <Leader>m :Make<CR>
 
 " Omnicomplete
 filetype plugin on
@@ -157,6 +166,8 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " Vimwiki
 set nocompatible
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0
+let g:vimwiki_table_mappings = 0
 
 syntax on
 colorscheme onedark
