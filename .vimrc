@@ -97,7 +97,7 @@ set omnifunc=syntaxcomplete#Complete
 map <leader>z :Goyo<cr>
 
 " Clang Complete
-let g:clang_library_path='/usr/lib64/libclang.so.6'
+let g:clang_library_path='/usr/lib64/libclang.so.7'
 let g:clang_complete_macros = 1
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
