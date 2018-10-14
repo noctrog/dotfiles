@@ -19,26 +19,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 call plug#end()
 
-let g:deoplete#enable_at_startup = 1
-
-"let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
-"let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
-"let g:deoplete#sources#clang#sort_algo='priority'
-
 "let g:ale_completion_enabled = 1
 let g:ale_c_parse_compile_commands = 0
 let g:ale_c_parse_makefile = 1
-
-" or path to the libclang.so file
-let g:ncm2_pyclang#library_path = '/usr/lib/libclang.so.7'
-" a list of relative paths for compile_commands.json
-let g:ncm2_pyclang#database_path = [
-	    \ 'compile_commands.json',
-	    \ 'build/compile_commands.json'
-	    \ ]
-" a list of relative paths looking for .clang_complete
-let g:ncm2_pyclang#args_file_path = ['.clang_complete']
-let g:ncm2_pyclang#clang_path = ['/usr/bin/clang']
 
 "" General
 set number	
@@ -196,5 +179,8 @@ let g:polyglot_disabled = ['latex']
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
 
-" Transparent background 
+" YouCompleteMe
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+
 hi Normal ctermbg=NONE
