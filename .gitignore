@@ -21,6 +21,9 @@
 !.config/polybar
 !.config/compton.conf
 !.config/dunst
+!.config/nvim
+.config/nvim/*
+!.config/nvim/init.vim
 
 .newsboat/*
 !.newsboat/config
