@@ -5,19 +5,13 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
+Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'w0rp/ale'
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'zchee/deoplete-jedi'
-Plug 'zchee/deoplete-clang'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 
 " Vim GUI
 Plug 'joshdick/onedark.vim'
@@ -27,11 +21,24 @@ call plug#end()
 
 let g:deoplete#enable_at_startup = 1
 
-let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
-let g:deoplete#sources#clang#sort_algo='priority'
+"let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
+"let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
+"let g:deoplete#sources#clang#sort_algo='priority'
 
-let g:ale_completion_enabled = 1
+"let g:ale_completion_enabled = 1
+let g:ale_c_parse_compile_commands = 0
+let g:ale_c_parse_makefile = 1
+
+" or path to the libclang.so file
+let g:ncm2_pyclang#library_path = '/usr/lib/libclang.so.7'
+" a list of relative paths for compile_commands.json
+let g:ncm2_pyclang#database_path = [
+	    \ 'compile_commands.json',
+	    \ 'build/compile_commands.json'
+	    \ ]
+" a list of relative paths looking for .clang_complete
+let g:ncm2_pyclang#args_file_path = ['.clang_complete']
+let g:ncm2_pyclang#clang_path = ['/usr/bin/clang']
 
 "" General
 set number	
