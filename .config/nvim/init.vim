@@ -7,10 +7,13 @@ Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
-Plug 'octol/vim-cpp-enhanced-highlight'
+"Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'w0rp/ale'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+Plug 'vimwiki/vimwiki'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 
 " Vim GUI
