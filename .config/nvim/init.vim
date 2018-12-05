@@ -23,6 +23,7 @@ Plug 'maximbaz/lightline-ale'
 call plug#end()
 
 "let g:ale_completion_enabled = 1
+let g:ale_enabled = 0
 let g:ale_c_parse_compile_commands = 0
 let g:ale_c_parse_makefile = 1
 
