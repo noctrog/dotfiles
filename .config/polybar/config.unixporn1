@@ -6,25 +6,15 @@
 ;   The README contains alot of information
 ;
 ;=====================================================
-;
-;[colors]
-;background = #bb080a11
-;background-alt = #bb121622
-;foreground = #dda9aeb4
-;foreground-alt = #dd616a73
-;primary = #dd49b5b5
-;secondary = #ddc41a63
-;alert = #dd0f8182
-;
+
 [colors]
-;background = #bb080a11
-background = ${xrdb:color0}
-background-alt = ${xrdb:color2}
-foreground = ${xrdb:color5}
-foreground-alt = ${xrdb:color6}
-primary = ${xrdb:color1}
-secondary = ${xrdb:color4}
-alert = ${xrdb:color5}
+background = #bb080a11
+background-alt = #bb121622
+foreground = #dda9aeb4
+foreground-alt = #dd616a73
+primary = #dd49b5b5
+secondary = #ddc41a63
+alert = #dd0f8182
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -32,7 +22,7 @@ alert = ${xrdb:color5}
 bottom = true
 
 width = 100%
-height = 15
+height = 24
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -58,9 +48,9 @@ font-0 = Iosevka:size=10;3
 font-1 = FontAwesome5Free:style=Solid:size=10:antialias=true;3
 font-2 = FontAwesome5Brands:style=Solid:size=11:antialias=true;3
 
-modules-left = linux i3
-#modules-center = i3
-modules-right = volume wlan updates temperature cpu battery date
+modules-left = power prev playpause next temperature cpu 
+modules-center = i3 
+modules-right =  wlan updates volume battery date 
 
 tray-position = right
 tray-padding = 2
@@ -83,7 +73,7 @@ index-sort = true
 wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
-#pin-workspaces = true
+;pin-workspaces = true
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
@@ -92,22 +82,22 @@ ws-icon-3 = 4;
 ws-icon-4 = 5;
 ws-icon-5 = 6;
 ws-icon-6 = 7;
-ws-icon-7 = 8;
+ws-icon-7 = 8; 
 ws-icon-8 = 9;
 ws-icon-9 = 0;
 
 label-mode-padding = 1
 label-mode-foreground = #000
-label-mode-background = ${xrdb:color4}
+label-mode-background = #e60053
 
 label-focused = %name%
-label-focused-background = ${xrdb:color4}
+label-focused-background = #689eb4
 label-focused-foreground = ${colors.background}
 ;label-focused-overline = ${colors.primary}
 label-focused-padding = 1
 
 label-unfocused = %name%
-label-unfocused-foreground = ${xrdb:color4}
+label-unfocused-foreground = #689eb4
 label-unfocused-padding = 1
 
 label-visible = %name%
@@ -122,26 +112,28 @@ label-urgent-padding = 1
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <label>
-format-prefix = "  "
+format = <label> 
+format-prefix = " "
 format-prefix-foreground = ${colors.secondary}
 label = %percentage%%
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "    "
+format-prefix = " "
 format-prefix-foreground = ${colors.primary}
-label = %percentage%%  
+
+label = %percentage%%
 
 [module/wlan]
 type = internal/network
-interface = wls1
+interface = wlp3s0
 interval = 3.0
-format-connected-prefix = "    "
+
+format-connected-prefix = " "
 format-connected-foreground = ${colors.secondary}
 format-connected = <label-connected>
-label-connected = %signal%% %local_ip%  
+label-connected = %signal%%
 label-connected-foreground = ${colors.foreground}
 
 format-disconnected =
@@ -166,7 +158,7 @@ date-alt = "%a %d-%m-%Y"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = "  "
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 
 label = %date% %time%
@@ -175,39 +167,22 @@ label = %date% %time%
 type = internal/volume
 label = %percentage:2%%
 
-format-volume =<ramp-volume> <bar-volume> <label-volume>
+format-volume =<ramp-volume> <label-volume> 
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = "   "
+format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
 format-muted-
 
-ramp-volume-0 = 
+ramp-volume-0 =  
 ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-2 =  
 ramp-volume-foreground = ${colors.secondary}
-
-bar-volume-width = 8 
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = true
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
-battery = BAT0
-adapter = ADP0
+battery = BAT1
+adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
@@ -219,18 +194,18 @@ label = %percentage:2%%
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 
-ramp-capacity-0 = "  "
-ramp-capacity-1 = "  "
-ramp-capacity-2 = "  "
-ramp-capacity-3 = "  "
-ramp-capacity-4 = "  "
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.primary}
 
-animation-charging-0 = "  "
-animation-charging-1 = "  "
-animation-charging-2 = "  "
-animation-charging-3 = "  "
-animation-charging-4 = "  "
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
 animation-charging-foreground = ${colors.primary}
 animation-charging-framerate = 750
 
@@ -244,14 +219,14 @@ format-warn = <ramp> <label-warn>
 
 label = %temperature%
 
-label-warn-prefix = "  "
+label-warn-prefix = 
 label-warn = %temperature%
 
-ramp-0 = "  "
-ramp-1 = "  "
-ramp-2 = "  "
-ramp-3 = "  "
-ramp-4 = "  "
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
 ramp-foreground = ${colors.secondary}
 
 [module/spotify]
@@ -281,25 +256,26 @@ format-prefix = " "
 format-prefix-foreground = ${colors.primary}
 click-left = playerctl next
 
-[module/playpause]
-type = custom/script
-exec = sh ~/.config/polybar/playpause.sh
-interval = 0.01
-click-left = playerctl play-pause
+#[module/playpause]
+#type = custom/script
+#exec = sh ~/.config/polybar/playpause.sh
+#interval = 0.01
+#click-left = playerctl play-pause 
 
 [module/updates]
 type = custom/script
 exec = sh ~/.config/polybar/pkg.sh
 exec-if = "ping -q -w 2 -c 1 8.8.8.8 > /dev/null"
 interval = 1800
-format-prefix = "   "
+
+format-prefix = " "
 format-prefix-foreground = ${colors.primary}
 
 [module/power]
 type = custom/script
 exec = echo " "
 click-left = python ~/Desktop/PowerMenu/GUItest.py
-format-prefix = "   "
+format-prefix = " "
 format-prefix-foreground = ${colors.secondary}
 
 [settings]
@@ -312,13 +288,5 @@ screenchange-reload = true
 [global/wm]
 margin-top = 0
 margin-bottom = 0
-
-[module/linux]
-type = custom/script
-interval = 999
-format-prefix = "  "
-format-prefix-foreground = ${xrdb:color4} 
-
-exec = /usr/bin/uname -o
 
 ; vim:ft=dosini

@@ -1,25 +1,44 @@
-call plug#begin('~/.vim/plugged')
-
-Plug 'sheerun/vim-polyglot'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdcommenter'
+call plug#begin()
+" Vim functionality
 Plug 'scrooloose/nerdtree'
-Plug 'joshdick/onedark.vim'
-Plug 'Rip-Rip/clang_complete'
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'majutsushi/tagbar'
-Plug 'junegunn/goyo.vim'
-Plug 'xolox/vim-session'
-Plug 'xolox/vim-misc'
+Plug 'jiangmiao/auto-pairs'
 Plug 'lervag/vimtex'
+Plug 'sheerun/vim-polyglot'
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'vimwiki/vimwiki'
+Plug 'w0rp/ale'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 
+" Vim GUI
+Plug 'joshdick/onedark.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
 call plug#end()
 
+let g:deoplete#enable_at_startup = 1
+
+"let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
+"let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
+"let g:deoplete#sources#clang#sort_algo='priority'
+
+"let g:ale_completion_enabled = 1
+let g:ale_c_parse_compile_commands = 0
+let g:ale_c_parse_makefile = 1
+
+" or path to the libclang.so file
+let g:ncm2_pyclang#library_path = '/usr/lib/libclang.so.7'
+" a list of relative paths for compile_commands.json
+let g:ncm2_pyclang#database_path = [
+	    \ 'compile_commands.json',
+	    \ 'build/compile_commands.json'
+	    \ ]
+" a list of relative paths looking for .clang_complete
+let g:ncm2_pyclang#args_file_path = ['.clang_complete']
+let g:ncm2_pyclang#clang_path = ['/usr/bin/clang']
 
 "" General
 set number	
@@ -36,16 +55,16 @@ set undofile
 set undodir=~/.vim/undodir
 
 augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END 
 
 set hlsearch
 set smartcase	
 set ignorecase
 set incsearch	
- 
+
 set autoindent
 set cindent
 set shiftwidth=4
@@ -90,20 +109,57 @@ nmap <leader>bp :bprevious<CR>
 :map <Leader>m :Make<CR>
 
 " Omnicomplete
+"filetype plugin on
+"set omnifunc=syntaxcomplete#Complete
+
+" Goyo mappings
+" Lightline
+let g:lightline = {
+	    \   'colorscheme': 'onedark',
+	    \   'active': {
+	    \     'left':[ [ 'mode', 'paste' ],
+	    \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+	    \     ]
+	    \   },
+	    \   'component': {
+	    \     'lineinfo': ' %3l:%-2v',
+	    \   },
+	    \   'component_function': {
+	    \     'gitbranch': 'fugitive#head',
+	    \   }
+	    \ }
+let g:lightline.separator = {
+	    \   'left': '', 'right': ''
+	    \}
+let g:lightline.subseparator = {
+	    \   'left': '', 'right': '' 
+	    \}
+let g:lightline.tabline = {
+	    \   'left': [ ['tabs'] ],
+	    \   'right': [ ['close'] ]
+	    \ }
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
+let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline
+
+" Omnicomplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 " Goyo mappings
-map <leader>z :Goyo<cr>
-
-" Clang Complete
-let g:clang_library_path='/usr/lib64/libclang.so.7'
-let g:clang_complete_macros = 1
-" If you prefer the Omni-Completion tip window to close when a selection is
-" made, these lines close it on movement in insert mode or when leaving
-" insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"map <leader>z :Goyo<cr>
 
 " NERDTree 
 "autocmd VimEnter * NERDTree
@@ -118,45 +174,6 @@ noremap <leader>so :OpenSession!<Space>
 noremap <leader>sc :CloseSession
 noremap <leader>sd :DeleteSession!<Space>
 
-" Airline
-let g:airline_powerline_fonts = 1
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" Vimtex
-let g:polyglot_disabled = ['latex']
-let g:tex_flavor = 'latex'
-let g:vimtex_view_method = 'zathura'
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -170,6 +187,14 @@ let g:vimwiki_table_mappings = 0
 
 syntax on
 colorscheme onedark
+
+" Transparent background 
+"hi Normal ctermbg=NONEmap <leader>z :Goyo<cr>
+
+" Vimtex
+let g:polyglot_disabled = ['latex']
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'zathura'
 
 " Transparent background 
 hi Normal ctermbg=NONE

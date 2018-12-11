@@ -10,10 +10,11 @@ gaps inner 5
 gaps outer 7
 #smart_gaps on
 new_window 1pixel
-
-# disable gaps for workspaces 3-5
 # wallpaper
-#exec_always --no-startup-id feh --bg-scale /home/ramon/Pictures/Wallpapers/wall.png
+#exec_always --no-startup-id feh --bg-scale /home/ramon/Pictures/Wallpapers
+
+# pywal
+exec_always --no-startup-id wal -i /home/ramon/Pictures/Wallpapers/wall.png
 
 # lock i3
 bindsym $mod+Shift+x exec "$HOME/.bin/scripts/lock.sh $HOME/Pictures/Icons/Vergil.AdiumIcon/Alert.png"
@@ -44,18 +45,13 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Shift+Return exec urxvt -name float_term
-
-# rule for floating windows
-for_window [class="URxvt" instance="float_term"] floating enable
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
-#bindsym $mod+d exec --no-startup-id rofi -show drun -columns 1 -font "Sytem San Francisco Display 14" -padding 10 -fake-transparency -fake-background "background" -opacity 50
-bindsym $mod+d exec --no-startup-id rofi -show drun 
+bindsym $mod+d exec --no-startup-id rofi -show drun -columns 1 -font "Sytem San Francisco Display 14" -padding 10 -fake-transparency -fake-background "background" -opacity 50
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -66,9 +62,9 @@ bindsym $mod+period workspace next
 bindsym $mod+comma workspace prev
 
 # change focus
-bindsym $mod+j focus down
-bindsym $mod+k focus up 
-bindsym $mod+l focus left
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -78,16 +74,16 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left 40 px
-bindsym $mod+Shift+k move down 40 px
-bindsym $mod+Shift+l move up 40 px
-bindsym $mod+Shift+semicolon move right 40 px
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left 40 px
-bindsym $mod+Shift+Down move down 40 px
-bindsym $mod+Shift+Up move up 40 px
-bindsym $mod+Shift+Right move right 40 px
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -117,23 +113,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:Home "
-set $ws2 "2: Alfa"
-set $ws3 "3: Beta"
-set $ws4 "4: Epsilon"
-set $ws5 "5: Gamma"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8: Web "
-set $ws9 "9: Music "
-set $ws10 "10: Telegram "
-
-# disable gaps on some workspaces
-workspace $ws2 gaps outer 0
-workspace $ws3 gaps outer 0
-workspace $ws4 gaps outer 0
-workspace $ws8 gaps outer 0
-workspace $ws8 gaps inner 0
+set $ws8 "8 "
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -160,7 +149,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
-# bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -199,93 +188,6 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
-##
-# move floating windows with keys
-bindsym $mod+m mode "move" focus floating
-mode "move" {
-    bindsym $mod+Tab focus right
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec compton -b -f
 
-    bindsym Left  move left 40 px
-    bindsym Down  move down 40 px
-    bindsym Up    move up 40 px
-    bindsym Right move right 40 px
-
-    bindsym h     move left 40 px
-    bindsym j     move down 40 px
-    bindsym k     move up 40 px
-    bindsym l     move right 40 px
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-#exec_always --no-startup-id killall polybar; polybar -r example
-
-exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
-
-# pywal
-exec_always wal --saturate 0.4 -c -a 80 -i /home/ramon/Pictures/Wallpapers/wall.png 
-#exec_always wal --saturate 0.2 -c -a 80 -i /home/ramon/Pictures/Wallpapers/Apollo17.jpg -n
-# redshift
-# exec --no-startup-id redshift-gtk
-
-
-exec compton --config ~/.config/compton.conf
-
-# Caps Key now is Meta when hold and Escape when release
-exec --no-startup-id xmodmap ~/.Xmodmap&
-exec --no-startup-id xcape -e "Hyper_L=Escape"
-
-# Dunst
-exec --no-startup-id dunst &
-# -----------------
-# --- shortcuts ---
-# -----------------
-# Press $mod+o followed by either f, t, Escape or Return to launch firefox,
-# thunderbird or return to the default mode, respectively.
-set $mode_launcher [Application Launcher] 
-bindsym $mod+o mode "$mode_launcher"
-
-mode "$mode_launcher" {
-    bindsym f exec firefox; mode "default"
-
-    bindsym r exec urxvt -e ranger; mode "default"
-    bindsym $mod+r exec urxvt -name float_term -e ranger; mode "default"
- 
-    bindsym m exec urxvt -e cmus; mode "default"
-    bindsym $mod+m exec urxvt -name float_term -e cmus; mode "default"
-
-    bindsym c exec urxvt -e calcurse; mode "default"
-    bindsym $mod+c exec urxvt -name float_term -e calcurse; mode "default"
-
-    bindsym t exec telegram-desktop; mode "default" 
-
-    bindsym v exec urxvt -e nvim; mode "default"
-    bindsym $mod+v exec urxvt -name float_term -e nvim; mode "default"
-		
-    bindsym z exec zathura; mode "default"		
-
-    bindsym n exec nautilus ; mode "default"
-    bindsym $mod+n exec nautilus ; mode "default"
-
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-}
-# python session
-bindsym $mod+p exec urxvt -name float_term -e python
-
-# ----------------
-# --- asignar ----
-# ---------------
-assign [class="Firefox"] $ws8 
-assign [class="Telegram"] $ws10
-
-# Hide title for extremely common windows
-# for_window [title="LXTerminal|Firefox|Chromium|Chrome$"] border pixel 1
-for_window [title="Firefox|Chromium|Chrome$"] border pixel 0
-for_window [class="Telegram"] floating enable
-
-#strip_workspace_numbers yes

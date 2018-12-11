@@ -13,7 +13,7 @@ new_window 1pixel
 
 # disable gaps for workspaces 3-5
 # wallpaper
-#exec_always --no-startup-id feh --bg-scale /home/ramon/Pictures/Wallpapers/wall.png
+exec_always --no-startup-id feh --bg-scale /home/ramon/Pictures/Wallpapers/wall.png
 
 # lock i3
 bindsym $mod+Shift+x exec "$HOME/.bin/scripts/lock.sh $HOME/Pictures/Icons/Vergil.AdiumIcon/Alert.png"
@@ -54,8 +54,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
-#bindsym $mod+d exec --no-startup-id rofi -show drun -columns 1 -font "Sytem San Francisco Display 14" -padding 10 -fake-transparency -fake-background "background" -opacity 50
-bindsym $mod+d exec --no-startup-id rofi -show drun 
+bindsym $mod+d exec --no-startup-id rofi -show drun -columns 1 -font "Sytem San Francisco Display 14" -padding 10 -fake-transparency -fake-background "background" -opacity 50
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -78,16 +77,16 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left 40 px
-bindsym $mod+Shift+k move down 40 px
-bindsym $mod+Shift+l move up 40 px
-bindsym $mod+Shift+semicolon move right 40 px
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left 40 px
-bindsym $mod+Shift+Down move down 40 px
-bindsym $mod+Shift+Up move up 40 px
-bindsym $mod+Shift+Right move right 40 px
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -205,15 +204,15 @@ bindsym $mod+m mode "move" focus floating
 mode "move" {
     bindsym $mod+Tab focus right
 
-    bindsym Left  move left 40 px
-    bindsym Down  move down 40 px
-    bindsym Up    move up 40 px
-    bindsym Right move right 40 px
+    bindsym Left  move left
+    bindsym Down  move down
+    bindsym Up    move up
+    bindsym Right move right
 
-    bindsym h     move left 40 px
-    bindsym j     move down 40 px
-    bindsym k     move up 40 px
-    bindsym l     move right 40 px
+    bindsym h     move left
+    bindsym j     move down
+    bindsym k     move up
+    bindsym l     move right
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -227,20 +226,14 @@ mode "move" {
 exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 
 # pywal
-exec_always wal --saturate 0.4 -c -a 80 -i /home/ramon/Pictures/Wallpapers/wall.png 
-#exec_always wal --saturate 0.2 -c -a 80 -i /home/ramon/Pictures/Wallpapers/Apollo17.jpg -n
+exec_always wal -c -a 80 -i /home/ramon/Pictures/Wallpapers/wall.png 
+
 # redshift
-# exec --no-startup-id redshift-gtk
+exec --no-startup-id redshift-gtk
 
 
-exec compton --config ~/.config/compton.conf
+exec compton -b -f
 
-# Caps Key now is Meta when hold and Escape when release
-exec --no-startup-id xmodmap ~/.Xmodmap&
-exec --no-startup-id xcape -e "Hyper_L=Escape"
-
-# Dunst
-exec --no-startup-id dunst &
 # -----------------
 # --- shortcuts ---
 # -----------------
@@ -263,13 +256,10 @@ mode "$mode_launcher" {
 
     bindsym t exec telegram-desktop; mode "default" 
 
-    bindsym v exec urxvt -e nvim; mode "default"
-    bindsym $mod+v exec urxvt -name float_term -e nvim; mode "default"
+    bindsym v exec urxvt -e zsh -i -c vim; mode "default"
+    bindsym $mod+v exec urxvt -name float_term -e vim; mode "default"
 		
-    bindsym z exec zathura; mode "default"		
-
-    bindsym n exec nautilus ; mode "default"
-    bindsym $mod+n exec nautilus ; mode "default"
+		bindsym $mod+z exec zathura; mode "default"		
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -283,9 +273,5 @@ bindsym $mod+p exec urxvt -name float_term -e python
 assign [class="Firefox"] $ws8 
 assign [class="Telegram"] $ws10
 
-# Hide title for extremely common windows
-# for_window [title="LXTerminal|Firefox|Chromium|Chrome$"] border pixel 1
-for_window [title="Firefox|Chromium|Chrome$"] border pixel 0
-for_window [class="Telegram"] floating enable
 
 #strip_workspace_numbers yes
