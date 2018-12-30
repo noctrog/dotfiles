@@ -1,4 +1,4 @@
-urxvt*depth: 32
+#urxvt*depth: 32
 URxvt*saveLines: 12000
 URxvt*font: xft:Source Code Pro:pixelsize=13
 URxvt*boldFont: xft:Source Code Pro 

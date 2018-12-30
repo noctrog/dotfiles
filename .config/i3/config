@@ -4,7 +4,6 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
-
 # add gaps
 gaps inner 5
 gaps outer 7
@@ -47,7 +46,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Return exec urxvt -name float_term
 
 # rule for floating windows
-for_window [class="URxvt" instance="float_term"] floating enable
+for_window [class="URxvt" instance="float_term"] floating enable; border pixel 3
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -227,10 +226,10 @@ mode "move" {
 exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 
 # pywal
-exec_always wal --saturate 0.4 -c -a 80 -i /home/ramon/Pictures/Wallpapers/wall.png 
+exec_always wal --saturate 0.8 -c -i /home/ramon/Pictures/Wallpapers/wall.png 
 #exec_always wal --saturate 0.2 -c -a 80 -i /home/ramon/Pictures/Wallpapers/Apollo17.jpg -n
 # redshift
-# exec --no-startup-id redshift-gtk
+exec --no-startup-id redshift-gtk
 
 
 exec compton --config ~/.config/compton.conf
@@ -282,10 +281,12 @@ bindsym $mod+p exec urxvt -name float_term -e python
 # ---------------
 assign [class="Firefox"] $ws8 
 assign [class="Telegram"] $ws10
+assign [class="Rambox"] $ws10
 
 # Hide title for extremely common windows
 # for_window [title="LXTerminal|Firefox|Chromium|Chrome$"] border pixel 1
 for_window [title="Firefox|Chromium|Chrome$"] border pixel 0
+for_window [title="urxvt"] border pixel 3
 for_window [class="Telegram"] floating enable
 
 #strip_workspace_numbers yes
