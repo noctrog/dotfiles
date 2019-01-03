@@ -20,6 +20,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 "let g:ale_completion_enabled = 1
@@ -102,7 +103,7 @@ nmap <leader>bp :bprevious<CR>
 " Goyo mappings
 " Lightline
 let g:lightline = {
-	    \   'colorscheme': 'onedark',
+	    \   'colorscheme': 'gruvbox',
 	    \   'active': {
 	    \     'left':[ [ 'mode', 'paste' ],
 	    \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
@@ -173,7 +174,7 @@ let g:vimwiki_global_ext = 0
 let g:vimwiki_table_mappings = 0
 
 syntax on
-colorscheme onedark
+"colorscheme onedark
 
 " Transparent background 
 "hi Normal ctermbg=NONEmap <leader>z :Goyo<cr>
@@ -186,5 +187,10 @@ let g:vimtex_view_method = 'zathura'
 " YouCompleteMe
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+
+"gruvbox
+"set termguicolors
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 hi Normal ctermbg=NONE
