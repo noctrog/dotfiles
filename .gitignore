@@ -24,6 +24,8 @@
 !.config/nvim
 .config/nvim/*
 !.config/nvim/init.vim
+!.config/scripts
+!.config/sxiv
 
 .newsboat/*
 !.newsboat/config

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+while read file
+do
+    fullpath="$(pwd)/file"
+    case "$1" in
+    "w")
+	cp "$file" ~/.config/wall.png && 
+	sh "$HOME/.config/scripts/set-wallpaper.sh";;
+    esac
+done

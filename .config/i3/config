@@ -226,7 +226,7 @@ mode "move" {
 exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 
 # pywal
-exec_always wal --saturate 0.8 -c -i /home/ramon/Pictures/Wallpapers/wall.png 
+exec_always wal --saturate 0.8 -c -i ~/.config/wall.png 
 #exec_always wal --saturate 0.2 -c -a 80 -i /home/ramon/Pictures/Wallpapers/Apollo17.jpg -n
 # redshift
 exec --no-startup-id redshift-gtk
