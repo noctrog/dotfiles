@@ -285,7 +285,7 @@ assign [class="Rambox"] $ws10
 
 # Hide title for extremely common windows
 # for_window [title="LXTerminal|Firefox|Chromium|Chrome$"] border pixel 1
-for_window [title="Firefox|Chromium|Chrome$"] border pixel 0
+for_window [title="Firefox|Chromium|Chrome$"] border none
 for_window [title="urxvt"] border pixel 3
 for_window [class="Telegram"] floating enable
 

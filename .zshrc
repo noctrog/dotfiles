@@ -49,4 +49,4 @@ PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 
 export EDITOR=nvim
 
-neofetch --ascii_colors 1 1
+neofetch --ascii_colors 3 1
