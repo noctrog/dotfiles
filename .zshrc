@@ -48,5 +48,6 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 
 export EDITOR=nvim
+alias vim=nvim
 
 neofetch --ascii_colors 1 1
