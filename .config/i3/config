@@ -116,16 +116,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:Home "
-set $ws2 "2: Alfa"
-set $ws3 "3: Beta"
-set $ws4 "4: Epsilon"
-set $ws5 "5: Gamma"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8: Web "
-set $ws9 "9: Music "
-set $ws10 "10: Telegram "
+set $ws8 "8 "
+set $ws9 "9 "
+set $ws10 "10 "
 
 # disable gaps on some workspaces
 workspace $ws2 gaps outer 0
