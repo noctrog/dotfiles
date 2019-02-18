@@ -52,7 +52,7 @@ for_window [class="URxvt" instance="float_term"] floating enable; border pixel 0
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -b -i
+bindsym $mod+d exec dmenu_run -i -nb black -sb orange -sf black
 #bindsym $mod+d exec --no-startup-id rofi -show drun -columns 1 -font "Sytem San Francisco Display 14" -padding 10 -fake-transparency -fake-background "background" -opacity 50
 #bindsym $mod+d exec --no-startup-id rofi -show drun 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -196,9 +196,9 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-#        status_command i3status
-#}
+bar {
+	status_command i3status
+}
 
 ##
 # move floating windows with keys
@@ -225,7 +225,7 @@ mode "move" {
 
 #exec_always --no-startup-id killall polybar; polybar -r example
 
-exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 
 # pywal
 exec_always wal --saturate 0.8 -c -i ~/.config/wall.png 
