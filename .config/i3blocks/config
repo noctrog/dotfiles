@@ -39,6 +39,10 @@ interval=30
 command=$SCRIPT_DIR/load_average/load_average
 interval=10
 
+[time]
+command=date | awk '{print $4}'
+interval=5
+
 [GNU/Linux]
 command=echo "GNU/Linux "
 interval=once
