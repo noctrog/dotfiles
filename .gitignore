@@ -19,6 +19,7 @@
 
 .config/*
 !.config/i3
+!.config/i3blocks
 !.config/polybar
 !.config/compton.conf
 !.config/dunst
