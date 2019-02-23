@@ -15,6 +15,7 @@
 #Unignore some config subfolders
 !/.config/
 !/.newsboat/
+!/.i3blocks-contrib/
 
 .config/*
 !.config/i3
