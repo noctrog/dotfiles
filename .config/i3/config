@@ -197,7 +197,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	status_command i3status
+	#status_command i3status
+	status_command SCRIPT_DIR=~/.i3blocks-contrib i3blocks
+	separator_symbol "|"
 }
 
 ##
@@ -231,10 +233,10 @@ mode "move" {
 exec_always wal --saturate 0.8 -c -i ~/.config/wall.png 
 #exec_always wal --saturate 0.2 -c -a 80 -i /home/ramon/Pictures/Wallpapers/Apollo17.jpg -n
 # redshift
-exec --no-startup-id redshift-gtk
+#exec --no-startup-id redshift-gtk
 
 
-exec compton --config ~/.config/compton.conf
+#exec compton --config ~/.config/compton.conf
 
 # Caps Key now is Meta when hold and Escape when release
 exec --no-startup-id xmodmap ~/.Xmodmap&
