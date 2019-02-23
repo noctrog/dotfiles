@@ -40,5 +40,5 @@ command=$SCRIPT_DIR/load_average/load_average
 interval=10
 
 [GNU/Linux]
-command=echo "GNU/Linux"
+command=echo "GNU/Linux "
 interval=once
