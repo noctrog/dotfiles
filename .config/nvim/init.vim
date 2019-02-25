@@ -41,6 +41,13 @@ set fileencoding=utf-8
 set fileencodings=ucs-bom,utf8,prc
 set undofile
 set undodir=~/.vim/undodir
+set cursorline
+set mouse=a  " scroll with mouse
+set linebreak
+set scrolloff=3
+
+" swap
+set directory=$HOME/.vim/swap//
 
 augroup numbertoggle
     autocmd!
@@ -53,12 +60,22 @@ set smartcase
 set ignorecase
 set incsearch	
 
+" ident options
 set autoindent
+set tabstop=8
+set shiftwidth=8
 set cindent
-set shiftwidth=4
-set smartindent
+"set smartindent
+filetype plugin indent on " smart autoindentaton
+set nowrap
 set smarttab
 set softtabstop=2
+
+" search options
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
 
 " Disable beep and flash
 set noerrorbells visualbell t_vb=

@@ -16,6 +16,7 @@
 !/.config/
 !/.newsboat/
 !/.i3blocks-contrib/
+!/.oh-my-zsh/
 
 .config/*
 !.config/i3
