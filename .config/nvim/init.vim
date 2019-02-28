@@ -69,7 +69,7 @@ set cindent
 filetype plugin indent on " smart autoindentaton
 set nowrap
 set smarttab
-set softtabstop=2
+set softtabstop=8
 
 " search options
 set incsearch
