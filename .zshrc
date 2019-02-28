@@ -70,6 +70,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 alias vim=nvim
+alias vimdiff=nvim -d
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
