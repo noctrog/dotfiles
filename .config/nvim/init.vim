@@ -15,6 +15,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'vimwiki/vimwiki'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'junegunn/fzf.vim'
 
 " Vim GUI
 Plug 'joshdick/onedark.vim'
@@ -88,7 +89,7 @@ set backspace=indent,eol,start
 set fillchars+=stl:\ ,stlnc:\
 
 " Normal mode mappings
-nmap <leader>w :w!<cr>
+"nmap <leader>w :w!<cr>
 nmap <leader>t :terminal<cr>
 
 nmap <C-j> <C-W>j
