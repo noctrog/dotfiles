@@ -107,6 +107,10 @@ nmap <leader>to :tabmove
 nmap <leader>bn :bnext<CR>
 nmap <leader>bp :bprevious<CR>
 
+" Move visual selection
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " MAKE
 " Command Make will call make and then cwindow which
 " opens a 3 line error window if any errors are found.
