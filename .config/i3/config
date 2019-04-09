@@ -12,7 +12,7 @@ new_window pixel 1
 
 # disable gaps for workspaces 3-5
 # wallpaper
-#exec_always --no-startup-id feh --bg-scale /home/ramon/Pictures/Wallpapers/wall.png
+exec_always --no-startup-id feh --bg-scale ~/.config/wall.png 
 
 # lock i3
 bindsym $mod+Shift+x exec "$HOME/.bin/scripts/lock.sh $HOME/Pictures/Icons/Vergil.AdiumIcon/Alert.png"
@@ -46,7 +46,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Return exec urxvt -name float_term
 
 # rule for floating windows
-for_window [class="URxvt" instance="float_term"] floating enable; border pixel 0
+for_window [class="URxvt" instance="float_term"] floating enable;
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -67,8 +67,8 @@ bindsym $mod+comma workspace prev
 # change focus
 bindsym $mod+j focus down
 bindsym $mod+k focus up 
-bindsym $mod+l focus left
-bindsym $mod+semicolon focus right
+bindsym $mod+l focus right
+bindsym $mod+h focus left
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -88,11 +88,7 @@ bindsym $mod+Shift+Down move down 40 px
 bindsym $mod+Shift+Up move up 40 px
 bindsym $mod+Shift+Right move right 40 px
 
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+t split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -175,10 +171,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+	bindsym h resize shrink width 20px or 20ppt
+        bindsym j resize grow height 20 px or 20 ppt
+        bindsym k resize shrink height 20 px or 20 ppt
+        bindsym l resize grow width 20 px or 20 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -230,7 +226,7 @@ mode "move" {
 #exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 
 # pywal
-exec_always wal --saturate 0.8 -c -i ~/.config/wall.png 
+#exec_always wal --saturate 0.8 -c -i ~/.config/wall.png -s -t
 #exec_always wal --saturate 0.2 -c -a 80 -i /home/ramon/Pictures/Wallpapers/Apollo17.jpg -n
 # redshift
 #exec --no-startup-id redshift-gtk
