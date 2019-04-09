@@ -15,6 +15,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'vimwiki/vimwiki'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'junegunn/fzf.vim'
 
 " Vim GUI
 Plug 'joshdick/onedark.vim'
@@ -88,7 +89,7 @@ set backspace=indent,eol,start
 set fillchars+=stl:\ ,stlnc:\
 
 " Normal mode mappings
-nmap <leader>w :w!<cr>
+"nmap <leader>w :w!<cr>
 nmap <leader>t :terminal<cr>
 
 nmap <C-j> <C-W>j
@@ -105,6 +106,10 @@ nmap <leader>to :tabmove
 " buffer 
 nmap <leader>bn :bnext<CR>
 nmap <leader>bp :bprevious<CR>
+
+" Move visual selection
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " MAKE
 " Command Make will call make and then cwindow which
@@ -200,6 +205,8 @@ syntax on
 let g:polyglot_disabled = ['latex']
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 " YouCompleteMe
 let g:ycm_key_list_select_completion=[]

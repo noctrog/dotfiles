@@ -73,6 +73,8 @@ source $ZSH/oh-my-zsh.sh
 alias vim=nvim
 alias vimdiff=nvim -d
 
+alias scp=sftp
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
