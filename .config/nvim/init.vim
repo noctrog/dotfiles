@@ -88,6 +88,8 @@ set undolevels=1000
 set backspace=indent,eol,start
 set fillchars+=stl:\ ,stlnc:\
 
+let mapleader = "\<Space>"
+
 " Normal mode mappings
 "nmap <leader>w :w!<cr>
 nmap <leader>t :terminal<cr>
