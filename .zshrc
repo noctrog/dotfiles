@@ -75,6 +75,11 @@ alias vimdiff=nvim -d
 
 alias scp=sftp
 
+function chpwd() {
+	emulate -L zsh
+	ls
+}
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
