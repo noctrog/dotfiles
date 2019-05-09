@@ -29,6 +29,7 @@
 !.config/nvim/init.vim
 !.config/scripts
 !.config/sxiv
+!.config/zathura
 
 .newsboat/*
 !.newsboat/config
