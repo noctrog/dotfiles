@@ -11,6 +11,7 @@
 !.Xresources
 !.Xmodmap
 !.dunstrc
+!.xinitrc
 
 #Unignore some config subfolders
 !/.config/
