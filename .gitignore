@@ -12,6 +12,7 @@
 !.Xmodmap
 !.dunstrc
 !.xinitrc
+!.zprofile
 
 #Unignore some config subfolders
 !/.config/
