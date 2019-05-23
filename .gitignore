@@ -11,6 +11,7 @@
 !.Xresources
 !.Xmodmap
 !.dunstrc
+!.xinitrc
 
 #Unignore some config subfolders
 !/.config/
@@ -30,8 +31,6 @@
 !.config/scripts
 !.config/sxiv
 !.config/zathura
-!.config/dwm
-!.config/st
 
 .newsboat/*
 !.newsboat/config
