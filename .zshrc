@@ -63,6 +63,7 @@ ZSH_THEME="cloud"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(z
+	 pass
 	 git)
 
 source $ZSH/oh-my-zsh.sh
@@ -109,3 +110,7 @@ function chpwd() {
 export EDITOR=nvim
 
 #neofetch | lolcat -h 0.7 -v 0.7
+zstyle ':completion:*' matcher-list '' \
+  'm:{a-z\-}={A-Z\_}' \
+  'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
+  'r:|?=** m:{a-z\-}={A-Z\_}'
