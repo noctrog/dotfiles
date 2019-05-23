@@ -30,6 +30,8 @@
 !.config/scripts
 !.config/sxiv
 !.config/zathura
+!.config/dwm
+!.config/st
 
 .newsboat/*
 !.newsboat/config
