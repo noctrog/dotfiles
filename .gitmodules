@@ -4,9 +4,3 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
-[submodule ".config/dwm"]
-	path = .config/dwm
-	url = git://git.suckless.org/dwm
-[submodule ".config/st"]
-	path = .config/st
-	url = https://git.suckless.org/st
