@@ -40,7 +40,7 @@ command=$SCRIPT_DIR/load_average/load_average
 interval=10
 
 [time]
-command=date | awk '{print $4}'
+command=date | awk '{print $5}'
 interval=5
 
 [GNU/Linux]
