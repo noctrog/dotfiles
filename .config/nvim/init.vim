@@ -186,6 +186,7 @@ noremap <leader>ss :SaveSession<Space>
 noremap <leader>so :OpenSession!<Space>
 noremap <leader>sc :CloseSession
 noremap <leader>sd :DeleteSession!<Space>
+let g:session_autoload = 'no'
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
