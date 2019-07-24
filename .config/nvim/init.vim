@@ -19,7 +19,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'junegunn/fzf.vim'
 
 " Vim GUI
-"Plug 'joshdick/onedark.vim'
+Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'morhetz/gruvbox'
@@ -220,5 +220,6 @@ let g:ycm_key_list_previous_completion=[]
 "set termguicolors
 let g:gruvbox_italic=1
 colorscheme gruvbox
+set background=dark
 
 hi Normal ctermbg=NONE
