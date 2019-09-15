@@ -64,6 +64,7 @@ ZSH_THEME="cloud"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(z
 	 pass
+	 #vi-mode
 	 git)
 
 source $ZSH/oh-my-zsh.sh
@@ -74,7 +75,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim=nvim
 alias vimdiff=nvim -d
 
-alias scp=sftp
+#alias scp=sftp
 
 function chpwd() {
 	emulate -L zsh
@@ -108,6 +109,7 @@ function chpwd() {
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export EDITOR=nvim
+export ANDROID_HOME=~/.android/sdk
 
 #neofetch | lolcat -h 0.7 -v 0.7
 zstyle ':completion:*' matcher-list '' \

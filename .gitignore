@@ -17,13 +17,15 @@
 #Unignore some config subfolders
 !/.config/
 !/.newsboat/
-!/.i3blocks-contrib/
+#!/.i3blocks-contrib/
 !/.oh-my-zsh/
 
 .config/*
-!.config/i3
-!.config/i3blocks
-!.config/polybar
+!.config/ranger
+!.config/awesome
+#!.config/i3
+#!.config/i3blocks
+#!.config/polybar
 !.config/compton.conf
 !.config/dunst
 !.config/nvim
