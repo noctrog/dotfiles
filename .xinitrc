@@ -1,11 +1,14 @@
 #!/bin/sh
 
-wal --saturate 0.8 -a 80 -c -i ~/.config/wall.png -s -t
-feh --bg-scale ~/.config/wall.png
+export _JAVA_AWT_WM_NONREPARENTING=1
 
+feh --bg-fill ~/.config/wall.png
 setxkbmap -option caps:super -variant altgr-intl && killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
+#slock
 
 dunst &
-xcompmgr &
+compton&
+slstatus &
+redshift&
 
-exec dwm
+exec awesome

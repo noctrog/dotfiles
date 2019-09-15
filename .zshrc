@@ -64,6 +64,7 @@ ZSH_THEME="cloud"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(z
 	 pass
+	 #vi-mode
 	 git)
 
 source $ZSH/oh-my-zsh.sh
