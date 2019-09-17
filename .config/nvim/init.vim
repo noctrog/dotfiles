@@ -2,27 +2,22 @@ call plug#begin()
 " Vim functionality
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-"Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'justinmk/vim-sneak'
 Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
-"Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-"Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'vimwiki/vimwiki'
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf.vim'
 
 " Vim GUI
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
-"Plug 'maximbaz/lightline-ale'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
@@ -128,19 +123,23 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " Goyo mappings
 " Lightline
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
 let g:lightline = {
 	    \   'colorscheme': 'gruvbox',
 	    \   'active': {
 	    \     'left':[ [ 'mode', 'paste' ],
-	    \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+	    \              [ 'gitbranch', 'readonly', 'filename', 'modified', 'cocstatus' ]
 	    \     ]
 	    \   },
 	    \   'component': {
 	    \     'lineinfo': ' %3l:%-2v',
 	    \   },
-	    \   'component_function': {
-	    \     'gitbranch': 'fugitive#head',
-	    \   }
+	    \  'component_function': {
+	    \   'cocstatus': 'coc#status',
+	    \   'currentfunction': 'CocCurrentFunction'
+	    \ },
 	    \ }
 let g:lightline.separator = {
 	    \   'left': '', 'right': ''
