@@ -11,24 +11,25 @@ Plug 'sheerun/vim-polyglot'
 "Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'vimwiki/vimwiki'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf.vim'
 
 " Vim GUI
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'maximbaz/lightline-ale'
+"Plug 'maximbaz/lightline-ale'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
 "let g:ale_completion_enabled = 1
-let g:ale_enabled = 0
-let g:ale_c_parse_compile_commands = 0
-let g:ale_c_parse_makefile = 1
+"let g:ale_enabled = 0
+"let g:ale_c_parse_compile_commands = 0
+"let g:ale_c_parse_makefile = 1
 
 "" General
 set number	
@@ -151,12 +152,12 @@ let g:lightline.tabline = {
 	    \   'left': [ ['tabs'] ],
 	    \   'right': [ ['close'] ]
 	    \ }
-let g:lightline.component_expand = {
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \  'linter_ok': 'lightline#ale#ok',
-      \ }
+"let g:lightline.component_expand = {
+      "\  'linter_checking': 'lightline#ale#checking',
+      "\  'linter_warnings': 'lightline#ale#warnings',
+      "\  'linter_errors': 'lightline#ale#errors',
+      "\  'linter_ok': 'lightline#ale#ok',
+      "\ }
 let g:lightline.component_type = {
       \     'linter_checking': 'left',
       \     'linter_warnings': 'warning',
@@ -213,8 +214,8 @@ set conceallevel=1
 let g:tex_conceal='abdmg'
 
 " YouCompleteMe
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
+"let g:ycm_key_list_select_completion=[]
+"let g:ycm_key_list_previous_completion=[]
 
 "gruvbox
 "set termguicolors
@@ -223,3 +224,30 @@ colorscheme gruvbox
 set background=dark
 
 hi Normal ctermbg=NONE
+
+"" coc.vim stuff
+set hidden
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+nmap <leader>rn <Plug>(coc-rename)
