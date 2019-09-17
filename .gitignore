@@ -31,6 +31,7 @@
 !.config/nvim
 .config/nvim/*
 !.config/nvim/init.vim
+!.config/nvim/coc-settings.json
 !.config/scripts
 !.config/sxiv
 !.config/zathura
