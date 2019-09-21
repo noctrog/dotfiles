@@ -108,10 +108,10 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
-local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
-local volume_widget = require("awesome-wm-widgets.volumearc-widget.volumearc")
-local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
-local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
+--local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
+--local volume_widget = require("awesome-wm-widgets.volumearc-widget.volumearc")
+--local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+--local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -216,9 +216,9 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             --mykeyboardlayout,
             wibox.widget.systray(),
-	    ram_widget,
-	    cpu_widget,
-	    volume_widget,
+	    --ram_widget,
+	    --cpu_widget,
+	    --volume_widget,
 	    --brightness_widget,
             mytextclock,
             s.mylayoutbox,
@@ -284,6 +284,19 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey, "Shift"     }, "s", function () awful.spawn("passmenu") end,
+              {description = "open passmenu", group = "launcher"}),
+    awful.key({ modkey, "Shift"     }, "k", function () awful.spawn("st -e calcurse") end,
+              {description = "open calendar", group = "launcher"}),
+    awful.key({ modkey, "Shift"     }, "m", function () awful.spawn("st -e cmus") end,
+              {description = "open music player", group = "launcher"}),
+    awful.key({ modkey, "Shift"     }, "i", function () awful.spawn("surf ddg.gg") end,
+              {description = "open surf", group = "launcher"}),
+    awful.key({ modkey, "Shift"     }, "v", function () awful.spawn("st -e nvim") end,
+              {description = "open surf", group = "launcher"}),
+    awful.key({ modkey, "Shift"     }, "f", function () awful.spawn("st -e ranger") end,
+              {description = "open surf", group = "launcher"}),
+
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
