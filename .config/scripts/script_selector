@@ -1,0 +1,4 @@
+#!/bin/bash
+
+script=$(find ~/.config/scripts -name "*.sh" | dmenu -l 15 -i -p "Choose a script to run:")
+$script
