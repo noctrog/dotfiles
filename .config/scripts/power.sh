@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OPTION=$(echo -e "Power Off\nReboot\nSuspend" | dmenu -i -p "POWER" -nb black -sb orange -sf black)
+OPTION=$(echo -e "Power Off\nReboot\nSuspend" | dmenu -i -p "POWER")
 
 case $OPTION in
     "Power Off" )
