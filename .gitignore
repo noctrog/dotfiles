@@ -23,6 +23,8 @@
 .config/*
 !.config/ranger
 !.config/awesome
+!.config/bspwm
+!.config/sxhkd
 #!.config/i3
 #!.config/i3blocks
 #!.config/polybar
