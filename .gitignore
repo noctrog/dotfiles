@@ -25,6 +25,7 @@
 !.config/awesome
 !.config/bspwm
 !.config/sxhkd
+!.config/lemonbar
 #!.config/i3
 #!.config/i3blocks
 #!.config/polybar
