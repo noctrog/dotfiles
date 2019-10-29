@@ -14,6 +14,12 @@ super + p
 super + Escape
 	pkill -USR1 -x sxhkd
 
+super + d
+	~/.config/scripts/script_selector
+
+super + s
+	passmenu
+
 #
 # bspwm hotkeys
 #
