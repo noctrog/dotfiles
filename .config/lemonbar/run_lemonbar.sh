@@ -9,5 +9,5 @@ export text_size=14
 	-g ${screen_width}x${bar_height}+0+0 \
 	-f "Roboto Medium:pixelsize=${text_size}" \
 	-f "Font Awesome:pixelsize=${text_size}" \
-	-f "Powerline" \
+	-f "PowerlineSymbols" \
 	| sh > /dev/null

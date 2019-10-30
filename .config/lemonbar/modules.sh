@@ -9,6 +9,7 @@
 System() {
 	NAME=$(uname)
 	echo -n -e "%{F$1}%{B$2} $NAME %{F-}%{B-}"
+	echo -n -e "%{F$2}%{B$1}  %{F-}%{B-}"
 }
 
 # Define the clock
@@ -20,5 +21,5 @@ Clock() {
 # Battery percentage
 Battery() {
 	BAT_CHARGE=$(acpi -b | cut -d, -f2)
-	echo -n -e "%{F$1}%{B$2} \uf5df $BAT_CHARGE %{F-}%{B-}"
+	echo -n -e "%{F$1}%{B$2} \uf244 $BAT_CHARGE %{F-}%{B-}"
 }
