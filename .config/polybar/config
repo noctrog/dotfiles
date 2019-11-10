@@ -18,7 +18,7 @@ alert = ${xrdb:color3:#222}
 [bar/Bar]
 modules-left = battery filesystem memory temperature cpu
 modules-center = bspwm 
-modules-right = net-wifi net-eth pulseaudio backlight date 
+modules-right = net-eth pulseaudio date 
 tray-position = right 
 
 font-0 = Terminus(TTF):size=9;4
@@ -45,7 +45,7 @@ module-margin = 1
 
 #separator = |
 
-background = #80000000
+background = #85000000
 #background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -167,8 +167,7 @@ label-disconnected =  
 
 [module/net-eth]
 type = internal/network
-#interface = enp0s25
-interface = eno0
+interface = enp7s0
 interval = 3
 
 label-connected =   %local_ip%  %downspeed% %upspeed%

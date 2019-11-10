@@ -17,6 +17,7 @@ super + Escape
 super + d
 	~/.config/scripts/script_selector
 
+# Password manager
 super + s
 	passmenu
 

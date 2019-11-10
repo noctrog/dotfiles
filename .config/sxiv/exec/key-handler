@@ -5,7 +5,7 @@ do
     fullpath="$(pwd)/file"
     case "$1" in
     "w")
-	cp "$file" ~/.config/wall.png && 
+	cp "$file" ~/.config/.wall.png && 
 	sh "$HOME/.config/scripts/set-wallpaper.sh";;
     "r")
 	convert -rotate 90 "$file" "$file";;
