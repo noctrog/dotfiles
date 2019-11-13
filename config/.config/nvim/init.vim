@@ -211,6 +211,7 @@ let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
 set conceallevel=1
 let g:tex_conceal='abdmg'
+autocmd Filetype tex,latex inoremap <C-s> <Esc>:silent exec ".!scrot -s -e 'latexscrot $f && mv $f ./media/'" <CR><CR>:w<CR>
 
 " YouCompleteMe
 "let g:ycm_key_list_select_completion=[]
