@@ -3794,6 +3794,9 @@ fi
 
 zrclocal
 
+alias vim=nvim
+alias vimdiff=nvim -d
+
 ## antigen
 source /usr/share/zsh/share/antigen.zsh
 antigen use oh-my-zsh
