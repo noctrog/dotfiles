@@ -10,5 +10,7 @@ setxkbmap -option caps:super -variant altgr-intl && killall xcape 2>/dev/null ; 
 dunst&
 redshift&
 
+xsetroot -cursor_name left_ptr
+
 #exec awesome
 exec bspwm
