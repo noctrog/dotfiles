@@ -20,3 +20,6 @@ bspc rule -a telegram desktop='^7'
 bspc rule -a rambox desktop='^7'
 bspc rule -a discord desktop='^7'
 bspc rule -a Screenkey manage=off
+
+bspc rule -a scratchpad sticky=on state=floating hidden=on
+st -c scratchpad -e ~/.config/scripts/scratch &

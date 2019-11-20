@@ -6,6 +6,11 @@
 super + Return
 	st
 
+# scratchpad
+super + shift + Return
+	id=$(cat /tmp/scratchid);\
+	bspc node $id --flag hidden;bspc node -f $id	
+
 # program launcher
 super + p
 	dmenu_run
