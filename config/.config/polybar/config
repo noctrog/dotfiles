@@ -158,8 +158,8 @@ ramp-coreload-7 = %{F#f00}█%{F-}
 
 [module/net-wifi]
 type = internal/network
-#interface = wlp2s0
-interface = wlan0
+interface = wlp8s0
+#interface = wlan0
 interval = 3
 
 label-connected =  %essid% %local_ip%  %downspeed% %upspeed%
