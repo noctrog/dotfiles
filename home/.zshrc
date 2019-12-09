@@ -3804,6 +3804,8 @@ antigen bundle z
 
 antigen apply
 
+export EDITOR=nvim
+
 ## genrefcard.pl settings
 
 ### doc strings for external functions from files
