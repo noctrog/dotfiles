@@ -8,6 +8,8 @@ slock
 
 feh --bg-fill ~/.config/.wall.png
 dunst&
-redshift&
+feh --bg-fill ~/.config/.wall.png
+
+xsetroot -cursor_name left_ptr
 
 exec bspwm

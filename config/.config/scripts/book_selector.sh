@@ -4,7 +4,8 @@ target=$(find ~/Documents/Libros -name "*.pdf" -o -name "*.epub" -o -name "*.djv
 function basename(file) {
 	sub(".*Libros/", "", file)
 	return file
-} {print basename( $0 )} ' - | dmenu -l 15 -i -p "Elige un libro:")
+} {print basename( $0 )} ' - | rofi -dmenu -i -p "Elige un libro")
+#} {print basename( $0 )} ' - | dmenu -l 15 -i -p "Elige un libro:")
 
 if test -z "$target"
 then

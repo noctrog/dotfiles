@@ -6,9 +6,16 @@
 super + Return
 	st
 
+# scratchpad
+super + shift + Return
+	id=$(cat /tmp/scratchid);\
+	bspc node $id --flag hidden;bspc node -f $id	
+
 # program launcher
 super + p
 	dmenu_run
+super + shift + p
+	rofi -show drun
 
 # make sxhkd reload its configuration files:
 super + Escape
