@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OPTION=$(echo -e "Power Off\nReboot\nSuspend" | dmenu -i -p "POWER")
+OPTION=$(echo -e "Power Off\nReboot\nSuspend\nHibernate" | dmenu -i -p "POWER")
 
 case $OPTION in
     "Power Off" )
@@ -9,4 +9,6 @@ case $OPTION in
 	systemctl suspend;;
     "Reboot" )
 	systemctl reboot;;
+    "Hibernate" )
+	systemctl hibernate;;
 esac
