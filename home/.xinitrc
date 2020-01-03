@@ -12,4 +12,5 @@ feh --bg-fill ~/.config/.wall.png
 
 xsetroot -cursor_name left_ptr
 
+emacs --daemon &
 exec bspwm

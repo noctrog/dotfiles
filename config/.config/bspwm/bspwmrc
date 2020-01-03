@@ -18,6 +18,7 @@ bspc rule -a firefox desktop='^10' follow=on
 bspc rule -a telegram desktop='^7'
 bspc rule -a rambox desktop='^7'
 bspc rule -a discord desktop='^7'
+bspc rule -a signal desktop='^6'
 bspc rule -a Screenkey manage=off
 
 bspc rule -a Emacs state=tiled
