@@ -3797,6 +3797,8 @@ zrclocal
 alias vim=nvim
 alias vimdiff=nvim -d
 
+alias ec="exec emacsclient -nc"
+
 ## antigen
 source /usr/share/zsh/share/antigen.zsh
 antigen use oh-my-zsh
