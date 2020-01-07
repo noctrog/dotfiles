@@ -91,10 +91,11 @@ let mapleader = "\<Space>"
 "nmap <leader>w :w!<cr>
 nmap <leader>t :terminal<cr>
 
-nmap <C-j> <C-W>j
-nmap <C-h> <C-W>h
-nmap <C-k> <C-W>k
-nmap <C-l> <C-W>l
+" Mover cursor a otras ventanas ventanas
+nmap <leader>wj <C-W>j
+nmap <leader>wh <C-W>h
+nmap <leader>wk <C-W>k
+nmap <leader>wl <C-W>l
 
 " tabs
 nmap <leader>tn :tabnew<cr>
