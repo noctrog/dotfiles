@@ -66,4 +66,12 @@
 (setq lsp-prefer-flymake 'false)
 
 ;; Aniade la clase para exportar Latex usada para los apuntes
-(eval-after-load 'ox-latex (add-to-list 'org-latex-classes '("apuntes_clase" "\\documentclass[11pt]{book}" ("\\chapter{%s}" . "\\chapter*{%s}") ("\\section{%s}" . "\\section*{%s}") ("\\subsection{%s}" . "\\subsection*{%s}") ("\\subsubsection{%s}" . "\\subsubsection*{%s}") ("\\paragraph{%s}" . "\\paragraph*{%s}"))))
+(unless (boundp 'org-latex-classes)
+  (setq org-latex-classes nil))
+
+(add-to-list 'org-latex-classes '("apuntes_clase" "\\documentclass[11pt]{book}"
+                                  ("\\chapter{%s}" . "\\chapter*{%s}")
+                                  ("\\section{%s}" . "\\section*{%s}")
+                                  ("\\subsection{%s}" . "\\subsection*{%s}")
+                                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                                  ("\\paragraph{%s}" . "\\paragraph*{%s}")))
