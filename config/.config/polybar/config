@@ -18,7 +18,7 @@ alert = ${xrdb:color3:#222}
 [bar/Bar]
 modules-left = battery filesystem memory temperature cpu
 modules-center = bspwm 
-modules-right = net-eth net-wifi pulseaudio date 
+modules-right = net-eth pulseaudio date 
 tray-position = right 
 
 font-0 = Terminus(TTF):size=9;4
@@ -141,6 +141,8 @@ format-warn = <label-warn>
 label =  %temperature-c%
 label-warn = %{F#f00}%{F-} %temperature-c%
 
+hwmon-path=/sys/class/hwmon/hwmon0/temp1_input
+
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -166,7 +168,7 @@ label-disconnected =  
 
 [module/net-eth]
 type = internal/network
-interface = enp0s25
+interface = enp8s0
 interval = 3
 
 label-connected =   %local_ip%  %downspeed% %upspeed%
