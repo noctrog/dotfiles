@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: al
+# key: al
+# uuid: al
+# --
+\begin{align*}
+$0
+\end{align*}

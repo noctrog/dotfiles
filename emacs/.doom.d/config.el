@@ -55,6 +55,10 @@
 
 ;; (add-hook 'python-mode-hook 'my/python-mode-hook)
 
+;; scroll margin
+(setq scroll-margin 4)
+(setq maximum-scroll-margin 4.25)
+
 ;; configura lsp
 (require 'lsp-ui)
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)
