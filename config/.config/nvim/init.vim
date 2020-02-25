@@ -3,6 +3,7 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'justinmk/vim-sneak'
 Plug 'lervag/vimtex'
@@ -11,9 +12,10 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
-Plug 'vimwiki/vimwiki'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'jceb/vim-orgmode'
 
 " Vim GUI
 Plug 'joshdick/onedark.vim'
@@ -43,6 +45,8 @@ set cursorline
 set mouse=a  " scroll with mouse
 set linebreak
 set scrolloff=3
+"set wildoptions=pum
+"set pumblend=20
 
 " swap
 set directory=$HOME/.vim/swap//
@@ -62,6 +66,7 @@ set incsearch
 set autoindent
 set tabstop=8
 set shiftwidth=8
+set expandtab
 set cindent
 "set smartindent
 filetype plugin indent on " smart autoindentaton
@@ -91,25 +96,33 @@ let mapleader = "\<Space>"
 "nmap <leader>w :w!<cr>
 nmap <leader>t :terminal<cr>
 
-" Mover cursor a otras ventanas ventanas
+" Ventanas
 nmap <leader>wj <C-W>j
 nmap <leader>wh <C-W>h
 nmap <leader>wk <C-W>k
 nmap <leader>wl <C-W>l
+nmap <leader>wq <C-W>q
+nmap <leader>ws <C-w>s
+nmap <leader>wn <C-w>n
+nmap <leader>wv <C-w>v
 
 " tabs
-nmap <leader>tn :tabnew<cr>
-nmap <leader>tc :tabclose<cr>
-nmap <leader>to :tabonly<cr>
+nmap <leader>tn :tabnew<CR>
+nmap <leader>tc :tabclose<CR>
+nmap <leader>to :tabonly<CR>
 nmap <leader>to :tabmove
 
 " buffer 
 nmap <leader>bn :bnext<CR>
 nmap <leader>bp :bprevious<CR>
+nmap <leader>bd :bdelete<CR>
 
 " Move visual selection
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+" Utilidades
+nnoremap <leader>. :Files<CR>
 
 " MAKE
 " Command Make will call make and then cwindow which
@@ -252,3 +265,15 @@ endfunction
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
+"nmap <silent> <TAB> <Plug>(coc-range-select)
+"xmap <silent> <TAB> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
