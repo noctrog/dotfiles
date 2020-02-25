@@ -21,12 +21,8 @@ Plug 'jceb/vim-orgmode'
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
+Plug 'fenetikm/falcon'
 call plug#end()
-
-"let g:ale_completion_enabled = 1
-"let g:ale_enabled = 0
-"let g:ale_c_parse_compile_commands = 0
-"let g:ale_c_parse_makefile = 1
 
 "" General
 set number	
@@ -96,7 +92,7 @@ let mapleader = "\<Space>"
 "nmap <leader>w :w!<cr>
 nmap <leader>t :terminal<cr>
 
-" Ventanas
+" Windows
 nmap <leader>wj <C-W>j
 nmap <leader>wh <C-W>h
 nmap <leader>wk <C-W>k
@@ -121,21 +117,19 @@ nmap <leader>bd :bdelete<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" Utilidades
+" FZF
 nnoremap <leader>. :Files<CR>
+nnoremap <leader>ht :Colors<CR>
+nnoremap <leader>fr :History<CR>
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>fL :Lines<CR>
+nnoremap <leader>fl :BLines<CR>
+nnoremap <leader>fT :Tags<CR>
+nnoremap <leader>ft :BTags<CR>
+nnoremap <leader>fw :Windows<CR>
+nnoremap <leader>fs :Snippets<CR>
+nnoremap <leader>fc :Commits<CR>
 
-" MAKE
-" Command Make will call make and then cwindow which
-" opens a 3 line error window if any errors are found.
-" If no errors, it closes any open cwindow.
-:command -nargs=* Make make <args> | cwindow 3
-:map <Leader>m :Make<CR>
-
-" Omnicomplete
-"filetype plugin on
-"set omnifunc=syntaxcomplete#Complete
-
-" Goyo mappings
 " Lightline
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
@@ -165,12 +159,6 @@ let g:lightline.tabline = {
 	    \   'left': [ ['tabs'] ],
 	    \   'right': [ ['close'] ]
 	    \ }
-"let g:lightline.component_expand = {
-      "\  'linter_checking': 'lightline#ale#checking',
-      "\  'linter_warnings': 'lightline#ale#warnings',
-      "\  'linter_errors': 'lightline#ale#errors',
-      "\  'linter_ok': 'lightline#ale#ok',
-      "\ }
 let g:lightline.component_type = {
       \     'linter_checking': 'left',
       \     'linter_warnings': 'warning',
@@ -180,13 +168,6 @@ let g:lightline.component_type = {
 let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
-
-" Omnicomplete
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-
-" Goyo mappings
-"map <leader>z :Goyo<cr>
 
 " NERDTree 
 "autocmd VimEnter * NERDTree
@@ -214,10 +195,6 @@ let g:vimwiki_global_ext = 0
 let g:vimwiki_table_mappings = 0
 
 syntax on
-"colorscheme onedark
-
-" Transparent background 
-"hi Normal ctermbg=NONEmap <leader>z :Goyo<cr>
 
 " Vimtex
 let g:polyglot_disabled = ['latex']
@@ -227,12 +204,6 @@ set conceallevel=1
 let g:tex_conceal='abdmg'
 autocmd Filetype tex,latex inoremap <C-s> <Esc>:silent exec ".!scrot -s -e 'latexscrot $f && mv $f ./media/'" <CR><CR>:w<CR>
 
-" YouCompleteMe
-"let g:ycm_key_list_select_completion=[]
-"let g:ycm_key_list_previous_completion=[]
-
-"gruvbox
-"set termguicolors
 let g:gruvbox_italic=1
 colorscheme gruvbox
 set background=dark
