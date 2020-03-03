@@ -1,4 +1,5 @@
 call plug#begin()
+
 " Vim functionality
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
@@ -7,7 +8,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'justinmk/vim-sneak'
 Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -175,6 +175,7 @@ set guioptions-=e  " Don't use GUI tabline
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
 
 " Vimtex
 let g:polyglot_disabled = ['latex']
