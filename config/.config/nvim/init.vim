@@ -7,6 +7,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'justinmk/vim-sneak'
 Plug 'lervag/vimtex'
+Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': './install --bin' }
@@ -175,7 +176,8 @@ set guioptions-=e  " Don't use GUI tabline
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
+"let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
+let g:UltiSnipsSnippetDirectories=['UltiSnips']
 
 " Vimtex
 let g:polyglot_disabled = ['latex']
