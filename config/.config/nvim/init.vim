@@ -1,27 +1,22 @@
 call plug#begin()
 " Vim functionality
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'justinmk/vim-sneak'
 Plug 'lervag/vimtex'
-Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'jceb/vim-orgmode'
+Plug 'dhruvasagar/vim-table-mode'
 
 " Vim GUI
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
-Plug 'fenetikm/falcon'
 call plug#end()
 
 "" General
@@ -60,15 +55,15 @@ set incsearch
 
 " ident options
 set autoindent
-set tabstop=8
-set shiftwidth=8
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set cindent
 "set smartindent
 filetype plugin indent on " smart autoindentaton
 set nowrap
 set smarttab
-set softtabstop=8
+set softtabstop=4
 
 " search options
 set incsearch
@@ -85,6 +80,13 @@ set ruler
 set undolevels=1000
 set backspace=indent,eol,start
 set fillchars+=stl:\ ,stlnc:\
+
+"" netwr
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 25
+let g:netrw_altv = 1
 
 let mapleader = "\<Space>"
 
@@ -169,32 +171,10 @@ let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'lint
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
 
-" NERDTree 
-"autocmd VimEnter * NERDTree
-noremap <leader>nn :NERDTreeToggle<cr>
-noremap <leader>nb :NERDTreeFromBookmark
-noremap <leader>nf :NERDTreeFind<cr>
-noremap <leader>nc :NERDTreeCWD<cr>
-
-" Vim-session
-noremap <leader>ss :SaveSession<Space>
-noremap <leader>so :OpenSession!<Space>
-noremap <leader>sc :CloseSession
-noremap <leader>sd :DeleteSession!<Space>
-let g:session_autoload = 'no'
-
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" Vimwiki
-set nocompatible
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_global_ext = 0
-let g:vimwiki_table_mappings = 0
-
-syntax on
 
 " Vimtex
 let g:polyglot_disabled = ['latex']
