@@ -82,7 +82,12 @@ set undolevels=1000
 set backspace=indent,eol,start
 set fillchars+=stl:\ ,stlnc:\
 
-"" netwr
+" spell
+setlocal spell
+set spelllang=es,en_gb
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+" netwr
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
