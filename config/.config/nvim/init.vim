@@ -192,9 +192,11 @@ let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_latexmk = {
             \ 'build_dir' : 'build',
             \}
+" Disable all warnings
+let g:vimtex_quickfix_latexlog = {'default' : 0}
 set conceallevel=1
 let g:tex_conceal='abdmg'
-autocmd Filetype tex,latex inoremap <C-s> <Esc>:silent exec ".!scrot -s -e 'latexscrot $f && mv $f ./media/'" <CR><CR>:w<CR>
+autocmd Filetype tex,latex inoremap <C-s> <Esc>:silent exec ".!scrot -s -e 'latexscrot $f && mv $f '.b:vimtex.root.'./figures/'" <CR><CR>:w<CR>
 autocmd Filetype tex,latex inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 autocmd Filetype tex,latex nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
