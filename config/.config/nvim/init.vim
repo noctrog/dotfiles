@@ -14,6 +14,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'mbbill/undotree'
 
 " Vim GUI
 Plug 'joshdick/onedark.vim'
