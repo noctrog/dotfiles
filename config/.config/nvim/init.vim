@@ -5,6 +5,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-abolish'
 Plug 'jiangmiao/auto-pairs'
 Plug 'justinmk/vim-sneak'
 Plug 'lervag/vimtex'
@@ -15,6 +16,7 @@ Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'mbbill/undotree'
+Plug 'ekiim/vim-mathpix'
 
 " Vim GUI
 Plug 'joshdick/onedark.vim'
@@ -197,7 +199,7 @@ let g:vimtex_compiler_latexmk = {
 let g:vimtex_quickfix_latexlog = {'default' : 0}
 set conceallevel=1
 let g:tex_conceal='abdmg'
-autocmd Filetype tex,latex inoremap <C-s> <Esc>:silent exec ".!scrot -s -e 'latexscrot $f && mv $f '.b:vimtex.root.'./figures/'" <CR><CR>:w<CR>
+autocmd Filetype tex,latex inoremap <C-s> <Esc>:silent exec ".!scrot -s -e 'latexscrot $f && mv $f ./figures/'" <CR><CR>:w<CR>
 autocmd Filetype tex,latex inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 autocmd Filetype tex,latex nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
