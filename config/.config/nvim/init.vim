@@ -17,11 +17,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'mbbill/undotree'
 Plug 'ekiim/vim-mathpix'
+Plug 'sheerun/vim-polyglot'
 
 " Vim GUI
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 "" General
@@ -43,7 +45,7 @@ set linebreak
 set scrolloff=3
 "set wildoptions=pum
 "set pumblend=20
-
+set termguicolors
 " swap
 set directory=$HOME/.vim/swap//
 
@@ -119,6 +121,8 @@ nmap <leader>tn :tabnew<CR>
 nmap <leader>tc :tabclose<CR>
 nmap <leader>to :tabonly<CR>
 nmap <leader>to :tabmove
+nmap <leader>tl :tabnext<CR>
+nmap <leader>th :tabprevious<CR>
 
 " buffer 
 nmap <leader>bn :bnext<CR>
@@ -147,7 +151,7 @@ function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
 let g:lightline = {
-	    \   'colorscheme': 'gruvbox',
+	    \   'colorscheme': 'nord',
 	    \   'active': {
 	    \     'left':[ [ 'mode', 'paste' ],
 	    \              [ 'gitbranch', 'readonly', 'filename', 'modified', 'cocstatus' ]
@@ -177,7 +181,7 @@ let g:lightline.component_type = {
       \     'linter_errors': 'error',
       \     'linter_ok': 'left',
       \ }
-let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
 
@@ -204,7 +208,8 @@ autocmd Filetype tex,latex inoremap <C-f> <Esc>: silent exec '.!inkscape-figures
 autocmd Filetype tex,latex nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
 let g:gruvbox_italic=1
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme nord
 set background=dark
 
 hi Normal ctermbg=NONE
@@ -247,3 +252,4 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1

@@ -4,12 +4,7 @@
 
 # terminal emulator
 super + Return
-	st
-
-# scratchpad
-super + shift + Return
-	id=$(cat /tmp/scratchid);\
-	bspc node $id --flag hidden;bspc node -f $id	
+	st -e tmux
 
 # program launcher
 super + p
@@ -32,6 +27,18 @@ super + shift + e
 # Password manager
 super + s
 	passmenu
+
+# Music Player
+super + alt + m
+    st -e cmus
+
+# Calendar
+super + alt + c
+    st -e calcurse
+
+# Best text editor ever
+super + alt + v
+    st -e nvim
 
 #
 # bspwm hotkeys
@@ -62,7 +69,7 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,f}
+super + {t,shift + t,shift+s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
@@ -78,7 +85,7 @@ super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
-super + {p,b,comma,period}
+super + {ctrl+p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop

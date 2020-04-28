@@ -18,7 +18,7 @@ alert = ${xrdb:color3:#222}
 [bar/Bar]
 modules-left = battery filesystem memory temperature cpu
 modules-center = bspwm 
-modules-right = net-eth pulseaudio date 
+modules-right = corona-stats net-eth pulseaudio date 
 tray-position = right 
 
 font-0 = Terminus(TTF):size=9;4
@@ -45,7 +45,7 @@ module-margin = 1
 
 #separator = |
 
-background = #45000000
+background = #a0000000
 #background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -219,3 +219,8 @@ type = custom/script
 exec = .config/polybar/scripts/info-pingrtt.sh
 interval = 5
 
+# Corona virus real time stats
+[module/corona-stats]
+type = custom/script
+exec = corona
+interval = 3600
