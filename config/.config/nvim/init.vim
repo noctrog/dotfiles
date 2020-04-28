@@ -14,7 +14,6 @@ Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'dhruvasagar/vim-table-mode'
 Plug 'mbbill/undotree'
 Plug 'ekiim/vim-mathpix'
 Plug 'sheerun/vim-polyglot'
@@ -172,9 +171,9 @@ let g:lightline.subseparator = {
 	    \   'left': '', 'right': '' 
 	    \}
 let g:lightline.tabline = {
-	    \   'left': [ ['tabs'] ],
-	    \   'right': [ ['close'] ]
-	    \ }
+        \   'left': [ ['tabs'] ],
+        \   'right': [ ['close'] ]
+        \ }
 let g:lightline.component_type = {
       \     'linter_checking': 'left',
       \     'linter_warnings': 'warning',
@@ -182,7 +181,7 @@ let g:lightline.component_type = {
       \     'linter_ok': 'left',
       \ }
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-set showtabline=2  " Show tabline
+"set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
 
 " Ultisnips

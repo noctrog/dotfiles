@@ -20,10 +20,6 @@ super + Escape
 super + d
 	~/.config/scripts/script_selector
 
-# Text editor
-super + shift + e
-	emacsclient -nc
-
 # Password manager
 super + s
 	passmenu
