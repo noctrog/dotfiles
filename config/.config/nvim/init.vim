@@ -19,10 +19,8 @@ Plug 'ekiim/vim-mathpix'
 Plug 'sheerun/vim-polyglot'
 
 " Vim GUI
-Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 "" General
@@ -114,6 +112,8 @@ nmap <leader>wq <C-W>q
 nmap <leader>ws <C-w>s
 nmap <leader>wn <C-w>n
 nmap <leader>wv <C-w>v
+nmap <leader>wx <C-w>x
+nmap <leader>wr <C-w>r
 
 " tabs
 nmap <leader>tn :tabnew<CR>
@@ -150,7 +150,7 @@ function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
 let g:lightline = {
-	    \   'colorscheme': 'nord',
+	    \   'colorscheme': 'gruvbox',
 	    \   'active': {
 	    \     'left':[ [ 'mode', 'paste' ],
 	    \              [ 'gitbranch', 'readonly', 'filename', 'modified', 'cocstatus' ]
@@ -208,7 +208,7 @@ autocmd Filetype tex,latex nnoremap <C-f> : silent exec '!inkscape-figures edit 
 
 let g:gruvbox_italic=1
 "colorscheme gruvbox
-colorscheme nord
+colorscheme gruvbox
 set background=dark
 
 hi Normal ctermbg=NONE

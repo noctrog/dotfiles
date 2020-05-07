@@ -1,8 +1,7 @@
 #! /bin/sh
 
-#sxhkd &
-#compton &
 #~/.config/lemonbar/run_lemonbar.sh &
+picom &
 ~/.config/polybar/launch.sh
 
 bspc monitor -d I II III IV V VI VII VIII IX X
@@ -15,15 +14,13 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc rule -a firefox desktop='^10' follow=on
-bspc rule -a telegram desktop='^7'
+bspc rule -a brave desktop='^10' follow=on
+bspc rule -a telegram desktop='^7' follow=on
 bspc rule -a Rambox desktop='^7'
 bspc rule -a Discord desktop='^7'
 bspc rule -a Signal desktop='^7'
 bspc rule -a Screenkey manage=off
-bspc rule -a steam desktop='^6'
+bspc rule -a Steam desktop='^6'
 
 bspc rule -a Emacs state=tiled
 bspc rule -a Zathura state=tiled
-
-#bspc rule -a scratchpad sticky=on state=floating hidden=on
-#st -c scratchpad -e ~/.config/scripts/scratch &

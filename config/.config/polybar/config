@@ -18,7 +18,7 @@ alert = ${xrdb:color3:#222}
 [bar/Bar]
 modules-left = battery filesystem memory temperature cpu
 modules-center = bspwm 
-modules-right = corona-stats net-eth pulseaudio date 
+modules-right = net-eth pulseaudio date 
 tray-position = right 
 
 font-0 = Terminus(TTF):size=9;4

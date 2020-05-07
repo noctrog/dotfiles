@@ -34,12 +34,14 @@ always_run_script = true
 title = Dunst
 class = Dunst
 
-
 [urgency_low]
 timeout = 4
 
 [urgency_normal]
-timeout = 8
+timeout = 4
+
+[urgency_high]
+timeout = 4
 
 [urgency_critical]
-timeout = 0
+timeout = 10
