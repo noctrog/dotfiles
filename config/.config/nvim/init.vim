@@ -132,6 +132,9 @@ nmap <leader>bd :bdelete<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+"Placeholder
+inoremap <c-j> <Esc>/<++><CR><Esc>cf>
+
 " FZF
 nnoremap <leader>. :Files<CR>
 nnoremap <leader>ht :Colors<CR>
