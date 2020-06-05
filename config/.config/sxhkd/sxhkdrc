@@ -26,7 +26,11 @@ super + s
 
 # Music Player
 super + alt + m
-    st -e cmus
+    st -e ncmpcpp
+
+# Audio mixer
+super + alt + v
+    st -n floating -e pulsemixer
 
 # Calendar
 super + alt + c

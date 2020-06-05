@@ -38,7 +38,6 @@ set undofile
 set undodir=~/.vim/undodir
 set cursorline
 set mouse=a  " scroll with mouse
-set linebreak
 set scrolloff=3
 "set wildoptions=pum
 "set pumblend=20
@@ -65,7 +64,7 @@ set expandtab
 set cindent
 "set smartindent
 filetype plugin indent on " smart autoindentaton
-set nowrap
+"set nowrap
 set smarttab
 set softtabstop=4
 

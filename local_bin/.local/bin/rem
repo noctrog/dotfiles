@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# This script is called on startup to remap keys
+
+# Increase key speed
+xset r rate 300 50
+# US keyboard with Latin variant, Caps Lock remap to Super
+setxkbmap us -variant intl-unicode -option caps:super 
+# Caps Lock remap to Escape when released quickly
+killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
+
