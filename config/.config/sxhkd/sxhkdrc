@@ -8,7 +8,7 @@ super + shift + Return
 
 # program launcher
 super + p
-	dmenu_run
+    dmenu_run
 super + shift + p
 	rofi -show drun
 
@@ -35,10 +35,6 @@ super + alt + v
 # Calendar
 super + alt + c
     st -e calcurse
-
-# Best text editor ever
-super + alt + v
-    st -e nvim
 
 #
 # bspwm hotkeys
