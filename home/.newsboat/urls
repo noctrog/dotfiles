@@ -1,10 +1,21 @@
 " "
 " --- Blogs --- "
+https://lukesmith.xyz/rss.xml
+https://www.thirtythreeforty.net/posts/index.xml
+https://wapl.es/feed.xml
 https://joshldavis.com/atom.xml
 https://karpathy.github.io/feed.xml
+https://hugotunius.se/feed.xml
+https://neil.computer/rss/
+https://jvns.ca/atom.xml
 " "
 " --- Electrónica --- "
 https://mcuoneclipse.com/feed/
+" "
+" --- Tecnología ---"
+https://pytorch.org/feed
+https://github.com/neovim/neovim/tags.atom
+https://suckless.org/atom.xml
 " "
 " --- YouTube ---"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew
@@ -12,4 +23,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCSHZKyawb77ixDdsGog4iWA
 https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA
 https://www.youtube.com/feeds/videos.xml?channel_id=UCMZxtiWIdrXUUbWMAe6D-Iw
-
+" "
+" --- Twitter ---"
+https://nitter.net/Lna099/rss
+https://nitter.net/hardmaru/rss
