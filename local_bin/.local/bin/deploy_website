@@ -8,5 +8,9 @@ list=$(grep -m 1 -A 10 "<h2>.*</h2>" $HOME/Documents/noctrogxyz/blogindex.html |
 sed -i "s/<!-- BLOG -->.*/<!-- BLOG -->$list/g" $HOME/Documents/noctrogxyz/index.html
 
 # Deploy to server
-rsync -avrP --delete-after --rsh='ssh' $HOME/Documents/noctrogxyz --exclude \
-    $HOME/Documents/noctrogxyz/lb root@noctrog.xyz:/var/www/
+# -a: archive mode
+# -v: verbose
+# -r: recursive
+# -z: compress
+# -P: show progress
+rsync -avrzP --rsh='ssh' $HOME/Documents/noctrogxyz root@noctrog.xyz:/var/www/
