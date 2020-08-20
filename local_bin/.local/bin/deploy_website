@@ -1,11 +1,18 @@
 #!/bin/sh
 
+dir=$HOME/Documents/noctrogxyz
+
 # TODO - Update CV
 
+# Update all headers
+htmlfiles=$(find $dir -iname "*.html" | grep -v "$dir/header.html")
+webheader=$(cat "$dir/header.html" | sed 's/\//\\\//g' | tr -d '\n')
+sed -i "s/<!-- HEADER -->.*/<!-- HEADER -->$webheader/g" $htmlfiles
+
 # Update last 5 blog entries in index.html
-list=$(grep -m 1 -A 10 "<h2>.*</h2>" $HOME/Documents/noctrogxyz/blogindex.html | grep "<li>" | \
+list=$(grep -m 1 -A 10 "<h2>.*</h2>" $dir/blogindex.html | grep "<li>" | \
        sed 5q | tr -d '\n' | sed -e 's/[\/&]/\\&/g')
-sed -i "s/<!-- BLOG -->.*/<!-- BLOG -->$list/g" $HOME/Documents/noctrogxyz/index.html
+sed -i "s/<!-- BLOG -->.*/<!-- BLOG -->$list/g" $dir/index.html
 
 # Deploy to server
 # -a: archive mode
@@ -13,4 +20,5 @@ sed -i "s/<!-- BLOG -->.*/<!-- BLOG -->$list/g" $HOME/Documents/noctrogxyz/index
 # -r: recursive
 # -z: compress
 # -P: show progress
-rsync -avrzP --rsh='ssh' $HOME/Documents/noctrogxyz root@noctrog.xyz:/var/www/
+rsync -avrzP --delete-after --rsh='ssh' $dir root@noctrog.xyz:/var/www/
+
