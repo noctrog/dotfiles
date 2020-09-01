@@ -17,6 +17,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
 Plug 'ekiim/vim-mathpix'
 Plug 'sheerun/vim-polyglot'
+Plug 'vimwiki/vimwiki'
 
 " Vim GUI
 Plug 'itchyny/lightline.vim'
@@ -185,6 +186,11 @@ let g:lightline.component_type = {
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
+
+"vimwiki
+set nocompatible
+filetype plugin on
+syntax on
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
