@@ -1,7 +1,7 @@
 call plug#begin()
 
 " Vim functionality
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
@@ -252,5 +252,8 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
