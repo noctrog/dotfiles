@@ -1,21 +1,3 @@
-;; hide GUI
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
-
-;; disable bell
-(setq ring-bell-function 'ignore)
-
-;; Line numbering
-(global-display-line-numbers-mode)
-(setq display-line-numbers-type 'relative)
-
-;; font size
-(set-face-attribute 'default nil :height 140)
-
-;; Line highlighting
-(hl-line-mode 1)
-
 ;; Straight package manager
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -44,7 +26,26 @@
 (straight-use-package 'telephone-line)
 (straight-use-package 'doom-themes)
 
+;; hide GUI
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+
+;; disable bell
+(setq ring-bell-function 'ignore)
+
+;; Line numbering
+(global-display-line-numbers-mode)
+(setq display-line-numbers-type 'relative)
+
+;; font size
+(set-face-attribute 'default nil :height 140)
+
+;; Line highlighting
+(global-hl-line-mode 1)
+
 ;; evil mode
+(setq evil-want-C-u-scroll t)
 (require 'evil)
 (require 'evil-magit)
 (evil-mode 1)
