@@ -11,7 +11,7 @@
 (setq display-line-numbers-type 'relative)
 
 ;; font size
-(set-face-attribute 'default nil :height 120)
+(set-face-attribute 'default nil :height 140)
 
 ;; Line highlighting
 (hl-line-mode 1)
@@ -46,6 +46,7 @@
 
 ;; evil mode
 (require 'evil)
+(require 'evil-magit)
 (evil-mode 1)
 (evil-snipe-mode 1)
 
@@ -60,6 +61,10 @@
 (global-set-key (kbd "C-s") 'helm-occur)  ;; Replaces the default isearch keybinding
 (global-set-key (kbd "C-h a") 'helm-apropos)  ;; Helmized apropos interface
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)  ;; Show kill ring, pick something to pastelm-mode 1)
+
+;; projectile
+(projectile-mode 1)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; which key
 (require 'which-key)
