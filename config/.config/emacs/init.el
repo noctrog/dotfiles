@@ -13,23 +13,40 @@
   (load bootstrap-file nil 'nomessage))
 
 ;; packages
+(setq straight-vc-git-default-clone-depth 1)
+; evil-mode
 (straight-use-package 'evil)
 (straight-use-package 'evil-snipe)
 (straight-use-package 'evil-magit)
+(straight-use-package 'evil-leader)
+(straight-use-package 'evil-surround)
+(straight-use-package 'evil-nerd-commenter)
+; functionality
 (straight-use-package 'helm)
 (straight-use-package 'magit)
 (straight-use-package 'projectile)
+; gui
 (straight-use-package 'dashboard)
 (straight-use-package 'which-key)
 (straight-use-package 'all-the-icons)
 (straight-use-package 'page-break-lines)
 (straight-use-package 'telephone-line)
 (straight-use-package 'doom-themes)
+; programming
+;; (straight-use-package 'flycheck)
+(straight-use-package 'lsp-mode)
+(straight-use-package 'company)
+(straight-use-package 'yasnippet)
+(straight-use-package 'yasnippet-snippets)
 
 ;; hide GUI
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+
+;; scroll off
+(setq scroll-margin 7)
+(setq scroll-conservatively 999) ;; do not center when scrolling
 
 ;; disable bell
 (setq ring-bell-function 'ignore)
@@ -39,17 +56,56 @@
 (setq display-line-numbers-type 'relative)
 
 ;; font size
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :family "IBM Plex Mono" :height 120)
 
 ;; Line highlighting
 (global-hl-line-mode 1)
+
+;; Show matching parenthesis
+(show-paren-mode 1)
 
 ;; evil mode
 (setq evil-want-C-u-scroll t)
 (require 'evil)
 (require 'evil-magit)
+(require 'evil-nerd-commenter)
+(require 'evil-surround)
+(global-evil-leader-mode)
+(global-evil-surround-mode 1)
+; (global-evil-surround 1)
 (evil-mode 1)
 (evil-snipe-mode 1)
+
+(evil-leader/set-leader "<SPC>")
+(evil-leader/set-key
+  "ci" 'evilnc-comment-or-uncomment-lines
+  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
+  "cc" 'evilnc-copy-and-comment-lines
+  "cp" 'evilnc-comment-or-uncomment-paragraphs
+  "cr" 'comment-or-uncomment-region
+  "cv" 'evilnc-toggle-invert-comment-line-by-line
+  "\\" 'evilnc-comment-operator ; if you prefer backslash key
+)
+
+;; Company
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
+
+;; Yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;; LSP
+(setq gc-cons-threshold 100000000) ; needed because communication generates a lot of garbage
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+(setq lsp-keymap-prefix "C-c l")
+(require 'lsp-mode)
+(add-hook 'c-mode-hook #'lsp)
+(add-hook 'c++-mode-hook #'lsp)
+(add-hook 'python-mode-hook #'lsp)
 
 ;; helm mode
 (global-set-key (kbd "M-x") 'helm-M-x)
