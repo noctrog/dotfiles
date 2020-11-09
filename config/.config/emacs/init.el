@@ -38,6 +38,9 @@
 (straight-use-package 'company)
 (straight-use-package 'yasnippet)
 (straight-use-package 'yasnippet-snippets)
+;; documents
+(straight-use-package 'pdf-tools)
+(straight-use-package 'auctex)
 
 ;; hide GUI
 (menu-bar-mode -1)
@@ -159,6 +162,9 @@
 
 ;; doom themes
 (load-theme 'doom-one t)
+
+;; pdf tools
+(pdf-tools-install)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
