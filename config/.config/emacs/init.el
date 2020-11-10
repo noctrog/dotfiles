@@ -13,7 +13,10 @@
   (load bootstrap-file nil 'nomessage))
 
 ;; packages
-(setq straight-vc-git-default-clone-depth 1)
+; shallow clones not working properly right now
+; (setq straight-vc-git-default-clone-depth 1)
+; org mode
+(straight-use-package 'org-bullets)
 ; evil-mode
 (straight-use-package 'evil)
 (straight-use-package 'evil-snipe)
@@ -66,6 +69,10 @@
 
 ;; Show matching parenthesis
 (show-paren-mode 1)
+
+;; org mode
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; evil mode
 (setq evil-want-C-u-scroll t)
@@ -138,6 +145,7 @@
 (setq dashboard-set-heading-icons t)
 (setq dashboard-set-file-icons t)
 (setq dashboard-set-init-info t)
+(setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
 
 ;; modeline
 ;; for telephone-line configuration needs to be before (telephhone-line-mode 1)
