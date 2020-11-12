@@ -111,11 +111,14 @@
 )
 
 ;; Company
+(require 'company)
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
+(add-hook 'after-init-hook 'global-company-mode)
+(define-key global-map (kbd "C-.") 'company-files)
 
 ;; Yasnippet
 (require 'yasnippet)
@@ -189,19 +192,3 @@
 ;; pdf tools
 (pdf-tools-install)
 (evil-set-initial-state 'pdf-view-mode 'normal)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("bf387180109d222aee6bb089db48ed38403a1e330c9ec69fe1f52460a8936b66" "71e5acf6053215f553036482f3340a5445aee364fb2e292c70d9175fb0cc8af7" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "6b80b5b0762a814c62ce858e9d72745a05dd5fc66f821a1c5023b4f2a76bc910" "4a8d4375d90a7051115db94ed40e9abb2c0766e80e228ecad60e06b3b397acab" "cae81b048b8bccb7308cdcb4a91e085b3c959401e74a0f125e7c5b173b916bf9" "8e959d5a6771b4d1e2177263e1c1e62c62c0f848b265e9db46f18754ea1c1998" "2f1518e906a8b60fac943d02ad415f1d8b3933a5a7f75e307e6e9a26ef5bf570" default))
- '(inhibit-startup-screen t)
- '(org-agenda-files nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
