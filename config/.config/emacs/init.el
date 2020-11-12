@@ -24,8 +24,10 @@
 (straight-use-package 'evil-leader)
 (straight-use-package 'evil-surround)
 (straight-use-package 'evil-nerd-commenter)
+(straight-use-package 'evil-org)
 ; functionality
 (straight-use-package 'helm)
+(straight-use-package 'helm-projectile)
 (straight-use-package 'magit)
 (straight-use-package 'projectile)
 ; gui
@@ -71,18 +73,27 @@
 (show-paren-mode 1)
 
 ;; org mode
+(setq org-directory "~/.org") ; main org directory
+(setq org-agenda-files
+      '("~/.org/tasks.org" "~/.org/birthdays.org"
+	"~/.org/reminders.org" "~/.org/university.org"))  ; org agenda tasks files
+
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; evil mode
-(setq evil-want-C-u-scroll t)
+(setq evil-want-C-u-scroll t)   ; use C-u to scroll up in normal mode
 (require 'evil)
 (require 'evil-magit)
 (require 'evil-nerd-commenter)
+(require 'evil-org)
+(add-hook 'org-mode-hook 'evil-org-mode)
+(evil-org-set-key-theme '(navigation insert textobjects additional calendar))
+(require 'evil-org-agenda)
+(evil-org-agenda-set-keys)
 (require 'evil-surround)
 (global-evil-leader-mode)
 (global-evil-surround-mode 1)
-; (global-evil-surround 1)
 (evil-mode 1)
 (evil-snipe-mode 1)
 
@@ -128,6 +139,8 @@
 (global-set-key (kbd "C-s") 'helm-occur)  ;; Replaces the default isearch keybinding
 (global-set-key (kbd "C-h a") 'helm-apropos)  ;; Helmized apropos interface
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)  ;; Show kill ring, pick something to pastelm-mode 1)
+(require 'helm-projectile)
+(helm-projectile-on)
 
 ;; projectile
 (projectile-mode 1)
@@ -182,7 +195,8 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("bf387180109d222aee6bb089db48ed38403a1e330c9ec69fe1f52460a8936b66" "71e5acf6053215f553036482f3340a5445aee364fb2e292c70d9175fb0cc8af7" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "6b80b5b0762a814c62ce858e9d72745a05dd5fc66f821a1c5023b4f2a76bc910" "4a8d4375d90a7051115db94ed40e9abb2c0766e80e228ecad60e06b3b397acab" "cae81b048b8bccb7308cdcb4a91e085b3c959401e74a0f125e7c5b173b916bf9" "8e959d5a6771b4d1e2177263e1c1e62c62c0f848b265e9db46f18754ea1c1998" "2f1518e906a8b60fac943d02ad415f1d8b3933a5a7f75e307e6e9a26ef5bf570" default))
- '(inhibit-startup-screen t))
+ '(inhibit-startup-screen t)
+ '(org-agenda-files nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
