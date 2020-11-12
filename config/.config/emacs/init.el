@@ -70,6 +70,8 @@
 ;; Show matching parenthesis
 (show-paren-mode 1)
 
+;; backup files to another folder
+(setq backup-directory-alist `(("." . "~/.saves")))
 ;; org mode
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
@@ -169,7 +171,7 @@
 (telephone-line-mode 1)
 
 ;; doom themes
-(load-theme 'doom-one t)
+(load-theme 'doom-gruvbox t)
 
 ;; pdf tools
 (pdf-tools-install)
