@@ -43,6 +43,8 @@
 (straight-use-package 'company)
 (straight-use-package 'yasnippet)
 (straight-use-package 'yasnippet-snippets)
+(straight-use-package 'cmake-mode)
+(require 'cmake-mode)
 ;; documents
 (straight-use-package 'pdf-tools)
 (straight-use-package 'auctex)
