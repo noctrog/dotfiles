@@ -30,6 +30,7 @@
 (straight-use-package 'helm-projectile)
 (straight-use-package 'magit)
 (straight-use-package 'projectile)
+(straight-use-package 'avy)
 ; gui
 (straight-use-package 'dashboard)
 (straight-use-package 'which-key)
@@ -166,6 +167,11 @@
 (setq dashboard-set-file-icons t)
 (setq dashboard-set-init-info t)
 (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+
+;; avy
+(avy-setup-default)
+(global-set-key (kbd "C-c C-j") 'avy-resume)
+(global-set-key (kbd "C-;")  'avy-goto-char-2)  ;; I use this most frequently
 
 ;; modeline
 ;; for telephone-line configuration needs to be before (telephhone-line-mode 1)
