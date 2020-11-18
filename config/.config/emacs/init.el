@@ -20,6 +20,7 @@
 ; evil-mode
 (straight-use-package 'evil)
 (straight-use-package 'evil-snipe)
+(straight-use-package 'evil-numbers)
 (straight-use-package 'evil-magit)
 (straight-use-package 'evil-leader)
 (straight-use-package 'evil-surround)
@@ -89,6 +90,9 @@
 ;; evil mode
 (setq evil-want-C-u-scroll t)   ; use C-u to scroll up in normal mode
 (require 'evil)
+(require 'evil-numbers)
+(define-key evil-normal-state-map (kbd "+") 'evil-numbers/inc-at-pt)
+(define-key evil-normal-state-map (kbd "-") 'evil-numbers/dec-at-pt)
 (require 'evil-magit)
 (require 'evil-nerd-commenter)
 (require 'evil-org)
@@ -200,3 +204,7 @@
 ;; pdf tools
 (pdf-tools-install)
 (evil-set-initial-state 'pdf-view-mode 'normal)
+
+;; auctex
+(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+      TeX-source-correlate-start-server t)
