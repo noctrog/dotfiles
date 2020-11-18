@@ -198,3 +198,7 @@
 ;; pdf tools
 (pdf-tools-install)
 (evil-set-initial-state 'pdf-view-mode 'normal)
+
+;; auctex
+(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+      TeX-source-correlate-start-server t)
