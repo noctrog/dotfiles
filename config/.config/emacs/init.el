@@ -32,6 +32,7 @@
 (straight-use-package 'magit)
 (straight-use-package 'projectile)
 (straight-use-package 'general)
+(straight-use-package 'avy)
 ; gui
 (straight-use-package 'dashboard)
 (straight-use-package 'which-key)
@@ -161,6 +162,11 @@
 (setq dashboard-set-init-info t)
 (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
 
+;; avy
+(avy-setup-default)
+(global-set-key (kbd "C-c C-j") 'avy-resume)
+(global-set-key (kbd "C-;")  'avy-goto-char-2)  ;; I use this most frequently
+
 ;; modeline
 ;; for telephone-line configuration needs to be before (telephhone-line-mode 1)
 (require 'telephone-line)
@@ -188,6 +194,10 @@
 ;; pdf tools
 (pdf-tools-install)
 (evil-set-initial-state 'pdf-view-mode 'normal)
+
+;; auctex
+(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+      TeX-source-correlate-start-server t)
 
 ;; keybinds
 (general-define-key
