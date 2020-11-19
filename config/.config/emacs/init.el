@@ -218,6 +218,7 @@
   "wl" '(evil-window-right :which-key "window right")
   "ws" '(evil-window-split :which-key "window split")
   "wv" '(evil-window-vsplit :which-key "window vsplit")
+  "wd" '(evil-window-delete :which-key "window delete")
   ;; tabs
   "tn" '(tab-new :which-key "tab new")
   "th" '(tab-previous :which-key "tab previous")
