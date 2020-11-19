@@ -203,11 +203,13 @@
 
 ;; pdf tools
 (pdf-tools-install)
-(evil-set-initial-state 'pdf-view-mode 'normal)
+;; (evil-set-initial-state 'pdf-view-mode 'normal)
 
 ;; auctex
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
       TeX-source-correlate-start-server t)
+; revert the PDF-buffer after the TeX compilation has finished
+(add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
 
 ;; keybinds
 (general-define-key
