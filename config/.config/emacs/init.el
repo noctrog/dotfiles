@@ -31,6 +31,7 @@
 (straight-use-package 'helm-projectile)
 (straight-use-package 'magit)
 (straight-use-package 'projectile)
+(straight-use-package 'general)
 ; gui
 (straight-use-package 'dashboard)
 (straight-use-package 'which-key)
@@ -104,17 +105,6 @@
 (global-evil-surround-mode 1)
 (evil-mode 1)
 (evil-snipe-mode 1)
-
-(evil-leader/set-leader "<SPC>")
-(evil-leader/set-key
-  "ci" 'evilnc-comment-or-uncomment-lines
-  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
-  "cc" 'evilnc-copy-and-comment-lines
-  "cp" 'evilnc-comment-or-uncomment-paragraphs
-  "cr" 'comment-or-uncomment-region
-  "cv" 'evilnc-toggle-invert-comment-line-by-line
-  "\\" 'evilnc-comment-operator ; if you prefer backslash key
-)
 
 ;; Company
 (require 'company)
@@ -198,3 +188,46 @@
 ;; pdf tools
 (pdf-tools-install)
 (evil-set-initial-state 'pdf-view-mode 'normal)
+
+;; keybinds
+(general-define-key
+ :states '(normal visual insert emacs)
+ :prefix "SPC"
+ :non-normal-prefix "M-SPC"
+  "'" '(term :which-key "iterm")
+  ;; magit
+  "m" '(magit :which-key "magit")
+  ;; buffers
+  "bn" '(evil-next-buffer :which-key "next buffer")
+  "bp" '(evil-previous-buffer :which-key "previous buffer")
+  "bd" '(evil-delete-buffer :which-key "delete buffer")
+  ;; windows
+  "wj" '(evil-window-down :which-key "window down")
+  "wk" '(evil-window-up :which-key "window up")
+  "wh" '(evil-window-left :which-key "window left")
+  "wl" '(evil-window-right :which-key "window right")
+  "ws" '(evil-window-split :which-key "window split")
+  "wv" '(evil-window-vsplit :which-key "window vsplit")
+  ;; tabs
+  "tn" '(tab-new :which-key "tab new")
+  "th" '(tab-previous :which-key "tab previous")
+  "tl" '(tab-next :which-key "tab next")
+  "tc" '(tab-close :which-key "tab close")
+  ;; evil-commenter
+  "ci" '(evilnc-comment-or-uncomment-lines :which-key "(un)comment line")
+  "cl" '(evilnc-quick-comment-or-uncomment-to-the-line :which-key "(un)comment to the line")
+  "cc" '(evilnc-copy-and-comment-lines :which-key "copy & comment")
+  "cp" '(evilnc-comment-or-uncomment-paragraphs :which-key "(un)comment parahraphs")
+  "cr" '(comment-or-uncomment-region :which-key "(un)comment region")
+  "cv" '(evilnc-toggle-invert-comment-line-by-line :which-key "invert comment by line")
+  "\\" '(evilnc-comment-operator :which-key "comment operator")
+  ;; term
+  "tt" '(term :which-key "shell")
+  ;; ...
+)
+;; (general-nvmap
+;;  "'" (general-simulate-keys "C-c")
+;;  "M-'" 'evil-goto-mark
+;;  "b" 'helm-buffers-list
+;;  ;; ...
+;;  )
