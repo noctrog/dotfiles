@@ -165,8 +165,6 @@
 
 ;; avy
 (avy-setup-default)
-(global-set-key (kbd "C-c C-j") 'avy-resume)
-(global-set-key (kbd "C-;")  'avy-goto-char-2)  ;; I use this most frequently
 
 ;; modeline
 ;; for telephone-line configuration needs to be before (telephhone-line-mode 1)
@@ -244,6 +242,8 @@
   "cr" '(comment-or-uncomment-region :which-key "(un)comment region")
   "cv" '(evilnc-toggle-invert-comment-line-by-line :which-key "invert comment by line")
   "\\" '(evilnc-comment-operator :which-key "comment operator")
+  ;; avy
+  ";"  '(avy-goto-char-timer :which-key "avy char timer")
   ;; term
   "tt" '(term :which-key "shell")
   ;; ...
