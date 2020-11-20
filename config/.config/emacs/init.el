@@ -221,6 +221,7 @@
   "bn" '(evil-next-buffer :which-key "next buffer")
   "bp" '(evil-previous-buffer :which-key "previous buffer")
   "bd" '(evil-delete-buffer :which-key "delete buffer")
+  "bb" '(helm-buffers-list :which-key "change buffer")
   ;; windows
   "wj" '(evil-window-down :which-key "window down")
   "wk" '(evil-window-up :which-key "window up")
