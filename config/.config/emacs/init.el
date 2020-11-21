@@ -58,6 +58,13 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 
+;; hide scroll bar in new frames
+(defun my/disable-scroll-bars (frame)
+  (modify-frame-parameters frame
+                           '((vertical-scroll-bars . nil)
+                             (horizontal-scroll-bars . nil))))
+(add-hook 'after-make-frame-functions 'my/disable-scroll-bars)
+
 ;; scroll off
 (setq scroll-margin 7)
 (setq scroll-conservatively 999) ;; do not center when scrolling
