@@ -87,14 +87,6 @@
 
 ;; backup files to another folder
 (setq backup-directory-alist `(("." . "~/.saves")))
-;; org mode
-(setq org-directory "~/.org") ; main org directory
-(setq org-agenda-files
-      '("~/.org/tasks.org" "~/.org/birthdays.org"
-	"~/.org/reminders.org" "~/.org/university.org"))  ; org agenda tasks files
-
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; evil mode
 (setq evil-want-C-u-scroll t)   ; use C-u to scroll up in normal mode
@@ -205,6 +197,15 @@
 (dimmer-configure-which-key)
 (dimmer-configure-org)
 (dimmer-mode t)
+
+;; org mode
+(setq org-directory "~/.org") ; main org directory
+(setq org-agenda-files
+      '("~/.org/tasks.org" "~/.org/birthdays.org"
+	"~/.org/reminders.org" "~/.org/university.org"))  ; org agenda tasks files
+
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; pdf tools
 (pdf-tools-install)
