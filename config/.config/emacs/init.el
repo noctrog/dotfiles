@@ -40,10 +40,11 @@
 (straight-use-package 'page-break-lines)
 (straight-use-package 'telephone-line)
 (straight-use-package 'doom-themes)
-(straight-use-package 'dimmer)
+;; (straight-use-package 'dimmer)
 ; programming
 ;; (straight-use-package 'flycheck)
 (straight-use-package 'lsp-mode)
+(straight-use-package 'lsp-ui)
 (straight-use-package 'company)
 (straight-use-package 'yasnippet)
 (straight-use-package 'yasnippet-snippets)
@@ -109,6 +110,47 @@
 (global-evil-surround-mode 1)
 (evil-mode 1)
 (evil-snipe-mode 1)
+
+;; keybinds
+(general-define-key
+ :states '(normal visual insert emacs)
+ :prefix "SPC"
+ :non-normal-prefix "M-SPC"
+  "'" '(term :which-key "iterm")
+  ;; magit
+  "m" '(magit :which-key "magit")
+  ;; buffers
+  "bn" '(evil-next-buffer :which-key "next buffer")
+  "bp" '(evil-previous-buffer :which-key "previous buffer")
+  "bd" '(evil-delete-buffer :which-key "delete buffer")
+  "bb" '(helm-buffers-list :which-key "change buffer")
+  ;; windows
+  "wj" '(evil-window-down :which-key "window down")
+  "wk" '(evil-window-up :which-key "window up")
+  "wh" '(evil-window-left :which-key "window left")
+  "wl" '(evil-window-right :which-key "window right")
+  "ws" '(evil-window-split :which-key "window split")
+  "wv" '(evil-window-vsplit :which-key "window vsplit")
+  "wd" '(evil-window-delete :which-key "window delete")
+  ;; tabs
+  "tn" '(tab-new :which-key "tab new")
+  "th" '(tab-previous :which-key "tab previous")
+  "tl" '(tab-next :which-key "tab next")
+  "tc" '(tab-close :which-key "tab close")
+  ;; evil-commenter
+  "ci" '(evilnc-comment-or-uncomment-lines :which-key "(un)comment line")
+  "cl" '(evilnc-quick-comment-or-uncomment-to-the-line :which-key "(un)comment to the line")
+  "cc" '(evilnc-copy-and-comment-lines :which-key "copy & comment")
+  "cp" '(evilnc-comment-or-uncomment-paragraphs :which-key "(un)comment parahraphs")
+  "cr" '(comment-or-uncomment-region :which-key "(un)comment region")
+  "cv" '(evilnc-toggle-invert-comment-line-by-line :which-key "invert comment by line")
+  "\\" '(evilnc-comment-operator :which-key "comment operator")
+  ;; avy
+  ";"  '(avy-goto-char-timer :which-key "avy char timer")
+  ;; term
+  "tt" '(term :which-key "shell")
+  ;; ...
+)
 
 ;; Company
 (require 'company)
@@ -229,50 +271,3 @@
       TeX-source-correlate-start-server t)
 ; revert the PDF-buffer after the TeX compilation has finished
 (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
-
-;; keybinds
-(general-define-key
- :states '(normal visual insert emacs)
- :prefix "SPC"
- :non-normal-prefix "M-SPC"
-  "'" '(term :which-key "iterm")
-  ;; magit
-  "m" '(magit :which-key "magit")
-  ;; buffers
-  "bn" '(evil-next-buffer :which-key "next buffer")
-  "bp" '(evil-previous-buffer :which-key "previous buffer")
-  "bd" '(evil-delete-buffer :which-key "delete buffer")
-  "bb" '(helm-buffers-list :which-key "change buffer")
-  ;; windows
-  "wj" '(evil-window-down :which-key "window down")
-  "wk" '(evil-window-up :which-key "window up")
-  "wh" '(evil-window-left :which-key "window left")
-  "wl" '(evil-window-right :which-key "window right")
-  "ws" '(evil-window-split :which-key "window split")
-  "wv" '(evil-window-vsplit :which-key "window vsplit")
-  "wd" '(evil-window-delete :which-key "window delete")
-  ;; tabs
-  "tn" '(tab-new :which-key "tab new")
-  "th" '(tab-previous :which-key "tab previous")
-  "tl" '(tab-next :which-key "tab next")
-  "tc" '(tab-close :which-key "tab close")
-  ;; evil-commenter
-  "ci" '(evilnc-comment-or-uncomment-lines :which-key "(un)comment line")
-  "cl" '(evilnc-quick-comment-or-uncomment-to-the-line :which-key "(un)comment to the line")
-  "cc" '(evilnc-copy-and-comment-lines :which-key "copy & comment")
-  "cp" '(evilnc-comment-or-uncomment-paragraphs :which-key "(un)comment parahraphs")
-  "cr" '(comment-or-uncomment-region :which-key "(un)comment region")
-  "cv" '(evilnc-toggle-invert-comment-line-by-line :which-key "invert comment by line")
-  "\\" '(evilnc-comment-operator :which-key "comment operator")
-  ;; avy
-  ";"  '(avy-goto-char-timer :which-key "avy char timer")
-  ;; term
-  "tt" '(term :which-key "shell")
-  ;; ...
-)
-;; (general-nvmap
-;;  "'" (general-simulate-keys "C-c")
-;;  "M-'" 'evil-goto-mark
-;;  "b" 'helm-buffers-list
-;;  ;; ...
-;;  )
