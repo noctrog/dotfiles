@@ -212,6 +212,10 @@
 (setq org-agenda-files
       '("~/.org/tasks.org" "~/.org/birthdays.org"
 	"~/.org/reminders.org" "~/.org/university.org"))  ; org agenda tasks files
+;; org agenda 14 days ahead
+(setq org-agenda-span 17
+      org-agenda-start-on-weekday nil
+      org-agenda-start-day "-3d")
 
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
