@@ -49,6 +49,9 @@
 (straight-use-package 'yasnippet-snippets)
 (straight-use-package 'cmake-mode)
 (require 'cmake-mode)
+;; languages
+(straight-use-package 'rust-mode)
+(require 'rust-mode)
 ;; documents
 (straight-use-package 'pdf-tools)
 (straight-use-package 'auctex)
@@ -129,6 +132,7 @@
 (add-hook 'c-mode-hook #'lsp)
 (add-hook 'c++-mode-hook #'lsp)
 (add-hook 'python-mode-hook #'lsp)
+(add-hook 'rust-mode-hook #'lsp)
 
 ;; helm mode
 (global-set-key (kbd "M-x") 'helm-M-x)
