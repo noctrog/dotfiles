@@ -40,7 +40,6 @@
 (straight-use-package 'page-break-lines)
 (straight-use-package 'telephone-line)
 (straight-use-package 'doom-themes)
-;; (straight-use-package 'dimmer)
 ; programming
 ;; (straight-use-package 'flycheck)
 (straight-use-package 'lsp-mode)
@@ -252,15 +251,6 @@
 
 ;; doom themes
 (load-theme 'doom-gruvbox t)
-
-;; dimmer
-(require 'dimmer)
-(dimmer-configure-which-key)
-(dimmer-configure-helm)
-(dimmer-configure-magit)
-(dimmer-configure-which-key)
-(dimmer-configure-org)
-(dimmer-mode t)
 
 ;; org mode
 (setq org-directory "~/.org") ; main org directory
