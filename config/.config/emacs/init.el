@@ -40,15 +40,19 @@
 (straight-use-package 'page-break-lines)
 (straight-use-package 'telephone-line)
 (straight-use-package 'doom-themes)
-(straight-use-package 'dimmer)
+;; (straight-use-package 'dimmer)
 ; programming
 ;; (straight-use-package 'flycheck)
 (straight-use-package 'lsp-mode)
+(straight-use-package 'lsp-ui)
 (straight-use-package 'company)
 (straight-use-package 'yasnippet)
 (straight-use-package 'yasnippet-snippets)
 (straight-use-package 'cmake-mode)
 (require 'cmake-mode)
+;; languages
+(straight-use-package 'rust-mode)
+(require 'rust-mode)
 ;; documents
 (straight-use-package 'pdf-tools)
 (straight-use-package 'auctex)
@@ -119,107 +123,6 @@
 (evil-mode 1)
 (evil-snipe-mode 1)
 
-;; Company
-(require 'company)
-(with-eval-after-load 'company
-  (define-key company-active-map (kbd "M-n") nil)
-  (define-key company-active-map (kbd "M-p") nil)
-  (define-key company-active-map (kbd "C-n") #'company-select-next)
-  (define-key company-active-map (kbd "C-p") #'company-select-previous))
-(add-hook 'after-init-hook 'global-company-mode)
-(define-key global-map (kbd "C-.") 'company-files)
-
-;; Yasnippet
-(require 'yasnippet)
-(yas-global-mode 1)
-
-;; LSP
-(setq gc-cons-threshold 100000000) ; needed because communication generates a lot of garbage
-(setq read-process-output-max (* 1024 1024)) ;; 1mb
-(setq lsp-keymap-prefix "C-c l")
-(require 'lsp-mode)
-(add-hook 'c-mode-hook #'lsp)
-(add-hook 'c++-mode-hook #'lsp)
-(add-hook 'python-mode-hook #'lsp)
-
-;; helm mode
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
-(global-set-key (kbd "C-x b") 'helm-buffers-list) ;; List buffers ( Emacs way )
-(global-set-key (kbd "C-x r b") 'helm-bookmarks) ;; Bookmarks menu
-(global-set-key (kbd "C-x C-f") 'helm-find-files) ;; Finding files with Helm
-(global-set-key (kbd "M-c") 'helm-calcul-expression) ;; Use Helm for calculations
-(global-set-key (kbd "C-s") 'helm-occur)  ;; Replaces the default isearch keybinding
-(global-set-key (kbd "C-h a") 'helm-apropos)  ;; Helmized apropos interface
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)  ;; Show kill ring, pick something to pastelm-mode 1)
-(require 'helm-projectile)
-(helm-projectile-on)
-
-;; projectile
-(projectile-mode 1)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-
-;; which key
-(require 'which-key)
-(which-key-mode 1)
-
-;; dashboard
-(require 'dashboard)
-(dashboard-setup-startup-hook)
-(setq dashboard-startup-banner 'logo)
-(setq dashboard-center-content t)
-(setq dashboard-set-heading-icons t)
-(setq dashboard-set-file-icons t)
-(setq dashboard-set-init-info t)
-(setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
-
-;; avy
-(avy-setup-default)
-
-;; modeline
-;; for telephone-line configuration needs to be before (telephhone-line-mode 1)
-(require 'telephone-line)
-(setq telephone-line-primary-left-separator 'telephone-line-cubed-left
-      telephone-line-secondary-left-separator 'telephone-line-cubed-hollow-left
-      telephone-line-primary-right-separator 'telephone-line-cubed-right
-      telephone-line-secondary-right-separator 'telephone-line-cubed-hollow-right)
-(setq telephone-line-height 24)
-(setq telephone-line-lhs
-      '((evil   . (telephone-line-evil-tag-segment))
-        (accent . (telephone-line-vc-segment
-                   telephone-line-erc-modified-channels-segment
-                   telephone-line-process-segment))
-        (nil    . (telephone-line-buffer-segment
-		   telephone-line-minor-mode-segment))))
-(setq telephone-line-rhs
-      '((nil    . (telephone-line-misc-info-segment))
-        (accent . (telephone-line-major-mode-segment))
-        (evil   . (telephone-line-airline-position-segment))))
-(telephone-line-mode 1)
-
-;; doom themes
-(load-theme 'doom-gruvbox t)
-
-;; dimmer
-(require 'dimmer)
-(dimmer-configure-which-key)
-(dimmer-configure-helm)
-(dimmer-configure-magit)
-(dimmer-configure-which-key)
-(dimmer-configure-org)
-(dimmer-mode t)
-
-;; pdf tools
-(pdf-tools-install)
-;; (evil-set-initial-state 'pdf-view-mode 'normal)
-
-;; auctex
-(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
-      TeX-source-correlate-start-server t)
-; revert the PDF-buffer after the TeX compilation has finished
-(add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
-
 ;; keybinds
 (general-define-key
  :states '(normal visual insert emacs)
@@ -260,9 +163,123 @@
   "tt" '(term :which-key "shell")
   ;; ...
 )
-;; (general-nvmap
-;;  "'" (general-simulate-keys "C-c")
-;;  "M-'" 'evil-goto-mark
-;;  "b" 'helm-buffers-list
-;;  ;; ...
-;;  )
+
+;; Company
+(require 'company)
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
+(add-hook 'after-init-hook 'global-company-mode)
+(define-key global-map (kbd "C-.") 'company-files)
+
+;; Yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;; LSP
+(setq gc-cons-threshold 100000000) ; needed because communication generates a lot of garbage
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+(setq lsp-keymap-prefix "C-c l")
+(require 'lsp-mode)
+(add-hook 'c-mode-hook #'lsp)
+(add-hook 'c++-mode-hook #'lsp)
+(add-hook 'python-mode-hook #'lsp)
+(add-hook 'rust-mode-hook #'lsp)
+
+;; helm mode
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
+(global-set-key (kbd "C-x b") 'helm-buffers-list) ;; List buffers ( Emacs way )
+(global-set-key (kbd "C-x r b") 'helm-bookmarks) ;; Bookmarks menu
+(global-set-key (kbd "C-x C-f") 'helm-find-files) ;; Finding files with Helm
+(global-set-key (kbd "M-c") 'helm-calcul-expression) ;; Use Helm for calculations
+(global-set-key (kbd "C-s") 'helm-occur)  ;; Replaces the default isearch keybinding
+(global-set-key (kbd "C-h a") 'helm-apropos)  ;; Helmized apropos interface
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)  ;; Show kill ring, pick something to pastelm-mode 1)
+(require 'helm-projectile)
+(helm-projectile-on)
+
+;; projectile
+(projectile-mode 1)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+;; which key
+(require 'which-key)
+(which-key-mode 1)
+
+;; dashboard
+(require 'dashboard)
+(dashboard-setup-startup-hook)
+(setq dashboard-startup-banner 'logo)
+(setq dashboard-center-content t)
+(setq dashboard-set-heading-icons t)
+(setq dashboard-set-file-icons t)
+(setq dashboard-set-init-info t)
+(setq dashboard-projects-backend 'projectile)
+(setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+(setq dashboard-items '((recents  . 5)
+                        (bookmarks . 5)
+                        (projects . 5)
+                        (agenda . 5)
+                        (registers . 5)))
+;; avy
+(avy-setup-default)
+
+;; modeline
+;; for telephone-line configuration needs to be before (telephhone-line-mode 1)
+(require 'telephone-line)
+(setq telephone-line-primary-left-separator 'telephone-line-cubed-left
+      telephone-line-secondary-left-separator 'telephone-line-cubed-hollow-left
+      telephone-line-primary-right-separator 'telephone-line-cubed-right
+      telephone-line-secondary-right-separator 'telephone-line-cubed-hollow-right)
+(setq telephone-line-height 24)
+(setq telephone-line-lhs
+      '((evil   . (telephone-line-evil-tag-segment))
+        (accent . (telephone-line-vc-segment
+                   telephone-line-erc-modified-channels-segment
+                   telephone-line-process-segment))
+        (nil    . (telephone-line-buffer-segment
+		   telephone-line-minor-mode-segment))))
+(setq telephone-line-rhs
+      '((nil    . (telephone-line-misc-info-segment))
+        (accent . (telephone-line-major-mode-segment))
+        (evil   . (telephone-line-airline-position-segment))))
+(telephone-line-mode 1)
+
+;; doom themes
+(load-theme 'doom-gruvbox t)
+
+;; dimmer
+(require 'dimmer)
+(dimmer-configure-which-key)
+(dimmer-configure-helm)
+(dimmer-configure-magit)
+(dimmer-configure-which-key)
+(dimmer-configure-org)
+(dimmer-mode t)
+
+;; org mode
+(setq org-directory "~/.org") ; main org directory
+(setq org-agenda-files
+      '("~/.org/tasks.org" "~/.org/birthdays.org"
+	"~/.org/reminders.org" "~/.org/university.org"))  ; org agenda tasks files
+;; org agenda 14 days ahead
+(setq org-agenda-span 17
+      org-agenda-start-on-weekday nil
+      org-agenda-start-day "-3d")
+
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+;; pdf tools
+(pdf-tools-install)
+;; (evil-set-initial-state 'pdf-view-mode 'normal)
+
+;; auctex
+(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+      TeX-source-correlate-start-server t)
+; revert the PDF-buffer after the TeX compilation has finished
+(add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
