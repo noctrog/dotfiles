@@ -87,6 +87,10 @@
 
 ;; backup files to another folder
 (setq backup-directory-alist `(("." . "~/.saves")))
+
+;; auto revert remote files
+(setq auto-revert-remote-files 1)
+
 ;; org mode
 (setq org-directory "~/.org") ; main org directory
 (setq org-agenda-files
