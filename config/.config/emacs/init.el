@@ -17,6 +17,8 @@
 ; (setq straight-vc-git-default-clone-depth 1)
 ; org mode
 (straight-use-package 'org-bullets)
+;; (straight-use-package 'org-ref)
+(straight-use-package 'org-roam)
 ; evil-mode
 (straight-use-package 'evil)
 (straight-use-package 'evil-snipe)
@@ -103,6 +105,9 @@
 
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+;; (require 'org-ref)
+(require 'org-roam)
 
 ;; evil mode
 (setq evil-want-C-u-scroll t)   ; use C-u to scroll up in normal mode
