@@ -42,7 +42,6 @@
 (straight-use-package 'page-break-lines)
 (straight-use-package 'telephone-line)
 (straight-use-package 'doom-themes)
-;; (straight-use-package 'dimmer)
 ; programming
 ;; (straight-use-package 'flycheck)
 (straight-use-package 'lsp-mode)
@@ -97,7 +96,11 @@
 ;; auto revert remote files
 (setq auto-revert-remote-files 1)
 
+;; TRAMP
+(setq tramp-default-method "ssh") ; use ssh by default
+
 ;; org mode
+(setq org-export-coding-system 'utf-8)
 (setq org-directory "~/.org") ; main org directory
 (setq org-agenda-files
       '("~/.org/tasks.org" "~/.org/birthdays.org"
@@ -257,15 +260,6 @@
 ;; doom themes
 (load-theme 'doom-gruvbox t)
 
-;; dimmer
-(require 'dimmer)
-(dimmer-configure-which-key)
-(dimmer-configure-helm)
-(dimmer-configure-magit)
-(dimmer-configure-which-key)
-(dimmer-configure-org)
-(dimmer-mode t)
-
 ;; org mode
 (setq org-directory "~/.org") ; main org directory
 (setq org-agenda-files
@@ -275,6 +269,17 @@
 (setq org-agenda-span 17
       org-agenda-start-on-weekday nil
       org-agenda-start-day "-3d")
+; TODO poner con general.el
+(define-key global-map "\C-cc" 'org-capture)
+;; configure org capture templates
+(setq org-capture-templates
+      '(("t"               ; hotkey
+	 "Todo list item"  ; name
+	 entry             ; type
+	 ; heading type and title
+	 (file+headline "~/.org/tasks.org" "Tasks")
+	 "* TODO %?\n %i\n %a") ; template
+	))
 
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
