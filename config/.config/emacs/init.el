@@ -105,7 +105,17 @@
 (setq org-agenda-files
       '("~/.org/tasks.org" "~/.org/birthdays.org"
 	"~/.org/reminders.org" "~/.org/university.org"))  ; org agenda tasks files
-
+; TODO poner con general.el
+(define-key global-map "\C-cc" 'org-capture)
+;; configure org capture templates
+(setq org-capture-templates
+      '(("t"               ; hotkey
+	 "Todo list item"  ; name
+	 entry             ; type
+	 ; heading type and title
+	 (file+headline "~/.org/tasks.org" "Tasks")
+	 "* TODO %?\n %i\n %a") ; template
+	))
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
