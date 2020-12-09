@@ -118,9 +118,11 @@
 	))
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-
 ;; (require 'org-ref)
 (require 'org-roam)
+(make-directory "~/.org/roam")
+(setq org-roam-directory "~/.org/roam")
+(add-hook 'after-init-hook 'org-roam-mode)
 
 ;; evil mode
 (setq evil-want-C-u-scroll t)   ; use C-u to scroll up in normal mode
