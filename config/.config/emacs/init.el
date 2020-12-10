@@ -120,9 +120,20 @@
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 ;; (require 'org-ref)
 (require 'org-roam)
-(make-directory "~/.org/roam")
+; (make-directory "~/.org/roam")
 (setq org-roam-directory "~/.org/roam")
+(setq org-roam-db-location "~/.org/roam/roam.db")
 (add-hook 'after-init-hook 'org-roam-mode)
+(setq org-roam-completion-system 'helm)
+(global-set-key (kbd "C-c r b") 'org-roam)
+(global-set-key (kbd "C-c r c") 'org-roam-capture)
+(global-set-key (kbd "C-c r d") 'org-roam-doctor)
+(global-set-key (kbd "C-c r f") 'org-roam-find-file)
+(global-set-key (kbd "C-c r g") 'org-roam-graph)
+(global-set-key (kbd "C-c r i") 'org-roam-insert)
+(global-set-key (kbd "C-c r m") 'org-roam-mode)
+(global-set-key (kbd "C-c r r") 'org-roam-find-ref)
+(global-set-key (kbd "C-c r t") 'org-roam-buffer-toggle-display)
 
 ;; evil mode
 (setq evil-want-C-u-scroll t)   ; use C-u to scroll up in normal mode
