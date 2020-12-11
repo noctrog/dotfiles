@@ -46,6 +46,7 @@
 ;; (straight-use-package 'flycheck)
 (straight-use-package 'lsp-mode)
 (straight-use-package 'lsp-ui)
+(straight-use-package 'lsp-python-ms)
 (straight-use-package 'company)
 (straight-use-package 'yasnippet)
 (straight-use-package 'yasnippet-snippets)
@@ -218,6 +219,8 @@
 (add-hook 'c++-mode-hook #'lsp)
 (add-hook 'python-mode-hook #'lsp)
 (add-hook 'rust-mode-hook #'lsp)
+(require 'lsp-python-ms)
+(setq lsp-python-ms-auto-install-server t)
 
 ;; helm mode
 (global-set-key (kbd "M-x") 'helm-M-x)
