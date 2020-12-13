@@ -19,6 +19,7 @@
 (straight-use-package 'org-bullets)
 ;; (straight-use-package 'org-ref)
 (straight-use-package 'org-roam)
+(straight-use-package 'org-roam-server)
 ; evil-mode
 (straight-use-package 'evil)
 (straight-use-package 'evil-snipe)
@@ -135,6 +136,18 @@
 (global-set-key (kbd "C-c r m") 'org-roam-mode)
 (global-set-key (kbd "C-c r r") 'org-roam-find-ref)
 (global-set-key (kbd "C-c r t") 'org-roam-buffer-toggle-display)
+(require 'org-roam-server)
+(setq org-roam-server-host "127.0.0.1"
+        org-roam-server-port 7777
+        org-roam-server-authenticate nil
+        org-roam-server-export-inline-images t
+        org-roam-server-serve-files nil
+        org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
+        org-roam-server-network-poll t
+        org-roam-server-network-arrows nil
+        org-roam-server-network-label-truncate t
+        org-roam-server-network-label-truncate-length 60
+        org-roam-server-network-label-wrap-length 20)
 
 ;; evil mode
 (setq evil-want-C-u-scroll t)   ; use C-u to scroll up in normal mode
