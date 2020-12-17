@@ -17,9 +17,10 @@
 ; (setq straight-vc-git-default-clone-depth 1)
 ; org mode
 (straight-use-package 'org-bullets)
-;; (straight-use-package 'org-ref)
+(straight-use-package 'org-ref)
 (straight-use-package 'org-roam)
 (straight-use-package 'org-roam-server)
+(straight-use-package 'org-super-agenda)
 ; evil-mode
 (straight-use-package 'evil)
 (straight-use-package 'evil-snipe)
@@ -32,6 +33,7 @@
 ; functionality
 (straight-use-package 'helm)
 (straight-use-package 'helm-projectile)
+(straight-use-package 'helm-bibtex)
 (straight-use-package 'magit)
 (straight-use-package 'projectile)
 (straight-use-package 'general)
@@ -118,13 +120,12 @@
 	 (file+headline "~/.org/tasks.org" "Tasks")
 	 "* TODO %?\n %i\n %a") ; template
 	))
+(require 'org-ref)
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-;; (require 'org-ref)
 (require 'org-roam)
-; (make-directory "~/.org/roam")
-(setq org-roam-directory "~/.org/roam")
-(setq org-roam-db-location "~/.org/roam/roam.db")
+(setq org-roam-directory "~/Dropbox/org/roam")
+(setq org-roam-db-location "~/.org/roam.db")
 (add-hook 'after-init-hook 'org-roam-mode)
 (setq org-roam-completion-system 'helm)
 (global-set-key (kbd "C-c r b") 'org-roam)
@@ -148,6 +149,9 @@
         org-roam-server-network-label-truncate t
         org-roam-server-network-label-truncate-length 60
         org-roam-server-network-label-wrap-length 20)
+;; bibtex - TODO pdfs
+(setq bibtex-completion-bibliography
+      '("~/Dropbox/org/references.bib"))
 
 ;; evil mode
 (setq evil-want-C-u-scroll t)   ; use C-u to scroll up in normal mode
