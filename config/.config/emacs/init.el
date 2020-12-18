@@ -105,10 +105,13 @@
 
 ;; org mode
 (setq org-export-coding-system 'utf-8)
-(setq org-directory "~/.org") ; main org directory
+(setq org-directory "~/Dropbox/org") ; main org directory
 (setq org-agenda-files
-      '("~/.org/tasks.org" "~/.org/birthdays.org"
-	"~/.org/reminders.org" "~/.org/university.org"))  ; org agenda tasks files
+      '("~/Dropbox/org/tasks.org" "~/Dropbox/org/birthdays.org"
+	"~/Dropbox/org/reminders.org" "~/Dropbox/org/university.org"))  ; org agenda tasks files
+(setq org-agenda-span 17
+      org-agenda-start-on-weekday nil
+      org-agenda-start-day "-3d")
 ; TODO poner con general.el
 (define-key global-map "\C-cc" 'org-capture)
 ;; configure org capture templates
@@ -117,7 +120,7 @@
 	 "Todo list item"  ; name
 	 entry             ; type
 	 ; heading type and title
-	 (file+headline "~/.org/tasks.org" "Tasks")
+	 (file+headline "~/Dropbox/org/tasks.org" "Tasks")
 	 "* TODO %?\n %i\n %a") ; template
 	))
 (require 'org-ref)
@@ -302,30 +305,6 @@
 
 ;; doom themes
 (load-theme 'doom-gruvbox t)
-
-;; org mode
-(setq org-directory "~/.org") ; main org directory
-(setq org-agenda-files
-      '("~/.org/tasks.org" "~/.org/birthdays.org"
-	"~/.org/reminders.org" "~/.org/university.org"))  ; org agenda tasks files
-;; org agenda 14 days ahead
-(setq org-agenda-span 17
-      org-agenda-start-on-weekday nil
-      org-agenda-start-day "-3d")
-; TODO poner con general.el
-(define-key global-map "\C-cc" 'org-capture)
-;; configure org capture templates
-(setq org-capture-templates
-      '(("t"               ; hotkey
-	 "Todo list item"  ; name
-	 entry             ; type
-	 ; heading type and title
-	 (file+headline "~/.org/tasks.org" "Tasks")
-	 "* TODO %?\n %i\n %a") ; template
-	))
-
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; pdf tools
 (pdf-tools-install)
