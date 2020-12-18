@@ -20,7 +20,6 @@
 (straight-use-package 'org-ref)
 (straight-use-package 'org-roam)
 (straight-use-package 'org-roam-server)
-(straight-use-package 'org-super-agenda)
 ; evil-mode
 (straight-use-package 'evil)
 (straight-use-package 'evil-snipe)
