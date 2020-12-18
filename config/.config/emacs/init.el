@@ -104,6 +104,10 @@
 
 ;; org mode
 (setq org-export-coding-system 'utf-8)
+; indent and hard wrapping
+(with-eval-after-load 'org
+  (setq org-startup-indented t) ; Enable `org-indent-mode' by default
+  (add-hook 'org-mode-hook #'auto-fill-mode)) ; hard wrap
 (setq org-directory "~/Dropbox/org") ; main org directory
 (setq org-agenda-files
       '("~/Dropbox/org/tasks.org" "~/Dropbox/org/birthdays.org"
