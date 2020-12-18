@@ -119,10 +119,15 @@
       '(("t"               ; hotkey
 	 "Todo list item"  ; name
 	 entry             ; type
-	 ; heading type and title
+					; heading type and title
 	 (file+headline "~/Dropbox/org/tasks.org" "Tasks")
 	 "* TODO %?\n %i\n %a") ; template
-	))
+      ("b"
+       "BibTex reference"
+       plain
+       (file "~/Dropbox/org/references.bib")
+       "%i\n\n")
+      ))
 (require 'org-ref)
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
