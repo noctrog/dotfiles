@@ -165,6 +165,8 @@
 ;; bibtex - TODO pdfs
 (setq bibtex-completion-bibliography
       '("~/Dropbox/org/references.bib"))
+(setq org-ref-bibliography-files
+      '("~/Dropbox/org/references.bib"))
 
 ;; evil mode
 (setq evil-want-C-u-scroll t)   ; use C-u to scroll up in normal mode
