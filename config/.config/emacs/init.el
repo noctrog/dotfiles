@@ -61,6 +61,12 @@
 (straight-use-package 'pdf-tools)
 (straight-use-package 'auctex)
 
+;; Increases Garbage Collection During Startup
+(setq startup/gc-cons-threshold gc-cons-threshold)
+(setq gc-cons-threshold most-positive-fixnum)
+(defun startup/reset-gc () (setq gc-cons-threshold startup/gc-cons-threshold))
+(add-hook 'emacs-startup-hook 'startup/reset-gc)
+
 ;; hide GUI
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
