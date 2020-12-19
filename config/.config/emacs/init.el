@@ -92,6 +92,8 @@
 
 ;; Show matching parenthesis
 (show-paren-mode 1)
+;; Auto pair
+(electric-pair-mode 1)
 
 ;; backup files to another folder
 (setq backup-directory-alist `(("." . "~/.saves")))
