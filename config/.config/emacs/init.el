@@ -22,6 +22,7 @@
 (straight-use-package 'org-roam-server)
 ; evil-mode
 (straight-use-package 'evil)
+(straight-use-package 'evil-collection)
 (straight-use-package 'evil-snipe)
 (straight-use-package 'evil-numbers)
 (straight-use-package 'evil-magit)
@@ -60,6 +61,12 @@
 ;; documents
 (straight-use-package 'pdf-tools)
 (straight-use-package 'auctex)
+
+;; Increases Garbage Collection During Startup
+(setq startup/gc-cons-threshold gc-cons-threshold)
+(setq gc-cons-threshold most-positive-fixnum)
+(defun startup/reset-gc () (setq gc-cons-threshold startup/gc-cons-threshold))
+(add-hook 'emacs-startup-hook 'startup/reset-gc)
 
 ;; hide GUI
 (menu-bar-mode -1)
@@ -170,11 +177,15 @@
 
 ;; evil mode
 (setq evil-want-C-u-scroll t)   ; use C-u to scroll up in normal mode
+(setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+(setq evil-want-keybinding nil)
 (require 'evil)
+(when (require 'evil-collection nil t)
+  (evil-collection-init))
 (require 'evil-numbers)
 (define-key evil-normal-state-map (kbd "+") 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map (kbd "-") 'evil-numbers/dec-at-pt)
-(require 'evil-magit)
+; (require 'evil-magit)
 (require 'evil-nerd-commenter)
 (require 'evil-org)
 (add-hook 'org-mode-hook 'evil-org-mode)
