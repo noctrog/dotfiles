@@ -20,12 +20,12 @@
 (straight-use-package 'org-ref)
 (straight-use-package 'org-roam)
 (straight-use-package 'org-roam-server)
+(straight-use-package 'org-attach-screenshot)
 ; evil-mode
 (straight-use-package 'evil)
 (straight-use-package 'evil-collection)
 (straight-use-package 'evil-snipe)
 (straight-use-package 'evil-numbers)
-(straight-use-package 'evil-magit)
 (straight-use-package 'evil-leader)
 (straight-use-package 'evil-surround)
 (straight-use-package 'evil-nerd-commenter)
@@ -172,8 +172,10 @@
 ;; bibtex - TODO pdfs
 (setq bibtex-completion-bibliography
       '("~/Dropbox/org/references.bib"))
-(setq org-ref-bibliography-files
+(setq org-ref-default-bibliography
       '("~/Dropbox/org/references.bib"))
+(setq org-latex-pdf-process
+      (list "latexmk -shell-escape -bibtex -f -pdf %f"))
 
 ;; evil mode
 (setq evil-want-C-u-scroll t)   ; use C-u to scroll up in normal mode
