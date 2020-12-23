@@ -38,6 +38,9 @@
 (straight-use-package 'projectile)
 (straight-use-package 'general)
 (straight-use-package 'avy)
+(straight-use-package 'company)
+(straight-use-package 'prescient)
+(straight-use-package 'company-prescient)
 ; gui
 (straight-use-package 'dashboard)
 (straight-use-package 'which-key)
@@ -50,7 +53,6 @@
 (straight-use-package 'lsp-mode)
 (straight-use-package 'lsp-ui)
 (straight-use-package 'lsp-python-ms)
-(straight-use-package 'company)
 (straight-use-package 'yasnippet)
 (straight-use-package 'yasnippet-snippets)
 (straight-use-package 'cmake-mode)
@@ -250,6 +252,12 @@
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 (add-hook 'after-init-hook 'global-company-mode)
 (define-key global-map (kbd "C-.") 'company-files)
+
+;; Prescient
+(require 'prescient)
+(require 'company-prescient)
+(prescient-persist-mode 1) ; remembering history between sessions
+(company-prescient-mode 1)
 
 ;; Yasnippet
 (require 'yasnippet)
