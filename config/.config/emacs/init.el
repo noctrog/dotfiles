@@ -264,6 +264,7 @@
 (add-hook 'c++-mode-hook #'lsp)
 (add-hook 'python-mode-hook #'lsp)
 (add-hook 'rust-mode-hook #'lsp)
+(setq lsp-enable-snippet t)
 (require 'lsp-python-ms)
 (setq lsp-python-ms-auto-install-server t)
 
