@@ -146,6 +146,7 @@
 (require 'org-roam)
 (setq org-roam-directory "~/Dropbox/org/roam")
 (setq org-roam-db-location "~/.org/roam.db")
+(setq org-roam-encrypt-files t)
 (add-hook 'after-init-hook 'org-roam-mode)
 (setq org-roam-completion-system 'helm)
 (global-set-key (kbd "C-c r b") 'org-roam)
