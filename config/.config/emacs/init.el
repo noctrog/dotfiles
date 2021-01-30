@@ -276,6 +276,7 @@
 (setq lsp-enable-snippet t)
 (require 'lsp-python-ms)
 (setq lsp-python-ms-auto-install-server t)
+(setq python-shell-interpreter "python")
 
 ;; helm mode
 (global-set-key (kbd "M-x") 'helm-M-x)
