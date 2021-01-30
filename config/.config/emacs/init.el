@@ -262,6 +262,8 @@
 
 ;; Yasnippet
 (require 'yasnippet)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippets" yasnippet-snippets-dir))
 (yas-global-mode 1)
 
 ;; LSP
