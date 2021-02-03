@@ -255,6 +255,8 @@
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 (add-hook 'after-init-hook 'global-company-mode)
 (define-key global-map (kbd "C-.") 'company-files)
+(setq company-minimum-prefix-length 1
+      company-idle-delay 0.0) ;; default is 0.2
 
 ;; Prescient
 (require 'prescient)
