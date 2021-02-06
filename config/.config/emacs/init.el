@@ -64,6 +64,7 @@
 ;; documents
 (straight-use-package 'pdf-tools)
 (straight-use-package 'auctex)
+(straight-use-package 'cdlatex)
 
 ;; Increases Garbage Collection During Startup
 (setq startup/gc-cons-threshold gc-cons-threshold)
@@ -119,7 +120,8 @@
 ; indent and hard wrapping
 (with-eval-after-load 'org
   (setq org-startup-indented t) ; Enable `org-indent-mode' by default
-  (add-hook 'org-mode-hook #'auto-fill-mode)) ; hard wrap
+  (add-hook 'org-mode-hook #'auto-fill-mode)
+  (add-hook 'org-mode-hook 'turn-on-org-cdlatex)) ; hard wrap
 (setq org-directory "~/Dropbox/org") ; main org directory
 (setq org-agenda-files
       '("~/Dropbox/org/tasks.org" "~/Dropbox/org/birthdays.org"
@@ -254,6 +256,8 @@
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 (add-hook 'after-init-hook 'global-company-mode)
 (define-key global-map (kbd "C-.") 'company-files)
+(setq company-minimum-prefix-length 1
+      company-idle-delay 0.0) ;; default is 0.2
 
 ;; Prescient
 (require 'prescient)
