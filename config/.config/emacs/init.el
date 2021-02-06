@@ -56,6 +56,7 @@
 (straight-use-package 'yasnippet)
 (straight-use-package 'yasnippet-snippets)
 (straight-use-package 'cmake-mode)
+(straight-use-package 'yaml-mode)
 (require 'cmake-mode)
 ;; languages
 (straight-use-package 'rust-mode)
