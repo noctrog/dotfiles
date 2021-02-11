@@ -56,8 +56,10 @@
 (straight-use-package 'yasnippet)
 (straight-use-package 'yasnippet-snippets)
 (straight-use-package 'cmake-mode)
-(straight-use-package 'yaml-mode)
 (require 'cmake-mode)
+(straight-use-package 'yaml-mode)
+(straight-use-package 'origami)
+(require 'origami)
 ;; languages
 (straight-use-package 'rust-mode)
 (require 'rust-mode)
@@ -244,6 +246,21 @@
   ";"  '(avy-goto-char-timer :which-key "avy char timer")
   ;; term
   "tt" '(term :which-key "shell")
+  ;; folding
+  "fo" '(origami-open-node :which-key "open fold")
+  "fao" '(origami-open-all-nodes :which-key "open all folds")
+  "fO" '(origami-open-node-recursively :which-key "open fold recursively")
+  "fc" '(origami-close-node :which-key "open fold")
+  "fac" '(origami-close-all-nodes :which-key "open all folds")
+  "fC" '(origami-close-node-recursively :which-key "open fold recursively")
+  "ft" '(origami-toggle-node :which-key "toggle fold")
+  "fT" '(origami-toggle-node :which-key "toggle fold recursively")
+  "ff" '(origami-show-only-node :which-key "fold everything except current")
+  "fn" '(origami-next-fold :which-key "move to next fold")
+  "fp" '(origami-previous-fold :which-key "move to previous fold")
+  "fu" '(origami-undo :which-key "undo fold operation")
+  "fr" '(origami-redo :which-key "redo fold operation")
+  "fR" '(origami-reset :which-key "origami reset")
   ;; ...
 )
 
