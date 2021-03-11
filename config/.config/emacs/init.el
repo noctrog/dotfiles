@@ -90,6 +90,9 @@
 (setq scroll-margin 7)
 (setq scroll-conservatively 999) ;; do not center when scrolling
 
+;; disable truncate lines
+(set-default 'truncate-lines 0)
+
 ;; disable bell
 (setq ring-bell-function 'ignore)
 
