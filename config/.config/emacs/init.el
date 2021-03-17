@@ -41,6 +41,7 @@
 (straight-use-package 'company)
 (straight-use-package 'prescient)
 (straight-use-package 'company-prescient)
+(straight-use-package 'undo-tree)
 ; gui
 (straight-use-package 'dashboard)
 (straight-use-package 'which-key)
@@ -285,6 +286,9 @@
 (require 'company-prescient)
 (prescient-persist-mode 1) ; remembering history between sessions
 (company-prescient-mode 1)
+
+;; undo-tree
+(global-undo-tree-mode)
 
 ;; Yasnippet
 (require 'yasnippet)
