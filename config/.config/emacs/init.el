@@ -378,3 +378,7 @@
       TeX-source-correlate-start-server t)
 ; revert the PDF-buffer after the TeX compilation has finished
 (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+
+;; rosemacs
+;; (add-to-list 'load-path "/opt/ros/melodic/share/emacs/site-lisp")
+;; (require 'rosemacs-config)
