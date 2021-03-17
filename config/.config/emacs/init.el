@@ -101,7 +101,7 @@
 (setq display-line-numbers-type 'relative)		; relative line numbers
 
 ;; font size
-(set-face-attribute 'default nil :family "IBM Plex Mono" :height 130)
+(set-face-attribute 'default nil :family "Inconsolata" :height 130)
 
 ;; Line highlighting
 (global-hl-line-mode 1)
