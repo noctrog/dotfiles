@@ -188,6 +188,13 @@
       '("~/Dropbox/org/references.bib"))
 (setq org-latex-pdf-process
       (list "latexmk -shell-escape -bibtex -f -pdf %f"))
+;; disable <> auto pairing in electric-pair-mode for org-mode
+(add-hook
+ 'org-mode-hook
+ (lambda ()
+   (setq-local electric-pair-inhibit-predicate
+               `(lambda (c)
+                  (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
 
 ;; evil mode
 (setq evil-want-C-u-scroll t)   ; use C-u to scroll up in normal mode
