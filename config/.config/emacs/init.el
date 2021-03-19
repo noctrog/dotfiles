@@ -126,12 +126,10 @@
 ; indent and hard wrapping
 (with-eval-after-load 'org
   (setq org-startup-indented t) ; Enable `org-indent-mode' by default
-  (add-hook 'org-mode-hook #'auto-fill-mode)
-  (add-hook 'org-mode-hook 'turn-on-org-cdlatex)) ; hard wrap
+  (add-hook 'org-mode-hook #'auto-fill-mode) ; hard wrap
+  (add-hook 'org-mode-hook 'turn-on-org-cdlatex)) 
 (setq org-directory "~/Dropbox/org") ; main org directory
-(setq org-agenda-files
-      '("~/Dropbox/org/tasks.org" "~/Dropbox/org/birthdays.org"
-	"~/Dropbox/org/reminders.org" "~/Dropbox/org/university.org"))  ; org agenda tasks files
+(setq org-agenda-files '("~/Dropbox/org/agenda")) ; include all in folder as agenda
 (setq org-agenda-span 17
       org-agenda-start-on-weekday nil
       org-agenda-start-day "-3d")
@@ -143,7 +141,7 @@
 	 "Todo list item"  ; name
 	 entry             ; type
 					; heading type and title
-	 (file+headline "~/Dropbox/org/tasks.org" "Tasks")
+	 (file+headline "~/Dropbox/org/agenda/tasks.org" "Tasks")
 	 "* TODO %?\n %i\n %a") ; template
       ("b"
        "BibTex reference"
