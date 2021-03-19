@@ -133,6 +133,18 @@
 (setq org-agenda-span 17
       org-agenda-start-on-weekday nil
       org-agenda-start-day "-3d")
+(defvar-local my-icon-dir (concat user-emacs-directory "icons/") "directory with the icons")
+(setq org-agenda-category-icon-alist
+      '(
+	("tasks" ,"" nil nil :ascent center)
+	("university" ,"" nil nil :ascent center)
+	("birthdays" ,"" nil nil :ascent center)
+	("reminders" ,"" nil nil :ascent center)
+	))
+(setq org-agenda-prefix-format '((agenda . " %i %?-12t% s")
+				 (todo . " %-15:c")
+				 (tags . " %-15:c")
+				 (search . " %-15:c")))
 ; TODO poner con general.el
 (define-key global-map "\C-cc" 'org-capture)
 ;; configure org capture templates
