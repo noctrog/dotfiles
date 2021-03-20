@@ -128,12 +128,11 @@
   (setq org-startup-indented t) ; Enable `org-indent-mode' by default
   (add-hook 'org-mode-hook #'auto-fill-mode) ; hard wrap
   (add-hook 'org-mode-hook 'turn-on-org-cdlatex)) 
-(setq org-directory "~/Dropbox/org") ; main org directory
-(setq org-agenda-files '("~/Dropbox/org/agenda")) ; include all in folder as agenda
+(setq org-directory "~/Sync/org") ; main org directory
+(setq org-agenda-files '("~/Sync/org/agenda")) ; include all in folder as agenda
 (setq org-agenda-span 17
       org-agenda-start-on-weekday nil
       org-agenda-start-day "-3d")
-(defvar-local my-icon-dir (concat user-emacs-directory "icons/") "directory with the icons")
 (setq org-agenda-category-icon-alist
       '(
 	("tasks" ,"" nil nil :ascent center)
@@ -153,19 +152,19 @@
 	 "Todo list item"  ; name
 	 entry             ; type
 					; heading type and title
-	 (file+headline "~/Dropbox/org/agenda/tasks.org" "Tasks")
+	 (file+headline "~/Sync/org/agenda/tasks.org" "Tasks")
 	 "* TODO %?\n %i\n %a") ; template
       ("b"
        "BibTex reference"
        plain
-       (file "~/Dropbox/org/references.bib")
+       (file "~/Sync/org/references.bib")
        "%i\n\n")
       ))
 (require 'org-ref)
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (require 'org-roam)
-(setq org-roam-directory "~/Dropbox/org/roam")
+(setq org-roam-directory "~/Sync/org/roam")
 (setq org-roam-db-location "~/.org/roam.db")
 (setq org-roam-encrypt-files t)
 (add-hook 'after-init-hook 'org-roam-mode)
@@ -193,9 +192,9 @@
         org-roam-server-network-label-wrap-length 20)
 ;; bibtex - TODO pdfs
 (setq bibtex-completion-bibliography
-      '("~/Dropbox/org/references.bib"))
+      '("~/Sync/org/references.bib"))
 (setq org-ref-default-bibliography
-      '("~/Dropbox/org/references.bib"))
+      '("~/Sync/org/references.bib"))
 (setq org-latex-pdf-process
       (list "latexmk -shell-escape -bibtex -f -pdf %f"))
 ;; disable <> auto pairing in electric-pair-mode for org-mode
