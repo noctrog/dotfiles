@@ -16,7 +16,7 @@
 ; shallow clones not working properly right now
 ; (setq straight-vc-git-default-clone-depth 1)
 ; org mode
-(straight-use-package 'org-bullets)
+(straight-use-package 'org-superstar)
 (straight-use-package 'org-ref)
 (straight-use-package 'org-roam)
 (straight-use-package 'org-roam-server)
@@ -160,9 +160,19 @@
        (file "~/Sync/org/references.bib")
        "%i\n\n")
       ))
+(require 'org-superstar)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+(setq org-superstar-special-todo-items 'hide)
+(setq org-superstar-headline-bullets-list
+      '("◉" "◈";; Stop cycling bullets to emphasize hierarchy of headlines.
+(setq org-superstar-cycle-headline-bullets nil)
+;; Hide away leading stars on terminal.
+(setq org-superstar-leading-fallback ?\s) "○" "▷"))
+(with-eval-after-load 'org-superstar
+  (set-face-attribute 'org-superstar-item nil :height 1.2)
+  (set-face-attribute 'org-superstar-header-bullet nil :height 1.2)
+  (set-face-attribute 'org-superstar-leading nil :height 1.3))
 (require 'org-ref)
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (require 'org-roam)
 (setq org-roam-directory "~/Sync/org/roam")
 (setq org-roam-db-location "~/.org/roam.db")
