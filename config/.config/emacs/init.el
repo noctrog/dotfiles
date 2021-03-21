@@ -121,6 +121,9 @@
 ;; TRAMP
 (setq tramp-default-method "ssh") ; use ssh by default
 
+;; helm mode
+(helm-mode 1)
+
 ;; org mode
 (setq org-export-coding-system 'utf-8)
 ; indent and hard wrapping
