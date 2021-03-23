@@ -142,8 +142,9 @@
 	("university" ,"" nil nil :ascent center)
 	("birthdays" ,"" nil nil :ascent center)
 	("reminders" ,"" nil nil :ascent center)
+	("routine" ,"" nil nil :ascent center)
 	))
-(setq org-agenda-prefix-format '((agenda . " %i %?-12t% s")
+(setq org-agenda-prefix-format '((agenda . "  %i %?-12t% s")
 				 (todo . " %-15:c")
 				 (tags . " %-15:c")
 				 (search . " %-15:c")))
@@ -157,11 +158,21 @@
 					; heading type and title
 	 (file+headline "~/Sync/org/agenda/tasks.org" "Tasks")
 	 "* TODO %?\n %i\n %a") ; template
-      ("b"
-       "BibTex reference"
-       plain
-       (file "~/Sync/org/references.bib")
-       "%i\n\n")
+	("u"               ; hotkey
+	 "University todo item"  ; name
+	 entry             ; type
+	 (file+headline "~/Sync/org/agenda/university.org" "Tasks")
+	 "* TODO %?\n %i") ; template
+	("r"
+	 "Set reminder"
+	 entry
+	 (file+headline "~/Sync/org/agenda/reminders.org" "Reminders")
+	 "* %?\n %i")
+	("b"
+	 "BibTex reference"
+	 plain
+	 (file "~/Sync/org/references.bib")
+	 "%i\n\n")
       ))
 (require 'org-superstar)
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
