@@ -173,6 +173,11 @@
 	 plain
 	 (file "~/Sync/org/references.bib")
 	 "%i\n\n")
+	("d"
+	 "Personal diary"
+	 entry
+	 (file+datetree "~/Sync/org/diary.org.gpg")
+	 "** %^{Heading}")
       ))
 (require 'org-superstar)
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
