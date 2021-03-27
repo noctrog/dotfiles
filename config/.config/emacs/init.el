@@ -188,7 +188,7 @@
 ;; Hide away leading stars on terminal.
 (setq org-superstar-leading-fallback ?\s) "○" "▷"))
 (with-eval-after-load 'org-superstar
-  (set-face-attribute 'org-superstar-item nil :height 1.2)
+  (set-face-attribute 'org-superstar-item nil :height 1.0)
   (set-face-attribute 'org-superstar-header-bullet nil :height 1.2)
   (set-face-attribute 'org-superstar-leading nil :height 1.3))
 (require 'org-ref)
