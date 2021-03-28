@@ -2,6 +2,6 @@
 # name: lat
 # key: <lat
 # --
-#+begin_latex latex
+#+begin_export latex
   $0
-#+end_latex
+#+end_export
