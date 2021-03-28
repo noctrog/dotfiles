@@ -68,6 +68,8 @@
 (straight-use-package 'pdf-tools)
 (straight-use-package 'auctex)
 (straight-use-package 'cdlatex)
+;; internet
+(straight-use-package 'elpher)
 
 ;; Increases Garbage Collection During Startup
 (setq startup/gc-cons-threshold gc-cons-threshold)
