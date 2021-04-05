@@ -123,6 +123,9 @@
 ;; TRAMP
 (setq tramp-default-method "ssh") ; use ssh by default
 
+;; disable compilation warnings
+(setq comp-async-report-warnings-errors nil)
+
 ;; helm mode
 (helm-mode 1)
 
