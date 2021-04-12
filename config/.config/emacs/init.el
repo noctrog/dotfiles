@@ -48,10 +48,7 @@
 (straight-use-package 'telephone-line)
 (straight-use-package 'doom-themes)
 ; programming
-;; (straight-use-package 'flycheck)
-(straight-use-package 'lsp-mode)
-(straight-use-package 'lsp-ui)
-(straight-use-package 'lsp-python-ms)
+(straight-use-package 'eglot)
 (straight-use-package 'yasnippet)
 (straight-use-package 'yasnippet-snippets)
 (straight-use-package 'cmake-mode)
@@ -344,19 +341,12 @@
       '("~/.config/emacs/snippets" yasnippet-snippets-dir))
 (yas-global-mode 1)
 
-;; LSP
-(setq gc-cons-threshold 100000000) ; needed because communication generates a lot of garbage
-(setq read-process-output-max (* 1024 1024)) ;; 1mb
-(setq lsp-keymap-prefix "C-c l")
-(require 'lsp-mode)
-(add-hook 'c-mode-hook #'lsp)
-(add-hook 'c++-mode-hook #'lsp)
-(add-hook 'python-mode-hook #'lsp)
-(add-hook 'rust-mode-hook #'lsp)
-(setq lsp-enable-snippet t)
-(require 'lsp-python-ms)
-(setq lsp-python-ms-auto-install-server t)
-(setq python-shell-interpreter "python")
+;; eglot
+(require 'eglot)
+(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+(add-hook 'c-mode-hook 'eglot-ensure)
+(add-hook 'c++-mode-hook 'eglot-ensure)
+(add-hook 'python-mode-hook 'eglot-ensure)
 
 ;; helm mode
 (global-set-key (kbd "M-x") 'helm-M-x)
