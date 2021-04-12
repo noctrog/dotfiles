@@ -32,10 +32,8 @@
 (straight-use-package 'evil-org)
 ; functionality
 (straight-use-package 'helm)
-(straight-use-package 'helm-projectile)
 (straight-use-package 'helm-bibtex)
 (straight-use-package 'magit)
-(straight-use-package 'projectile)
 (straight-use-package 'general)
 (straight-use-package 'avy)
 (straight-use-package 'company)
@@ -371,12 +369,6 @@
 (global-set-key (kbd "C-s") 'helm-occur)  ;; Replaces the default isearch keybinding
 (global-set-key (kbd "C-h a") 'helm-apropos)  ;; Helmized apropos interface
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)  ;; Show kill ring, pick something to pastelm-mode 1)
-(require 'helm-projectile)
-(helm-projectile-on)
-
-;; projectile
-(projectile-mode 1)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; which key
 (require 'which-key)
@@ -390,7 +382,7 @@
 (setq dashboard-set-heading-icons t)
 (setq dashboard-set-file-icons t)
 (setq dashboard-set-init-info t)
-(setq dashboard-projects-backend 'projectile)
+(setq dashboard-projects-backend 'project-el)
 (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
 (setq dashboard-items '((recents  . 5)
                         (bookmarks . 5)
