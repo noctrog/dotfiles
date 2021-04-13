@@ -65,6 +65,8 @@
 (straight-use-package 'cdlatex)
 ;; internet
 (straight-use-package 'elpher)
+(straight-use-package 'elfeed)
+(straight-use-package 'elfeed-org)
 
 ;; Increases Garbage Collection During Startup
 (setq startup/gc-cons-threshold gc-cons-threshold)
@@ -412,6 +414,13 @@
       TeX-source-correlate-start-server t)
 ; revert the PDF-buffer after the TeX compilation has finished
 (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+
+;; elfeed
+(require 'elfeed-org)
+;; Initialize elfeed-org. This hooks up elfeed-org to read the
+;; configuration when elfeed is started with =M-x elfeed=
+(elfeed-org)
+(setq rmh-elfeed-org-files (list "~/Sync/org/elfeed.org"))
 
 ;; rosemacs
 ;; (add-to-list 'load-path "/opt/ros/melodic/share/emacs/site-lisp")
