@@ -191,8 +191,8 @@
 (setq org-superstar-leading-fallback ?\s) "○" "▷"))
 (with-eval-after-load 'org-superstar
   (set-face-attribute 'org-superstar-item nil :height 1.0)
-  (set-face-attribute 'org-superstar-header-bullet nil :height 1.2)
-  (set-face-attribute 'org-superstar-leading nil :height 1.3))
+  (set-face-attribute 'org-superstar-header-bullet nil :height 1.0)
+  (set-face-attribute 'org-superstar-leading nil :height 1.0))
 (require 'org-ref)
 (require 'org-roam)
 (setq org-roam-directory "~/Sync/org/roam")
