@@ -1,4 +1,6 @@
 ;; Straight package manager
+(setq straight-repository-branch "develop")
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -417,6 +419,36 @@
       TeX-source-correlate-start-server t)
 ; revert the PDF-buffer after the TeX compilation has finished
 (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+
+;; newsticker
+(setq newsticker-automatically-mark-items-as-old nil)
+(setq newsticker-automatically-mark-visited-items-as-old t)
+(setq newsticker-dir "~/Sync/org/newsticker")
+(setq newsticker-url-list
+      '(; robotics research
+	("Robotics Systems Lab" "https://nitter.cc/leggedrobotics/rss" nil 3600)
+	("Anybotics" "https://nitter.cc/anybotics/rss" nil 3600)
+	("Joonho Lee" "https://nitter.cc/junja941/rss" nil 3600)
+	("Sergey Levine" "https://nitter.cc/svlevine/rss" nil 3600)
+	("Sim 2 Real" "https://nitter.cc/sim2realAIorg/rss" nil 3600)
+	; AI research
+	("Hardmaru Twitter" "https://nitter.cc/hardmaru/rss" nil 3600)
+	("Yann LeCun Twitter" "https://nitter.cc/ylecun/rss" nil 3600)
+	("DeepMind Twitter" "https://nitter.cc/DeepMind/rss" nil 3600)
+	("GoogleAI Twitter" "https://nitter.cc/GoogleAI/rss" nil 3600)
+	("Karpathy Twitter" "https://nitter.cc/karpathy/rss" nil 3600)
+	("BerkeleyAI Twitter" "https://nitter.cc/berkeley_ai/rss" nil 3600)
+	("HuggingFace Twitter" "https://nitter.cc/huggingface/rss" nil 3600)
+	; embedded
+	("ThirtyThreeForty" "https://www.thirtythreeforty.net/posts/index.xml" nil 3600)
+	("MCU on Eclipse" "https://mcuoneclipse.com/feed/" nil 3600)
+	; 3D graphics
+	("Reduzio Twitter" "https://nitter.cc/reduzio/rss" nil 3600)
+	("Mosra Twitter" "https://nitter.cc/czmosra/rss" nil 3600)
+	; youtube
+	; twitter
+
+	))
 
 ;; elfeed
 ;; (require 'elfeed-org)
