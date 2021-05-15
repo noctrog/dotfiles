@@ -193,9 +193,26 @@
 (setq org-superstar-leading-fallback ?\s) "○" "▷"))
 (with-eval-after-load 'org-superstar
   (set-face-attribute 'org-superstar-item nil :height 1.0)
-  (set-face-attribute 'org-superstar-header-bullet nil :height 1.2)
-  (set-face-attribute 'org-superstar-leading nil :height 1.3))
+  (set-face-attribute 'org-superstar-header-bullet nil :height 1.0)
+  (set-face-attribute 'org-superstar-leading nil :height 1.0))
+;; org export
 (require 'org-ref)
+(setq org-latex-listings t)
+(with-eval-after-load 'ox-latex
+  (add-to-list 'org-latex-classes
+	       '("org-plain-latex"
+		 "\\documentclass[a4paper,11pt,titlepage]{scrbook}
+		 [NO-DEFAULT-PACKAGES] [PACKAGES] [EXTRA]"
+		 ("\\chapter{%s}" . "\\chapter*{%s}")
+		 ("\\section{%s}" . "\\section*{%s}")
+		 ("\\subsection{%s}" . "\\subsection*{%s}")
+		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+(require 'ox-latex)
+(add-to-list 'org-latex-packages-alist '("" "listings"))
+(add-to-list 'org-latex-packages-alist '("" "color"))
+;; org roam
 (require 'org-roam)
 (setq org-roam-directory "~/Sync/org/roam")
 (setq org-roam-db-location "~/.org/roam.db")
