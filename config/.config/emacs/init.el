@@ -198,6 +198,7 @@
 ;; org export
 (require 'org-ref)
 (setq org-latex-listings t)
+(setq org-latex-caption-above nil)
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes
 	       '("org-plain-latex"
