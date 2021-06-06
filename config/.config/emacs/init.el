@@ -193,6 +193,11 @@
   (set-face-attribute 'org-superstar-item nil :height 1.0)
   (set-face-attribute 'org-superstar-header-bullet nil :height 1.0)
   (set-face-attribute 'org-superstar-leading nil :height 1.0))
+;; org babel load languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   ))
 ;; org export
 (require 'org-ref)
 (setq org-latex-listings t)
@@ -379,6 +384,9 @@
 (global-set-key (kbd "C-h a") 'helm-apropos)  ;; Helmized apropos interface
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)  ;; Show kill ring, pick something to pastelm-mode 1)
 
+;; C-x is binded also to C-z because it makes dvorak usage a lot easier
+(global-set-key (kbd "C-z") ctl-x-map)
+
 ;; which key
 (require 'which-key)
 (which-key-mode 1)
@@ -434,6 +442,13 @@
       TeX-source-correlate-start-server t)
 ; revert the PDF-buffer after the TeX compilation has finished
 (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+
+;; scheme - SICM
+(defun mechanics ()
+  (interactive)
+  (run-scheme 
+    "/usr/local/bin//mit-scheme/bin/scheme --library /usr/local/lib/mit-scheme-x86-64/"
+  ))
 
 ;; elfeed
 ;; (require 'elfeed-org)
