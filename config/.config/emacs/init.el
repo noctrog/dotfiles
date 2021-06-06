@@ -23,6 +23,7 @@
 (straight-use-package 'org-roam)
 (straight-use-package 'org-roam-server)
 (straight-use-package 'org-attach-screenshot)
+(straight-use-package 'ox-reveal)
 ; evil-mode
 (straight-use-package 'evil)
 (straight-use-package 'evil-collection)
@@ -213,6 +214,9 @@
 (require 'ox-latex)
 (add-to-list 'org-latex-packages-alist '("" "listings"))
 (add-to-list 'org-latex-packages-alist '("" "color"))
+(require 'ox-reveal)
+(setq org-reveal-root "file:///home/ramon/Documents/reveal.js")
+(setq org-reveal-title-slide nil)
 ;; org roam
 (require 'org-roam)
 (setq org-roam-directory "~/Sync/org/roam")
