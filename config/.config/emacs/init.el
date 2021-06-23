@@ -136,6 +136,7 @@
   (setq org-startup-indented t) ; Enable `org-indent-mode' by default
   (add-hook 'org-mode-hook #'auto-fill-mode) ; hard wrap
   (add-hook 'org-mode-hook 'turn-on-org-cdlatex)) 
+(setq org-todo-keywords '((sequence "TODO(t)" "IN PROGRESS(p)" "|" "SKIPPED(s)" "DONE(d)")))
 (setq org-directory "~/Sync/org") ; main org directory
 (setq org-agenda-files '("~/Sync/org/agenda")) ; include all in folder as agenda
 (setq org-agenda-span 17
