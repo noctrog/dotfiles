@@ -1,12 +1,12 @@
 {
-    "layer": "top", // Waybar at top layer
+    "layer": "bottom", // Waybar at top layer
     "position": "top", // Waybar at the bottom of your screen
     "height": 24, // Waybar height
     // "width": 1366, // Waybar width
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "custom/clock", "tray"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -19,8 +19,9 @@
         // "icon-size": 21,
         "spacing": 10
     },
-    "clock": {
-        "format-alt": "{:%Y-%m-%d}"
+    "custom/clock": {
+        "exec": "date +'%H:%M'",
+        "interval": 10
     },
     "cpu": {
         "format": "{usage}% "
