@@ -68,8 +68,8 @@
 (straight-use-package 'cdlatex)
 ;; internet
 (straight-use-package 'elpher)
-;; (straight-use-package 'elfeed)
-;; (straight-use-package 'elfeed-org)
+(straight-use-package 'elfeed)
+(straight-use-package 'elfeed-org)
 
 ;; Increases Garbage Collection During Startup
 (setq startup/gc-cons-threshold gc-cons-threshold)
@@ -458,42 +458,14 @@
     "/usr/local/bin//mit-scheme/bin/scheme --library /usr/local/lib/mit-scheme-x86-64/"
   ))
 
-;; newsticker
-(setq newsticker-automatically-mark-items-as-old nil)
-(setq newsticker-automatically-mark-visited-items-as-old t)
-(setq newsticker-dir "~/Sync/org/newsticker")
-(setq newsticker-url-list
-      '(; robotics research
-	("Robotics Systems Lab" "https://nitter.cc/leggedrobotics/rss" nil 3600)
-	("Anybotics" "https://nitter.cc/anybotics/rss" nil 3600)
-	("Joonho Lee" "https://nitter.cc/junja941/rss" nil 3600)
-	("Sergey Levine" "https://nitter.cc/svlevine/rss" nil 3600)
-	("Sim 2 Real" "https://nitter.cc/sim2realAIorg/rss" nil 3600)
-	; AI research
-	("Hardmaru Twitter" "https://nitter.cc/hardmaru/rss" nil 3600)
-	("Yann LeCun Twitter" "https://nitter.cc/ylecun/rss" nil 3600)
-	("DeepMind Twitter" "https://nitter.cc/DeepMind/rss" nil 3600)
-	("GoogleAI Twitter" "https://nitter.cc/GoogleAI/rss" nil 3600)
-	("Karpathy Twitter" "https://nitter.cc/karpathy/rss" nil 3600)
-	("BerkeleyAI Twitter" "https://nitter.cc/berkeley_ai/rss" nil 3600)
-	("HuggingFace Twitter" "https://nitter.cc/huggingface/rss" nil 3600)
-	; embedded
-	("ThirtyThreeForty" "https://www.thirtythreeforty.net/posts/index.xml" nil 3600)
-	("MCU on Eclipse" "https://mcuoneclipse.com/feed/" nil 3600)
-	; 3D graphics
-	("Reduzio Twitter" "https://nitter.cc/reduzio/rss" nil 3600)
-	("Mosra Twitter" "https://nitter.cc/czmosra/rss" nil 3600)
-	; youtube
-	; twitter
-
-	))
-
 ;; elfeed
-;; (require 'elfeed-org)
+(require 'elfeed)
+(setq elfeed-db-directory "~/Sync/.elfeed")
+(require 'elfeed-org)
 ;; Initialize elfeed-org. This hooks up elfeed-org to read the
 ;; configuration when elfeed is started with =M-x elfeed=
-;; (elfeed-org)
-;; (setq rmh-elfeed-org-files (list "~/Sync/org/elfeed.org"))
+(elfeed-org)
+(setq rmh-elfeed-org-files (list "~/Sync/org/elfeed.org"))
 
 ;; rosemacs
 ;; (add-to-list 'load-path "/opt/ros/melodic/share/emacs/site-lisp")
