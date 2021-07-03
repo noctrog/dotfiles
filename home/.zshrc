@@ -3794,20 +3794,7 @@ fi
 
 zrclocal
 
-alias vi=nvim
-alias vim=nvim
-alias vimdiff=nvim -d
-
 alias ec="exec emacsclient -nc"
-
-## antigen
-source /usr/share/zsh/share/antigen.zsh
-antigen use oh-my-zsh
-antigen bundle z
-
-antigen apply
-
-export EDITOR=nvim
 
 ## genrefcard.pl settings
 
