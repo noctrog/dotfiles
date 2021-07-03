@@ -232,4 +232,8 @@ bar {
     swaybar_command waybar
 }
 
+# Screen brightness
+bindsym $mod+Control+Up   exec xbacklight -inc 10
+bindsym $mod+Control+Down exec xbacklight -dec 10
+
 # include /etc/sway/config.d/*
