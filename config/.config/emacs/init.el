@@ -456,7 +456,7 @@
 (defun mechanics ()
   (interactive)
   (run-scheme 
-    "/usr/local/bin//mit-scheme/bin/scheme --library /usr/local/lib/mit-scheme-x86-64/"
+    "/usr/local/bin/mit-scheme --library /usr/local/lib/mit-scheme-x86-64/"
   ))
 
 ;; elfeed
