@@ -26,6 +26,7 @@ window#waybar {
     background: transparent;
     color: white;
     border-top: 2px solid transparent;
+    min-width: 15px;
 }
 
 #workspaces button.focused {
