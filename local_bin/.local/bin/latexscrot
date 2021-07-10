@@ -1,8 +1,0 @@
-#!/bin/sh
-
-echo "\\begin{figure}[htpb]
-	\\centering
-	\\includegraphics[width=.8\\linewidth]{figures/$1}
-	\\caption{<++>}
-	\\label{fig:<++>}
-\\end{figure}"
