@@ -3795,6 +3795,7 @@ fi
 zrclocal
 
 alias ec="exec emacsclient -nc"
+alias ect="TERM=xterm-256color emacsclient -t"
 
 ## genrefcard.pl settings
 
