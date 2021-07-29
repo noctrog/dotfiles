@@ -229,32 +229,29 @@
 (setq org-reveal-title-slide nil)
 ;; org roam
 (require 'org-roam)
-(setq org-roam-directory "~/Sync/org/roam")
-(setq org-roam-db-location "~/.org/roam.db")
-(setq org-roam-encrypt-files t)
-(add-hook 'after-init-hook 'org-roam-mode)
-(setq org-roam-completion-system 'helm)
-(global-set-key (kbd "C-c r b") 'org-roam)
+(setq org-roam-v2-ack t)
+(setq org-roam-directory (file-truename "~/Sync/org/roam"))
+(setq org-roam-db-location (file-truename "~/.org/roam.db"))
+(setq org-roam-completion-everywhere t)
+(global-set-key (kbd "C-c r f") 'org-roam-node-find)
 (global-set-key (kbd "C-c r c") 'org-roam-capture)
-(global-set-key (kbd "C-c r d") 'org-roam-doctor)
-(global-set-key (kbd "C-c r f") 'org-roam-find-file)
-(global-set-key (kbd "C-c r g") 'org-roam-graph)
-(global-set-key (kbd "C-c r i") 'org-roam-insert)
-(global-set-key (kbd "C-c r m") 'org-roam-mode)
-(global-set-key (kbd "C-c r r") 'org-roam-find-ref)
-(global-set-key (kbd "C-c r t") 'org-roam-buffer-toggle-display)
-(require 'org-roam-server)
-(setq org-roam-server-host "127.0.0.1"
-        org-roam-server-port 7777
-        org-roam-server-authenticate nil
-        org-roam-server-export-inline-images t
-        org-roam-server-serve-files nil
-        org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
-        org-roam-server-network-poll t
-        org-roam-server-network-arrows nil
-        org-roam-server-network-label-truncate t
-        org-roam-server-network-label-truncate-length 60
-        org-roam-server-network-label-wrap-length 20)
+(global-set-key (kbd "C-c r i") 'org-roam-node-insert)
+(global-set-key (kbd "C-c r t") 'org-roam-buffer-toggle)
+(global-set-key (kbd "C-c r r") 'org-roam-ref-find)
+(define-key org-mode-map (kbd "C-M-i") 'completion-at-point)
+(org-roam-setup)
+; (require 'org-roam-server)
+; (setq org-roam-server-host "127.0.0.1"
+        ; org-roam-server-port 7777
+        ; org-roam-server-authenticate nil
+        ; org-roam-server-export-inline-images t
+        ; org-roam-server-serve-files nil
+        ; org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
+        ; org-roam-server-network-poll t
+        ; org-roam-server-network-arrows nil
+        ; org-roam-server-network-label-truncate t
+        ; org-roam-server-network-label-truncate-length 60
+        ; org-roam-server-network-label-wrap-length 20)
 ;; bibtex - TODO pdfs
 (setq bibtex-completion-bibliography
       '("~/Sync/org/references.bib"))
