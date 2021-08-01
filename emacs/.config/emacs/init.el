@@ -388,6 +388,8 @@
 ;; tree-sitter
 (global-tree-sitter-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+(setq tree-sitter-debug-highlight-jump-region t)
+(setq tree-sitter-debug-jump-buttons t)
 
 ;; helm mode
 (global-set-key (kbd "M-x") 'helm-M-x)
