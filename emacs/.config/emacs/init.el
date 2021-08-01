@@ -63,6 +63,10 @@
 (straight-use-package 'origami)
 (require 'origami)
 ;; languages
+(straight-use-package 'tree-sitter)
+(straight-use-package 'tree-sitter-langs)
+(require 'tree-sitter)
+(require 'tree-sitter-langs)
 (straight-use-package 'rust-mode)
 (require 'rust-mode)
 ;; documents
@@ -380,6 +384,10 @@
 (add-hook 'c-mode-hook 'eglot-ensure)
 (add-hook 'c++-mode-hook 'eglot-ensure)
 (add-hook 'python-mode-hook 'eglot-ensure)
+
+;; tree-sitter
+(global-tree-sitter-mode)
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
 ;; helm mode
 (global-set-key (kbd "M-x") 'helm-M-x)
