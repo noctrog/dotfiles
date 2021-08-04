@@ -31,6 +31,8 @@ require'compe'.setup {                 -- nvim-compe configuration
     vsnip = false;
     ultisnips = false;
     luasnip = true;
+    orgmode = true;
+    neorg = true;
   };
 }
 

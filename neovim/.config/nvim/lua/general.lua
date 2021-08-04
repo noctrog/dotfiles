@@ -10,6 +10,7 @@ local wo = vim.wo
 g.mapleader = ' '   -- change the leader key
 o.mouse = 'a'       -- enable mouse support
 bo.swapfile = false -- don't use swapfile
+o.encoding = "utf-8" -- Set default encoding to UTF-8
 
 --------------------------------------------------------------------------
 -- Neovim UI

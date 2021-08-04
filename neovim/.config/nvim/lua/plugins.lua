@@ -6,6 +6,10 @@ return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 
 	---- Utilities
+	-- tpope magic
+	use {'tpope/vim-surround'}
+	-- Nerd commenter
+	use {'preservim/nerdcommenter'}
 	-- Telescope
 	use {
 		'nvim-telescope/telescope.nvim',
@@ -25,6 +29,15 @@ return require('packer').startup(function()
 			require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 		end
 	}
+	-- Which key
+	use {
+		"folke/which-key.nvim",
+		config = function()
+			require("which-key").setup {}
+		end
+	}
+	-- Undotree
+	use {"mbbill/undotree"}
 
 	---- Programming
 	-- LSP
@@ -44,7 +57,15 @@ return require('packer').startup(function()
 		'hoob3rt/lualine.nvim',
 		requires = {'kyazdani42/nvim-web-devicons', opt = true}
 	}
+	-- Bar prettifier
+	use {'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
 	-- The best theme of them all
 	use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+
+	---- Org
+	-- Org mode
+	use {'kristijanhusak/orgmode.nvim'}
+	-- Neorg
+	use {"vhyrro/neorg", requires = "nvim-lua/plenary.nvim"}
 end)
 

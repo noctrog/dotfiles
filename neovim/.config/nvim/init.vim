@@ -10,6 +10,28 @@ lua require('init')
 " Configure the user interface
 lua require('gui')
 
+" Copy to the end of the line
+nnoremap Y y$
+
+" Keeping it centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" Move text
+vnoremap J :m '>+1<cr>==
+vnoremap K :m '<-2<cr>==
+inoremap <c-j> <esc>:m .+1<cr>==
+inoremap <c-k> <esc>:m .<-2<cr>==
+nnoremap <c-j> :m .+1<cr>==
+nnoremap <c-k> :m .-2<cr>==
+
 " Luansippets use TAB
 " TODO convert to LUA
 imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
@@ -27,3 +49,4 @@ inoremap <silent><expr> <CR>      compe#confirm(luaeval("require 'nvim-autopairs
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
