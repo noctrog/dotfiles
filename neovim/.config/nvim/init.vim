@@ -10,6 +10,9 @@ lua require('init')
 " Configure the user interface
 lua require('gui')
 
+" Highlight on yank
+au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=50, on_visual=true}
+
 " Copy to the end of the line
 nnoremap Y y$
 
