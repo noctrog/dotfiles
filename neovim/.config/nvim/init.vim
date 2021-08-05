@@ -28,8 +28,8 @@ inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
 " Move text
-vnoremap J :m '>+1<cr>==
-vnoremap K :m '<-2<cr>==
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
 inoremap <c-j> <esc>:m .+1<cr>==
 inoremap <c-k> <esc>:m .<-2<cr>==
 nnoremap <c-j> :m .+1<cr>==
@@ -52,4 +52,3 @@ inoremap <silent><expr> <CR>      compe#confirm(luaeval("require 'nvim-autopairs
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-
