@@ -197,3 +197,9 @@ vim.g.bufferline = {
   -- where X is the buffer number. But only a static string is accepted here.
   no_name_title = nil,
 }
+
+-- NERDCommenter
+vim.g.NERDCreateDefaultMappings = 1
+vim.g.NERDSpaceDelims = 1
+vim.g.NERDCommentEmptyLines = 1
+vim.g.NERDCompactSexyComs = 1
