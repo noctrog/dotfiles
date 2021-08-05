@@ -3,6 +3,17 @@ require('telescope').setup()
 require('telescope').load_extension('fzy_native')
 
 -- Treeshitter
+
+local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+
+parser_configs.norg = {
+    install_info = {
+        url = "https://github.com/vhyrro/tree-sitter-norg",
+        files = { "src/parser.c" },
+        branch = "main"
+    },
+}
+
 local treesitter_conf = require("nvim-treesitter.configs")
 treesitter_conf.setup {
 	highlight = {
@@ -10,6 +21,7 @@ treesitter_conf.setup {
 	},
 	ensure_installed = { "norg", "cpp", "c", "python"},
 }
+
 -- Auto pairs
 require('nvim-autopairs').setup({
 	disable_filetype = { "TelescopePrompt" },
@@ -60,16 +72,6 @@ neogit.setup {
       -- ["s"] = "",
     }
   }
-}
-
-local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
-
-parser_configs.norg = {
-    install_info = {
-        url = "https://github.com/vhyrro/tree-sitter-norg",
-        files = { "src/parser.c" },
-        branch = "main"
-    },
 }
 
 -- Which key
