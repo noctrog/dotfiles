@@ -7,8 +7,13 @@ lua require('general')
 " Initialize configuration
 lua require('init')
 
+" Load snippets
+lua require('snips')
+
 " Configure the user interface
 lua require('gui')
+
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " Highlight on yank
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=50, on_visual=true}
@@ -43,8 +48,8 @@ inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
 snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
 snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
 
-imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+imap <silent><expr> <C-a> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-a>'
+smap <silent><expr> <C-a> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-a>'
 
 " Vim-compe keybinds with nvim-autopairs support
 inoremap <silent><expr> <C-Space> compe#complete()
