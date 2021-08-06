@@ -16,6 +16,7 @@ return require('packer').startup(function()
 		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
 	}
 	use {"nvim-telescope/telescope-fzy-native.nvim"}
+	-- use {"nvim-telescope/telescope-cheat.nvim", requires = "tami5/sql.nvim"} -- use in the future
 	-- Autopairs
 	use {"windwp/nvim-autopairs"}
 	-- Snippets
@@ -38,6 +39,8 @@ return require('packer').startup(function()
 	}
 	-- Undotree
 	use {"mbbill/undotree"}
+	-- Cheatshit
+	use {"dbeniamine/cheat.sh-vim"}
 
 	---- Programming
 	-- LSP
@@ -59,7 +62,7 @@ return require('packer').startup(function()
 		requires = {'kyazdani42/nvim-web-devicons', opt = true}
 	}
 	-- Bar prettifier
-	use {'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
+	-- use {'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
 	-- The best theme of them all
 	use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 
