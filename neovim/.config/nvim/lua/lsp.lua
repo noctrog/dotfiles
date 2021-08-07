@@ -46,9 +46,15 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
+-- C/C++ config
 require("lspconfig").clangd.setup{
 	capabilities = capabilities,
 }
+
+-- Python config
 require("lspconfig").pylsp.setup{
 	capabilities = capabilities,
 }
+
+-- Latex config
+require("lspconfig").texlab.setup{}

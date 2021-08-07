@@ -66,10 +66,12 @@ return require('packer').startup(function()
 	-- The best theme of them all
 	use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 
-	---- Org
+	---- Documents
 	-- Org mode
 	use {'kristijanhusak/orgmode.nvim'}
 	-- Neorg
 	use {"vhyrro/neorg", requires = "nvim-lua/plenary.nvim"}
+	-- Latex
+	use {"lervag/vimtex"}
 end)
 
