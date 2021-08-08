@@ -7,10 +7,14 @@ local wo = vim.wo
 --------------------------------------------------------------------------
 -- General settings
 --------------------------------------------------------------------------
-g.mapleader = ' '   -- change the leader key
-o.mouse = 'a'       -- enable mouse support
-bo.swapfile = false -- don't use swapfile
+g.mapleader = ' '    -- change the leader key
+o.mouse = 'a'        -- enable mouse support
+bo.swapfile = false  -- don't use swapfile
 o.encoding = "utf-8" -- Set default encoding to UTF-8
+o.ignorecase = true
+o.wrap = false       -- disable line breaking
+o.sidescroll = 1     -- horizontal scrolling
+o.sidescrolloff = 4  -- horizontal scrolling offset
 
 --------------------------------------------------------------------------
 -- Neovim UI
