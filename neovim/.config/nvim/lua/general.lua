@@ -28,11 +28,11 @@ wo.colorcolumn = '80' -- show line length marker at 80 columns
 o.splitright = true
 o.splitbelow = true
 o.smartcase = true  -- ignore lowercase for the whole pattern
-o.undofile = true
-o.undodir = '~/.vim/undodir'
 o.cursorline = true
 o.scrolloff = 3
-g.nowrap = true
+vim.api.nvim_exec([[
+  set undodir=~/.vim/undodir
+  set undofile]], true)
 
 --augroup numbertoggle
 --    autocmd!
