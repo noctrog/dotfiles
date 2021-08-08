@@ -58,3 +58,7 @@ require("lspconfig").pylsp.setup{
 
 -- Latex config
 require("lspconfig").texlab.setup{}
+
+-- LSPSaga
+local saga = require 'lspsaga'
+saga.init_lsp_saga()

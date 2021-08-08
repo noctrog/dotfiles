@@ -168,6 +168,14 @@ wk.register({
 	u = { "<cmd>UndotreeToggle<cr>", "Undo Tree" },
 	-- Neogit
 	m = { "<cmd>Neogit<cr>", "Neogit" },
+	-- LSP
+	l = {
+		f = { "<cmd>lua require'lspsaga.provider'.lsp_finder()<cr>", "Find def and ref" },
+		a = { "<cmd>lua require('lspsaga.codeaction').code_action()<cr>", "Code action"},
+		s = { "<cmd>lua require('lspsaga.signaturehelp').signature_help()<cr>", "Signature help"},
+		r = { "<cmd>lua require('lspsaga.rename').rename()<cr>", "Rename"},
+		d = { "<cmd>lua require'lspsaga.provider'.preview_definition()<cr>", "Preview definition"},
+	}
 }, { prefix = "<leader>" })
 
 -- Neorg
