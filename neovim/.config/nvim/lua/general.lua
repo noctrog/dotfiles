@@ -63,3 +63,9 @@ cmd([[
 	autocmd Filetype xml,html,xhtml,css,scss,yaml setlocal shiftwidth=2 tabstop=2
 ]])
 
+--------------------------------------------------------------------------
+-- Filetype specific configs
+--------------------------------------------------------------------------
+-- Markdown
+cmd([[autocmd Filetype markdown setlocal tw=80]])
+
