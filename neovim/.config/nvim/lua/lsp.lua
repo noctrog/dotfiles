@@ -1,4 +1,4 @@
-
+-- VIM Compe
 vim.o.completeopt = "menuone,noselect" -- required for nvim-compe
 require'compe'.setup {                 -- nvim-compe configuration
   enabled = true;
@@ -36,6 +36,10 @@ require'compe'.setup {                 -- nvim-compe configuration
   };
 }
 
+-- LSP Signature
+-- require "lsp_signature".setup()
+
+-- LSP Config
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -62,3 +66,4 @@ require("lspconfig").texlab.setup{}
 -- LSPSaga
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
+
