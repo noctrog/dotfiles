@@ -227,6 +227,10 @@ wk.register({
 		s = { "<cmd>lua require('lspsaga.signaturehelp').signature_help()<cr>", "Signature help"},
 		r = { "<cmd>lua require('lspsaga.rename').rename()<cr>", "Rename"},
 		d = { "<cmd>lua require'lspsaga.provider'.preview_definition()<cr>", "Preview definition"},
+	},
+	-- Hop
+	[";"] = {
+		"<cmd>:HopChar2<cr>", "Hop"
 	}
 }, { prefix = "<leader>" })
 
