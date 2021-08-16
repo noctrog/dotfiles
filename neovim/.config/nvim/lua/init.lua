@@ -70,7 +70,7 @@ treesitter_conf.setup {
 	highlight = {
 		enable = true,
 	},
-	ensure_installed = { "norg", "cpp", "c", "python", "latex", "rust" },
+	ensure_installed = { "norg", "cpp", "c", "python", "latex", "rust", "query" },
 }
 
 require('nvim-treesitter.configs').setup {
