@@ -15,6 +15,7 @@ o.ignorecase = true
 o.wrap = false       -- disable line breaking
 o.sidescroll = 1     -- horizontal scrolling
 o.sidescrolloff = 4  -- horizontal scrolling offset
+o.inccommand = 'nosplit' -- show live changes in search and replace
 
 --------------------------------------------------------------------------
 -- Neovim UI
