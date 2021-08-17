@@ -29,7 +29,7 @@ o.splitright = true
 o.splitbelow = true
 o.smartcase = true  -- ignore lowercase for the whole pattern
 o.cursorline = true
-o.scrolloff = 3
+o.scrolloff = 8
 vim.api.nvim_exec([[
   set undodir=~/.vim/undodir
   set undofile]], true)
