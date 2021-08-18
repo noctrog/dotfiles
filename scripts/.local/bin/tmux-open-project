@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# List of directories to look for
+Folders=("$HOME/Documents/projects" "$HOME/Software")
+
+# Find every folder that contains a .git directory, select one and create a tmux session
+# find ${Folders[@]} -type d -regex ".*/.git" -printf "%h\n" | 
+		 # fzf |                
+		 # xargs -I{} sh -c "tmux new-session -c '{}' -d -s '{}' && tmux switch-client -t '{}'"
+project_path=$(find ${Folders[@]} -type d -regex ".*/.git" -printf "%h\n" | fzf)
+project_name=$(basename $project_path)	
+
+tmux new-session -c "$project_path" -d -s "$project_name" && tmux switch-client -t "$project_name"

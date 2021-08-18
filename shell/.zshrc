@@ -3797,6 +3797,9 @@ zrclocal
 alias ec="exec emacsclient -nc"
 alias ect="TERM=xterm-256color emacsclient -t"
 
+# Tmux alias
+alias ta="tmux attach"
+
 ## genrefcard.pl settings
 
 ### doc strings for external functions from files
