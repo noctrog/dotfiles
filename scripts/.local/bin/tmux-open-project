@@ -1,13 +1,30 @@
 #!/bin/sh
 
-# List of directories to look for
-Folders=("$HOME/Documents/projects" "$HOME/Software")
+# If a path is given, create a session to that project path
+if [[ $# -eq 1 ]]; then
+		project_path=$1
+else
+		# List of directories to look for
+		Folders=("$HOME/Documents/projects" "$HOME/Software")
+		Folders+=("$HOME/.dotfiles")
 
-# Find every folder that contains a .git directory, select one and create a tmux session
-# find ${Folders[@]} -type d -regex ".*/.git" -printf "%h\n" | 
-		 # fzf |                
-		 # xargs -I{} sh -c "tmux new-session -c '{}' -d -s '{}' && tmux switch-client -t '{}'"
-project_path=$(find ${Folders[@]} -type d -regex ".*/.git" -printf "%h\n" | fzf)
+		# Find every folder that contains a .git directory, select one and create a tmux session
+		project_path=$(find ${Folders[@]} -maxdepth 2 -type d -regex ".*/.git" -printf "%h\n" | fzf)
+
+		# If the project path is empty, end the script
+		if [[ -z "$project_path" ]]; then
+				exit 0
+		fi
+fi
+
+# Get the project name (same as folder containing it)
 project_name=$(basename $project_path)	
 
+# Try to switch to the session if it already exists
+tmux switch-client -t $project_name
+# If the session exists, this command will not fail and we can conclude
+if [[ $? -eq 0 ]]; then
+		exit 0
+fi
+# Otherwise, we need to create a new session and switch to it
 tmux new-session -c "$project_path" -d -s "$project_name" && tmux switch-client -t "$project_name"
