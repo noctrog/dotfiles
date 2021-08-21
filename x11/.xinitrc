@@ -10,7 +10,7 @@ rem
 dunst &
 
 # Wallpaper
-feh --bg-fill ~/.config/.wall.png
+feh --bg-fill ~/.config/.wall
 
 # Window manager
 exec startdwm
