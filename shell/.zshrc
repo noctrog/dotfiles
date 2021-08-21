@@ -3794,10 +3794,14 @@ fi
 
 zrclocal
 
+alias vim=nvim
+alias vimdiff=nvim -d
+
 alias ec="exec emacsclient -nc"
 alias ect="TERM=xterm-256color emacsclient -t"
 
 # Tmux alias
+alias t="tmux"
 alias ta="tmux attach"
 
 ## genrefcard.pl settings
