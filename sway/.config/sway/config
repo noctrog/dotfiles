@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -243,5 +243,6 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 # Floating rules
 for_window [class="Alacritty,floating"] floating enable
+for_window [class="Foot,floating"] floating enable
 
 # include /etc/sway/config.d/*
