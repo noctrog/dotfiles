@@ -10,6 +10,8 @@ return require('packer').startup(function()
 	use {'tpope/vim-surround'}
 	-- Nerd commenter
 	use {'preservim/nerdcommenter'}
+	-- Sneak
+	use {'justinmk/vim-sneak'}
 	-- Telescope
 	use {
 		'nvim-telescope/telescope.nvim',
