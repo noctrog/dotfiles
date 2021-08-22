@@ -1,0 +1,17 @@
+#!/bin/sh
+
+folder_path=$HOME
+session_name="Music"
+window_name="Music Player"
+music_player="cmus"
+
+# Try to switch to the session, if it already exists
+tmux switch-client -t "$session_name"
+
+# If the session exists, exit the script
+if [[ $? -eq 0 ]]; then
+		exit 0
+fi
+
+# Otherwise, create the session and switch to it
+tmux new-session -c "$folder_path" -d -s "$session_name" -n "$window_name" $music_player && tmux switch-client -t "$session_name" 
