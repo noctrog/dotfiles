@@ -47,11 +47,26 @@ require('telescope').setup{
     qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
 
     -- Developer configurations: Not meant for general override
-    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
+    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker,
+    extensions = {
+        fzy_native = {
+            override_generic_sorter = true,
+            override_file_sorter = true,
+        }
+    }
   }
 }
+
 require('telescope').load_extension('fzy_native')
 -- require('telescope').load_extension('cheat')
+
+local M = {}
+M.search_dotfiles = function()
+	require("telescope.builtin").find_files({
+		prompt_title = "< VimRC >",
+		cwd = "~/.config/nvim",
+	})
+end
 
 -- Treeshitter
 
@@ -232,6 +247,13 @@ wk.register({
 	-- Hop
 	[";"] = {
 		"<cmd>:HopChar2<cr>", "Hop"
+	},
+	-- vimrc
+	v = {
+		r = {
+			c = { "<cmd>lua require('init').search_dotfiles()<cr>", "Search Dotfiles" }
+		}
+	},
 	}
 }, { prefix = "<leader>" })
 
