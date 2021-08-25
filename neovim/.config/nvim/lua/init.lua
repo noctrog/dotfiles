@@ -254,6 +254,9 @@ wk.register({
 			c = { "<cmd>lua require('init').search_dotfiles()<cr>", "Search Dotfiles" }
 		}
 	},
+	-- 
+	n = {
+		h = { "<cmd>nohl<cr>", ":nohl" },
 	}
 }, { prefix = "<leader>" })
 
