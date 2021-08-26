@@ -5,7 +5,10 @@ return require('packer').startup(function()
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
-	---- Utilities
+	------------------------------------------------------------------------
+	----------------------------- Utilities --------------------------------
+	------------------------------------------------------------------------
+	
 	-- tpope magic
 	use {'tpope/vim-surround'}
 	-- Nerd commenter
@@ -18,7 +21,6 @@ return require('packer').startup(function()
 		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
 	}
 	use {"nvim-telescope/telescope-fzy-native.nvim"}
-	-- use {"nvim-telescope/telescope-cheat.nvim", requires = "tami5/sql.nvim"} -- use in the future
 	-- Autopairs
 	use {"windwp/nvim-autopairs"}
 	-- Snippets
@@ -44,12 +46,13 @@ return require('packer').startup(function()
 	-- Cheatshit
 	use {"dbeniamine/cheat.sh-vim"}
 
-	---- Programming
+	------------------------------------------------------------------------
+	----------------------------- Programming ------------------------------
+	------------------------------------------------------------------------
 	-- LSP
 	use {"neovim/nvim-lspconfig"}
 	use {"hrsh7th/nvim-compe"}
 	use {"glepnir/lspsaga.nvim"}
-	-- use {"ray-x/lsp_signature.nvim"}
 
 	-- Syntax
 	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
@@ -58,7 +61,9 @@ return require('packer').startup(function()
 	-- Git interface
 	use {"TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
 
-	---- GUI
+	------------------------------------------------------------------------
+	--------------------------------- GUI ----------------------------------
+	------------------------------------------------------------------------
 	-- Status line
 	use {
 		'hoob3rt/lualine.nvim',
@@ -69,7 +74,9 @@ return require('packer').startup(function()
 	-- The best theme of them all
 	use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 
-	---- Documents
+	------------------------------------------------------------------------
+	------------------------------- Documents ------------------------------
+	------------------------------------------------------------------------
 	-- Org mode
 	use {'kristijanhusak/orgmode.nvim'}
 	-- Neorg
