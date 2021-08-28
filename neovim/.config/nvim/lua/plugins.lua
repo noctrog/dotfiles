@@ -25,6 +25,7 @@ return require('packer').startup(function()
 	use {"windwp/nvim-autopairs"}
 	-- Snippets
 	use {"L3MON4D3/LuaSnip"}
+	use {"rafamadriz/friendly-snippets"}
 	-- Hop
 	use {
 		'phaazon/hop.nvim',
