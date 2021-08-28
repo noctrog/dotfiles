@@ -215,7 +215,121 @@ ls.snippets = {
 			t({"", "\\end{itemize}"}), i(0)
 		})
 	},
+	c = {
+		-- include snippets
+		s("inc", {
+			t("#include \""),
+			i(1, "stdio.h"),
+			t("\""), i(0)
+		}),
+		s("incs", {
+			t("#include <"),
+			i(1, "stdio.h"),
+			t(">"), i(0)
+		}),
+		-- if, if else
+		s("if", {
+			c(1, {
+				sn(nil, { -- without brackets
+				t("if ("),
+				i(1, "condition"),
+				t({ ")", "\t" }),
+				i(2, "consequent"),
+				t({"", ""}) }),
+				sn(nil, { -- with brackets
+				t("if ("),
+				i(1, "condition"),
+				t({ ") {", "\t" }),
+				i(2, "consequent"),
+				t({"", "}", ""})})
+			}),
+			i(0)
+		}),
+		s("ifel", {
+			t("if ("),
+			i(1, "condition"),
+			t({ ") {", "\t" }),
+			i(2, "consequent"),
+			t({"", "} else {", "\t"}),
+			i(3, "alternative"),
+			t({ "", "}", "" }),
+			i(0),
+		}),
+		-- functions
+		s("main", {
+			t({ "int main (" }),
+			i(1, "int argc, char* arcv[]"),
+			t({")", "{", "\t"}),
+			i(0),
+			t({"", "}"})
+		}),
+		s({trig="fn"}, {
+			d(4, cdocsnip, {1, 3, 4}), t({"", ""}),
+			c(1, {
+				t({"void"}),
+				i(nil, {""}),
+				t({"char"}),
+				t({"int"}),
+				t({"float"}),
+				t({"double"}),
+				t({"bool"}),
+			}),
+			t({" "}),
+			i(2, {"function"}),
+			t({"("}), i(3), t({")"}),
+			t({" {", "\t"}),
+			i(0),
+			t({"", "}"})
+		})
+	},
 	cpp = {
+		-- include snippets
+		s("inc", {
+			t("#include \""),
+			i(1, "stdio.h"),
+			t("\""), i(0)
+		}),
+		s("incs", {
+			t("#include <"),
+			i(1, "stdio.h"),
+			t(">"), i(0)
+		}),
+		-- if, if else
+		s("if", {
+			c(1, {
+				sn(nil, { -- without brackets
+				t("if ("),
+				i(1, "condition"),
+				t({ ")", "\t" }),
+				i(2, "consequent"),
+				t({"", ""}) }),
+				sn(nil, { -- with brackets
+				t("if ("),
+				i(1, "condition"),
+				t({ ") {", "\t" }),
+				i(2, "consequent"),
+				t({"", "}", ""})})
+			}),
+			i(0)
+		}),
+		s("ifel", {
+			t("if ("),
+			i(1, "condition"),
+			t({ ") {", "\t" }),
+			i(2, "consequent"),
+			t({"", "} else {", "\t"}),
+			i(3, "alternative"),
+			t({ "", "}", "" }),
+			i(0),
+		}),
+		-- functions
+		s("main", {
+			t({ "int main (" }),
+			i(1, "int argc, char* arcv[]"),
+			t({")", "{", "\t"}),
+			i(0),
+			t({"", "}"})
+		}),
 		ls.parser.parse_snippet({trig = "if", wordTrig = true}, "if ($1)\n\t$2\n$0"),
 		ls.parser.parse_snippet({trig = "for", wordTrig = true}, "for ($1 : $2)\n\t$3\n$0"),
 		s({trig = "for(%w+)", wordTrig = true, regTrig = true}, {
