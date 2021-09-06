@@ -86,7 +86,7 @@ treesitter_conf.setup {
 		enable = true,
 	},
 	ensure_installed = { "norg", "cpp", "c", "python", "latex", "rust", 
-			     "query", "vim", "json" },
+			     "query", "vim", "json", "julia" },
 }
 
 require('nvim-treesitter.configs').setup {
