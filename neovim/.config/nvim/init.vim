@@ -13,7 +13,7 @@ lua require('snips')
 " Configure the user interface
 lua require('gui')
 
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+" let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " show hover doc
 nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
@@ -28,8 +28,8 @@ nnoremap <silent> ]e <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_ne
 " Highlight on yank
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=50, on_visual=true}
 
-" Copy to the end of the line
-nnoremap Y y$
+" Copy to the end of the line, no longer required, merged in #13268.
+nnoremap Y y$  
 
 " Keeping it centered
 nnoremap n nzzzv
@@ -62,8 +62,8 @@ imap <silent><expr> <C-a> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 smap <silent><expr> <C-a> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-a>'
 
 " Vim-compe keybinds with nvim-autopairs support
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+" inoremap <silent><expr> <C-Space> compe#complete()
+" inoremap <silent><expr> <CR>      compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))
+" inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+" inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+" inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })

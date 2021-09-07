@@ -46,13 +46,16 @@ return require('packer').startup(function()
 	use {"mbbill/undotree"}
 	-- Cheatshit
 	use {"dbeniamine/cheat.sh-vim"}
+        -- Completion
+	use {"hrsh7th/nvim-cmp", 
+                requires = {"hrsh7th/cmp-nvim-lsp", "saadparwaiz1/cmp_luasnip",
+                            "hrsh7th/cmp-buffer"}}
 
 	------------------------------------------------------------------------
 	----------------------------- Programming ------------------------------
 	------------------------------------------------------------------------
 	-- LSP
 	use {"neovim/nvim-lspconfig"}
-	use {"hrsh7th/nvim-compe"}
 	use {"glepnir/lspsaga.nvim"}
 
 	-- Syntax
@@ -81,7 +84,7 @@ return require('packer').startup(function()
 	-- Org mode
 	use {'kristijanhusak/orgmode.nvim'}
 	-- Neorg
-	use {"vhyrro/neorg", requires = "nvim-lua/plenary.nvim"}
+	use {"vhyrro/neorg", requires = {{"nvim-lua/plenary.nvim"}, {"vhyrro/neorg-telescope"} }}
 	-- Latex
 	use {"lervag/vimtex"}
 end)
