@@ -28,5 +28,6 @@ cmp.setup {
     { name = 'buffer' },
     { name = 'orgmode' },
     { name = 'neorg' },
+    { name = 'path' },
   },
 }
