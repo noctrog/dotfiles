@@ -81,6 +81,8 @@ return require('packer').startup(function()
 	------------------------------------------------------------------------
 	------------------------------- Documents ------------------------------
 	------------------------------------------------------------------------
+        -- GPG Encription
+        use {"jamessan/vim-gnupg"}
 	-- Org mode
 	use {'kristijanhusak/orgmode.nvim'}
 	-- Neorg
