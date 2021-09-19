@@ -89,5 +89,7 @@ return require('packer').startup(function()
 	use {"vhyrro/neorg", requires = {{"nvim-lua/plenary.nvim"}, {"vhyrro/neorg-telescope"} }}
 	-- Latex
 	use {"lervag/vimtex"}
+        -- Ledger
+        use {"ledger/vim-ledger"}
 end)
 
