@@ -3804,6 +3804,10 @@ alias ect="TERM=xterm-256color emacsclient -t"
 alias t="tmux"
 alias ta="tmux attach"
 
+# uni stuff
+alias unid="cd \`find $HOME/Documents/universidad -type d | fzf --preview='ls {}'\`"
+alias unif="xdg-open \`find $HOME/Documents/universidad -type f | fzf --preview='head -n40 {}'\`"
+
 ## genrefcard.pl settings
 
 ### doc strings for external functions from files
