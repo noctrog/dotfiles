@@ -24,7 +24,15 @@ o.syntax = 'enable' -- enable syntax highlighting
 wo.number = true    -- show line number
 wo.relativenumber = true -- relative line numbering
 o.showmatch = true  -- highlight matching parethesis
-wo.foldmethod = 'marker' -- enable folding
+-- fold settings
+vim.wo.foldmethod = "expr"
+vim.wo.foldlevel = 99
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+vim.wo.foldtext =
+    [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
+vim.wo.fillchars = "fold:\\"
+vim.wo.foldnestmax = 3
+vim.wo.foldminlines = 1
 wo.colorcolumn = '80' -- show line length marker at 80 columns
 o.splitright = true
 o.splitbelow = true
