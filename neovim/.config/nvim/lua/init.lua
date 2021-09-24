@@ -30,6 +30,7 @@ require("nvim-autopairs.completion.cmp").setup({
 
 -- Neogit initialize
 -- require("config.neogit")
+require("config.gitsigns")
 
 -- Which key
 require("config.which-key")
