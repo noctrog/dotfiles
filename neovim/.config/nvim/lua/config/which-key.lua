@@ -17,15 +17,15 @@ wk.register({
 		g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },    -- live grep
 		b = { "<cmd>Telescope buffers<cr>", "Switch buffers" }, -- switch buffer
 		h = { "<cmd>Telescope help_tags<cr>", "Help tags"},
+                t = { "<cmd>Telescope<cr>", "Telescope"},
 		["1"] = "which_key_ignore",  -- special label to hide it in the popup
 	},
 	-- Buffers
 	b = {
 		b = { "<cmd>Telescope buffers<cr>", "Change buffer"},
-		c = { "<cmd>BufferClose<cr>", "Close buffer"},
-		n = { "<cmd>BufferNext<cr>", "Next buffer"},
-		p = { "<cmd>BufferPrevious<cr>", "Previous buffer"},
-		P = { "<cmd>BufferPin<cr>", "Pin/Unpin buffer"},
+		c = { "<cmd>bdelete<cr>", "Close buffer"},
+		n = { "<cmd>bnext<cr>", "Next buffer"},
+		p = { "<cmd>bprevious<cr>", "Previous buffer"},
 	},
 	-- Tabs
 	t = {
