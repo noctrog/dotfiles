@@ -46,6 +46,8 @@ require('orgmode').setup({
                 target = '~/Sync/org/agenda/tasks.org'},
           u = { description = 'University', template = '* TODO %?\nDEADLINE: %t',
                 target = '~/Sync/org/agenda/university.org'},
+          b = { description = 'BibTex', template = '%?\n\n',
+                target = '~/Sync/org/references.bib'},
   }
 })
 
