@@ -42,7 +42,7 @@ require("config.neorg")
 require('orgmode').setup({
   org_agenda_files = {'~/Sync/org/agenda/*'},
   org_agenda_templates = {
-          t = { description = 'Task', template = '* TODO %?\n %t',
+          t = { description = 'Task', template = '* TODO %?\nSCHEDULED: %t',
                 target = '~/Sync/org/agenda/tasks.org'},
           u = { description = 'University', template = '* TODO %?\nDEADLINE: %t',
                 target = '~/Sync/org/agenda/university.org'},
