@@ -21,7 +21,9 @@
 (straight-use-package 'org-superstar)
 (straight-use-package 'org-ref)
 (straight-use-package 'org-roam)
-(straight-use-package 'org-roam-server)
+(straight-use-package 'websocket)
+(straight-use-package 'simple-httpd)
+(straight-use-package '(org-roam-ui :type git :host github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
 (straight-use-package 'org-attach-screenshot)
 (straight-use-package 'ox-reveal)
 ; evil-mode
@@ -237,6 +239,13 @@
 (setq org-roam-directory (file-truename "~/Sync/org/roam"))
 (setq org-roam-db-location (file-truename "~/.org/roam.db"))
 (setq org-roam-completion-everywhere t)
+(require 'websocket)
+(require 'simple-httpd)
+(load-library "org-roam-ui")
+(setq org-roam-ui-sync-theme t
+      org-roam-ui-follow t
+      org-roam-ui-update-on-save t
+      org-roam-ui-open-on-start t)
 (global-set-key (kbd "C-c r f") 'org-roam-node-find)
 (global-set-key (kbd "C-c r c") 'org-roam-capture)
 (global-set-key (kbd "C-c r i") 'org-roam-node-insert)
@@ -244,18 +253,6 @@
 (global-set-key (kbd "C-c r r") 'org-roam-ref-find)
 (define-key org-mode-map (kbd "C-M-i") 'completion-at-point)
 (org-roam-setup)
-; (require 'org-roam-server)
-; (setq org-roam-server-host "127.0.0.1"
-        ; org-roam-server-port 7777
-        ; org-roam-server-authenticate nil
-        ; org-roam-server-export-inline-images t
-        ; org-roam-server-serve-files nil
-        ; org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
-        ; org-roam-server-network-poll t
-        ; org-roam-server-network-arrows nil
-        ; org-roam-server-network-label-truncate t
-        ; org-roam-server-network-label-truncate-length 60
-        ; org-roam-server-network-label-wrap-length 20)
 ;; bibtex - TODO pdfs
 (setq bibtex-completion-bibliography
       '("~/Sync/org/references.bib"))
