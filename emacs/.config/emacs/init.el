@@ -272,6 +272,7 @@
 (setq evil-want-C-u-scroll t)   ; use C-u to scroll up in normal mode
 (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
 (setq evil-want-keybinding nil)
+(setq evil-want-Y-yank-to-eol t)
 (require 'evil)
 (when (require 'evil-collection nil t)
   (evil-collection-init))
