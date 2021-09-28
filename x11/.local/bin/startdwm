@@ -1,7 +1,13 @@
 #!/bin/sh
 
+# Set the wallpaper
+feh --bg-fill ~/.config/.wall
+
 # Start status program
 slstatus&
+
+# Notification daemon
+dunst&
 
 # relaunch DWM if the binary changes, otherwise bail
 csum=$(sha1sum $(which dwm))
