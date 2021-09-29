@@ -92,5 +92,7 @@ return require('packer').startup(function()
 	use {"lervag/vimtex"}
         -- Ledger
         use {"ledger/vim-ledger"}
+        -- Table mode
+        use {"dhruvasagar/vim-table-mode"}
 end)
 
