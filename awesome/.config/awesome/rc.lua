@@ -334,7 +334,9 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+    awful.key({ modkey, "Shift" }, "p", function () awful.util.spawn("eth-pdf-select") end,
+              {description = "select uni pdf", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
