@@ -2,7 +2,7 @@
 
 # List of all of the languages and coreutils that I can come up with
 languages=$(echo "c cpp golang julia matlab octave java kotlin dart rust python shell lua lisp elisp clojure scheme" | tr ' ' '\n')
-coreutils=$(echo "find lvm2 xargs mv read sed awk chmod passwd useradd usermod chown du df ls cp dd install shred link ln mkdir mkfifo mknod readlink rmdir unlink touch stat sync truncate echo printf yes sort uniq comm tsort wc sha1sum md5sum sum cksum head tail less split fmt pr fold cat tac nl od paste tr paste join expand unexpand dir vdir dircolors test expr tee realpath basename pwd tty id logname whoami users who date arch nproc uname hostname uptime kill sleep factor nice seq timeout env nmap" | tr ' ' '\n')
+coreutils=$(echo "find git lvm2 xargs mv read sed awk chmod passwd useradd usermod chown du df ls cp dd install shred link ln mkdir mkfifo mknod readlink rmdir unlink touch stat sync truncate echo printf yes sort uniq comm tsort wc sha1sum md5sum sum cksum head tail less split fmt pr fold cat tac nl od paste tr paste join expand unexpand dir vdir dircolors test expr tee realpath basename pwd tty id logname whoami users who date arch nproc uname hostname uptime kill sleep factor nice seq timeout env nmap" | tr ' ' '\n')
 
 # Select one of the previous items
 selected=$(printf "$languages\n$coreutils" | fzf)
