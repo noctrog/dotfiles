@@ -1,4 +1,5 @@
 local wk = require("which-key")
+
 wk.register({
 	-- Packer
 	P = {
@@ -56,9 +57,13 @@ wk.register({
 			c = { "<cmd>lua require('init').search_dotfiles()<cr>", "Search Dotfiles" }
 		}
 	},
-	-- 
+	--
 	n = {
 		h = { "<cmd>nohl<cr>", ":nohl" },
-	}
+	},
+        -- org mode
+        o = {
+                R = { "<cmd>lua require('init').search_org_roam()<cr>", "Search org roam" },
+        }
 }, { prefix = "<leader>" })
 

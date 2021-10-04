@@ -9,6 +9,13 @@ M.search_dotfiles = function()
 	})
 end
 
+M.search_org_roam = function()
+	require("telescope.builtin").find_files({
+		prompt_title = "< Org roam >",
+		cwd = "~/Sync/org/roam",
+	})
+end
+
 -- Treeshitter
 require('config.treesitter')
 
