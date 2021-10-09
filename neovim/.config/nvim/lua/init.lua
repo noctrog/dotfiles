@@ -58,7 +58,7 @@ require('orgmode').setup({
           b = { description = 'BibTex', template = '%?\n\n',
                 target = '~/Sync/org/references.bib'},
   },
-  org_todo_keywords = {'TODO(t)', 'SKIPPED(s)', '|', 'DONE(d)'},
+  org_todo_keywords = {'TODO(t)', '|', 'SKIPPED(s)', 'DONE(d)'},
 })
 
 -- Markdown
