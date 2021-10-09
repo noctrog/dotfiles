@@ -15,5 +15,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
     emacs --daemon&
-    exec sway --my-next-gpu-wont-be-nvidia
+    startx
+    # exec sway --my-next-gpu-wont-be-nvidia
 fi
