@@ -55,9 +55,12 @@ return require('packer').startup(function()
 	-- Cheatshit
 	use {"dbeniamine/cheat.sh-vim"}
         -- Completion
-	use {"hrsh7th/nvim-cmp", 
-                requires = {"hrsh7th/cmp-nvim-lsp", "saadparwaiz1/cmp_luasnip",
-                            "hrsh7th/cmp-buffer", "hrsh7th/cmp-path"}}
+	use {"hrsh7th/nvim-cmp"}
+        use {"hrsh7th/cmp-nvim-lua", requires = {"hrsh7th/nvim-cmp"}}
+        use {"hrsh7th/cmp-nvim-lsp", requires = {"hrsh7th/nvim-cmp"}}
+        use {"hrsh7th/cmp-buffer", requires = {"hrsh7th/nvim-cmp"}}
+        use {"hrsh7th/cmp-path", requires = {"hrsh7th/nvim-cmp"}}
+        use {"saadparwaiz1/cmp_luasnip", requires = {"hrsh7th/nvim-cmp"}}
 
 	------------------------------------------------------------------------
 	----------------------------- Programming ------------------------------
