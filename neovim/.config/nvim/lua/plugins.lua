@@ -99,7 +99,7 @@ return require('packer').startup(function()
 	-- Org mode
 	use {'kristijanhusak/orgmode.nvim'}
 	-- Neorg
-	use {"vhyrro/neorg", requires = {{"nvim-lua/plenary.nvim"}, {"vhyrro/neorg-telescope"} }}
+	use {"nvim-neorg/neorg", requires = {{"nvim-lua/plenary.nvim"}, {"vhyrro/neorg-telescope"} }}
 	-- Latex
 	use {"lervag/vimtex"}
         -- Ledger
