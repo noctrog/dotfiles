@@ -149,37 +149,7 @@ ls.snippets = {
                 s("datetime", d(1, date_input, {}, "%Y-%m-%d %H:%M")),
                 -- Use a function to execute any shell command and print it as text.
                 s("bashls", f(bash, {}, "ls")),
-
-                s("mat2", {
-                        i(1, { "sample_text" }),
-                        t(": "),
-                        m(1, "[abc][abc][abc]"),
-                }),
-                s("mat", {
-                        i(1, { "sample_text" }),
-                        t(": "),
-                        m(1, "%d", "contains a number", "no number :("),
-                }),
                 s("part", p(os.date, "%Y")),
-                s(
-                { trig = "a%d", regTrig = true },
-                f(function(args)
-                        return "Triggered with " .. args[1].trigger .. "."
-                end, {})
-                ),
-                s(
-                { trig = "b(%d)", regTrig = true },
-                f(function(args)
-                        return "Captured Text: " .. args[1].captures[1] .. "."
-                end, {})
-                ),
-                s("transform", {
-                        i(1, "initial text"),
-                        t({ "", "" }),
-                        -- lambda nodes accept an l._1,2,3,4,5, which in turn accept any string transformations.
-                        -- This list will be applied in order to the first node given in the second argument.
-                        l(l._1:match("[^i]*$"):gsub("i", "o"):gsub(" ", "_"):upper(), 1),
-                }),
         },
         java = {
                 s({trig="fn"}, {
