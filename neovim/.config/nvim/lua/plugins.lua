@@ -76,7 +76,8 @@ return require('packer').startup(function()
 	-- Git interface
 	use {"TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
         use {"lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim"}
-
+        -- Languages
+        use {"JuliaEditorSupport/julia-vim"}
 	------------------------------------------------------------------------
 	--------------------------------- GUI ----------------------------------
 	------------------------------------------------------------------------
