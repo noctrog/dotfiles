@@ -19,6 +19,8 @@ return require('packer').startup(function()
 	
 	-- tpope magic
 	use {'tpope/vim-surround'}
+        use {'tpope/vim-unimpaired'}
+        use {'tpope/vim-repeat'}
 	-- Nerd commenter
 	use {'preservim/nerdcommenter'}
 	-- Sneak
@@ -82,10 +84,14 @@ return require('packer').startup(function()
 	--------------------------------- GUI ----------------------------------
 	------------------------------------------------------------------------
 	-- Status line
-	use {
-		'hoob3rt/lualine.nvim',
-		requires = {'kyazdani42/nvim-web-devicons', opt = true}
-	}
+        use {
+                'hoob3rt/lualine.nvim',
+                requires = {'kyazdani42/nvim-web-devicons', opt = true}
+        }
+	-- use {
+		-- 'famiu/feline.nvim',
+		-- requires = {'kyazdani42/nvim-web-devicons', opt = true}
+	-- }
 	-- Bar prettifier
 	-- use {'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
 	-- The best theme of them all
@@ -97,7 +103,7 @@ return require('packer').startup(function()
         -- GPG Encription
         use {"jamessan/vim-gnupg"}
 	-- Org mode
-	use {'kristijanhusak/orgmode.nvim'}
+	use {'kristijanhusak/orgmode.nvim', branch = "tree-sitter"}
 	-- Neorg
 	use {"nvim-neorg/neorg", requires = {{"nvim-lua/plenary.nvim"}, {"vhyrro/neorg-telescope"} }}
 	-- Latex

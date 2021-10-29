@@ -59,12 +59,12 @@ o.lazyredraw = true -- faster scrolling
 --------------------------------------------------------------------------
 -- Tabs, indentation
 --------------------------------------------------------------------------
-bo.tabstop = 4        -- 1 tab == 4 spaces
+bo.tabstop = 8        -- 1 tab == 8 spaces
 bo.softtabstop = 4
-bo.tabstop = 8        -- width of the tab character
 vim.api.nvim_exec([[set expandtab]], true) -- convert tabs to spaces
 vim.api.nvim_exec([[set autoindent]], true) -- keeps indentation level of previous lines
 vim.api.nvim_exec([[set smartindent]], true) -- autoindent new lines
+vim.api.nvim_exec([[set cindent]], true) -- stricter indent rules for c programs
 
 -- remove line lenght marker for selected filetypes
 cmd([[
@@ -74,6 +74,11 @@ cmd([[
 -- 2 spaces for selected filetypes
 cmd([[
 	autocmd Filetype xml,html,xhtml,css,scss,yaml,c,cpp setlocal shiftwidth=2 tabstop=2
+]])
+
+-- 4 spaces for selected filetypes
+cmd([[
+	autocmd Filetype julia setlocal shiftwidth=4 tabstop=4
 ]])
 
 --------------------------------------------------------------------------

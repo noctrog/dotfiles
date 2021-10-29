@@ -29,11 +29,7 @@ require('config.completion')
 require('nvim-autopairs').setup({
         disable_filetype = { "TelescopePrompt", "vim" },
 })
-require("nvim-autopairs.completion.cmp").setup({
-  map_cr = true, --  map <CR> on insert mode
-  map_complete = true, -- it will auto insert `(` after select function or method item
-  auto_select = true -- automatically select the first item
-})
+
 
 -- Neogit initialize
 -- require("config.neogit")
@@ -48,6 +44,7 @@ require("config.neorg")
 -- Org mode
 require('orgmode').setup({
   org_hide_leading_stars = true,
+  org_indent_mode = 'noindent',
   org_highlight_latex_and_related = 'entities',
   org_agenda_files = {'~/Sync/org/agenda/*'},
   org_agenda_templates = {
