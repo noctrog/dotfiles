@@ -41,10 +41,6 @@ return require('packer').startup(function()
 	use {
 		'phaazon/hop.nvim',
 		as = 'hop',
-		config = function()
-			-- you can configure Hop the way you like here; see :h hop-config
-			require'hop'.setup { keys = 'etuhonaswjqv;zlrcpgdi' }
-		end
 	}
 	-- Which key
 	use {
