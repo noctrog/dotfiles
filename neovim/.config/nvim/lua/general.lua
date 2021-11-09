@@ -17,6 +17,7 @@ o.sidescroll = 1     -- horizontal scrolling
 o.sidescrolloff = 4  -- horizontal scrolling offset
 o.inccommand = 'nosplit' -- show live changes in search and replace
 o.textwidth = 80
+o.clipboard = "unnamed"
 
 --------------------------------------------------------------------------
 -- Neovim UI
