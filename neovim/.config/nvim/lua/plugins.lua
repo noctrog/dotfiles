@@ -109,7 +109,7 @@ return require('packer').startup(function()
         -- GPG Encription
         use {"jamessan/vim-gnupg"}
 	-- Org mode
-	use {'kristijanhusak/orgmode.nvim', branch = "tree-sitter"}
+	use {'kristijanhusak/orgmode.nvim'}
 	-- Neorg
 	use {"nvim-neorg/neorg", requires = {{"nvim-lua/plenary.nvim"}, {"vhyrro/neorg-telescope"} }}
 	-- Latex
