@@ -3808,6 +3808,8 @@ alias ta="tmux attach"
 alias unid="cd \`find $HOME/Documents/universidad -type d | fzf --preview='ls {}'\`"
 alias unif="xdg-open \`find $HOME/Documents/universidad -type f | fzf --preview='head -n40 {}'\`"
 
+alias mat="matlab -nodesktop -nosplash"
+
 ## genrefcard.pl settings
 
 ### doc strings for external functions from files
