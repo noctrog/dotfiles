@@ -77,7 +77,15 @@ return require('packer').startup(function()
 	use {"TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
         use {"lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim"}
         -- Languages
-        use {"JuliaEditorSupport/julia-vim"}
+        use({
+                "JuliaEditorSupport/julia-vim",
+                ft = { "julia" },
+                fn = { "LaTeXToUnicode#Refresh" },
+                config = function()
+                        vim.g.latex_to_unicode_tab = "off"
+                        vim.g.latex_to_unicode_auto = 0
+                end,
+        })
 	------------------------------------------------------------------------
 	--------------------------------- GUI ----------------------------------
 	------------------------------------------------------------------------
