@@ -22,6 +22,7 @@ return require('packer').startup(function()
 	use {'tpope/vim-surround'}
         use {'tpope/vim-unimpaired'}
         use {'tpope/vim-repeat'}
+        use {'tpope/vim-obsession'} -- allows to resurrect nvim with tmux
 	-- Nerd commenter
 	use {'preservim/nerdcommenter'}
 	-- Sneak
