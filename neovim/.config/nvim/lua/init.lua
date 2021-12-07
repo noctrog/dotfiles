@@ -75,4 +75,7 @@ vim.g.NERDCompactSexyComs = 1
 -- Do not source the default filetype.vim
 vim.g.did_load_filetypes = 1
 
+-- Commenter
+require('Comment').setup()
+
 return M

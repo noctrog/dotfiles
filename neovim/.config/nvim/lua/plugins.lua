@@ -23,8 +23,6 @@ return require('packer').startup(function()
         use {'tpope/vim-unimpaired'}
         use {'tpope/vim-repeat'}
         use {'tpope/vim-obsession'} -- allows to resurrect nvim with tmux
-	-- Nerd commenter
-	use {'preservim/nerdcommenter'}
 	-- Sneak
 	use {'justinmk/vim-sneak'}
 	-- Telescope
@@ -77,6 +75,7 @@ return require('packer').startup(function()
 	use {"TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
         use {"lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim"}
         -- Languages
+        use {'numtostr/comment.nvim'}
         use({
                 "JuliaEditorSupport/julia-vim",
                 ft = { "julia" },
