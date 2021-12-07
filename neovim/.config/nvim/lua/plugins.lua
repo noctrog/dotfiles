@@ -76,6 +76,7 @@ return require('packer').startup(function()
         use {"lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim"}
         -- Languages
         use {'numtostr/comment.nvim'}
+        use {'stevearc/aerial.nvim'}
         use({
                 "JuliaEditorSupport/julia-vim",
                 ft = { "julia" },
