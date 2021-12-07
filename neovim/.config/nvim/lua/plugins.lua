@@ -50,8 +50,6 @@ return require('packer').startup(function()
 	}
 	-- Undotree
 	use {"mbbill/undotree"}
-	-- Cheatshit
-	use {"dbeniamine/cheat.sh-vim"}
         -- Completion
 	use {"hrsh7th/nvim-cmp"}
         use {"hrsh7th/cmp-nvim-lua", requires = {"hrsh7th/nvim-cmp"}}
