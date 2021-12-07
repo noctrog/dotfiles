@@ -51,6 +51,10 @@ wk.register({
 	[";"] = {
 		"<cmd>:HopChar2<cr>", "Hop"
 	},
+        -- Aerial
+        a = {
+                "<cmd>AerialToggle!<cr>", "Aerial Toggle"
+        },
 	-- vimrc
 	v = {
 		r = {
