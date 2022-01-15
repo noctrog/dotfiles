@@ -61,7 +61,7 @@ o.lazyredraw = true -- faster scrolling
 --------------------------------------------------------------------------
 -- Tabs, indentation
 --------------------------------------------------------------------------
-bo.tabstop = 8        -- 1 tab == 8 spaces
+bo.tabstop = 4        -- 1 tab == 4 spaces
 bo.softtabstop = 4
 vim.api.nvim_exec([[set expandtab]], true) -- convert tabs to spaces
 vim.api.nvim_exec([[set autoindent]], true) -- keeps indentation level of previous lines
