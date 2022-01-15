@@ -45,7 +45,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 -- Enable the following language servers
-local servers = {"clangd", "pylsp", "texlab", "julials"}
+local servers = {"clangd", "pylsp", "texlab", "julials", "rust_analyzer"}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
