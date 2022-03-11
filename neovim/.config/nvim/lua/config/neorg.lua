@@ -15,8 +15,14 @@ require('neorg').setup {
                 ["core.norg.dirman"] = {
                         config = {
                                 workspaces = {
-                                        my_workspace = "~/Sync/neorg"
+                                        my_workspace = "~/Sync/neorg",
                                 }
+                        }
+                },
+                -- Enable GTD
+                ["core.gtd.base"] = {
+                        config = {
+                                workspace = "my_workspace",
                         }
                 },
                 -- Enable the Telescope module
@@ -26,6 +32,11 @@ require('neorg').setup {
                         config = {
                                 engine = "nvim-cmp"
                         }
-                }
+                },
+                ["core.norg.esupports.metagen"] = {
+                        config = {
+                                type = "auto",
+                        }
+                },
         },
 }

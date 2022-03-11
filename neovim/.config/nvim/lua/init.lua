@@ -78,4 +78,7 @@ vim.g.did_load_filetypes = 1
 -- Commenter
 require('Comment').setup()
 
+-- Neogen
+require('neogen').setup()
+
 return M

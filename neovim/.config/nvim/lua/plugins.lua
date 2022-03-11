@@ -85,6 +85,12 @@ return require('packer').startup(function()
                 end,
         })
         use {'sbdchd/neoformat'}
+        use {
+                "danymat/neogen",
+                requires = "nvim-treesitter/nvim-treesitter",
+                -- Uncomment next line if you want to follow only stable versions
+                tag = "*"
+        }
 	------------------------------------------------------------------------
 	--------------------------------- GUI ----------------------------------
 	------------------------------------------------------------------------
