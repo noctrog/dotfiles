@@ -37,10 +37,14 @@ return require('packer').startup(function()
 	use {"L3MON4D3/LuaSnip"}
 	use {"rafamadriz/friendly-snippets"}
 	-- Hop
-	use {
-		'phaazon/hop.nvim',
-		as = 'hop',
-	}
+        use {
+                'phaazon/hop.nvim',
+                branch = 'v1', -- optional but strongly recommended
+                config = function()
+                        -- you can configure Hop the way you like here; see :h hop-config
+                        require'hop'.setup { keys = 'etuhonaswjqv;zlrcpgdi' }
+                end
+        }
 	-- Which key
 	use {
 		"folke/which-key.nvim",
