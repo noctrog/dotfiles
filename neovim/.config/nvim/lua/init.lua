@@ -57,9 +57,7 @@ require('orgmode').setup({
   },
   org_todo_keywords = {'TODO(t)', '|', 'SKIPPED(s)', 'DONE(d)'},
 })
-
--- Hop
-require'hop'.setup { keys = 'etuhonaswjqv;zlrcpgdi' }
+require('orgmode').setup_ts_grammar()
 
 -- Markdown
 vim.g.mkdp_auto_start = 0
