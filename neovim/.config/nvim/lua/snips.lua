@@ -153,7 +153,7 @@ ls.snippets = {
         },
         java = {
                 s({trig="fn"}, {
-                        d(6, jdocsnip, {2, 4, 5}), t({"", ""}),
+                        d(6, jdocsnip, {user_args = {2, 4, 5}}), t({"", ""}),
                         c(1, {
                                 t({"public "}),
                                 t({"private "})
@@ -315,11 +315,11 @@ ls.snippets = {
                 }),
                 ls.parser.parse_snippet({trig = "if", wordTrig = true}, "if ($1)\n\t$2\n$0"),
                 ls.parser.parse_snippet({trig = "for", wordTrig = true}, "for ($1 : $2)\n\t$3\n$0"),
-                s({trig = "for(%w+)", wordTrig = true, regTrig = true}, {
-                        t({"for ("}), d(1, capture_insert, {}, 1, "int ", " = 0"), t({"; "}),
-                        f(function(args) return {args[1].captures[1]} end, {}), c(2, {sn(nil, {t({" != "}), i(1)}), i(nil)}), t({"; "}),
-                        d(3, capture_insert, {}, 1, "++"), t({")", "\t"}), i(4), t({"", ""}), i(0)
-                })
+                -- s({trig = "for(%w+)", wordTrig = true, regTrig = true}, {
+                --         t({"for ("}), d(1, capture_insert, {}, 1, "int ", " = 0"), t({"; "}),
+                --         f(function(args) return {args[1].captures[1]} end, {}), c(2, {sn(nil, {t({" != "}), i(1)}), i(nil)}), t({"; "}),
+                --         d(3, capture_insert, {}, 1, "++"), t({")", "\t"}), i(4), t({"", ""}), i(0)
+                -- })
         }
 }
 -- 
