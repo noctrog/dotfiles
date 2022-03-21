@@ -69,10 +69,6 @@ vim.g.NERDSpaceDelims = 1
 vim.g.NERDCommentEmptyLines = 1
 vim.g.NERDCompactSexyComs = 1
 
--- Filetype.nvim
--- Do not source the default filetype.vim
-vim.g.did_load_filetypes = 1
-
 -- Commenter
 require('Comment').setup()
 

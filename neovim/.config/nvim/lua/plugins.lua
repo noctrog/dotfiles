@@ -17,7 +17,6 @@ return require('packer').startup(function()
 	----------------------------- Utilities --------------------------------
 	------------------------------------------------------------------------
 	
-        -- use {'nathom/filetype.nvim'}
 	-- tpope magic
 	use {'tpope/vim-surround'}
         use {'tpope/vim-unimpaired'}
