@@ -141,7 +141,7 @@ local date_input = function(args, state, fmt)
         return sn(nil, i(1, os.date(fmt)))
 end
 
-ls.snippets = {
+ls.add_snippets(nil, {
         all = {
                 -- Date and time snippets
                 s("date", d(1, date_input, {}, nil)),
@@ -321,7 +321,7 @@ ls.snippets = {
                 --         d(3, capture_insert, {}, 1, "++"), t({")", "\t"}), i(4), t({"", ""}), i(0)
                 -- })
         }
-}
+        })
 -- 
 -- -- autotriggered snippets have to be defined in a separate table, luasnip.autosnippets.
 -- ls.autosnippets = {
