@@ -68,6 +68,13 @@ wk.register({
         -- org mode
         o = {
                 R = { "<cmd>lua require('init').search_org_roam()<cr>", "Search org roam" },
+        },
+        -- Neogen
+        N = {
+                f = { "<cmd>Neogen func<cr>", "Neogen func" },
+                F = { "<cmd>Neogen file<cr>", "Neogen file" },
+                c = { "<cmd>Neogen class<cr>", "Neogen class" },
+                t = { "<cmd>Neogen type<cr>", "Neogen type" },
         }
 }, { prefix = "<leader>" })
 
