@@ -81,7 +81,7 @@ notARepository: 'prompt' # one of: 'prompt' | 'create' | 'skip'
 promptToReturnFromSubprocess: true # display confirmation when subprocess terminates
 keybinding:
   universal:
-    quit: 'q'
+    quit: '<esc>'
     quit-alt1: '<c-g>' # alternative/alias of quit
     return: 'q' # return to previous menu, will quit if there's nowhere to return
     quitWithoutChangingDirectory: 'Q'
