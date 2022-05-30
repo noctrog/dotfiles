@@ -3794,6 +3794,8 @@ fi
 
 zrclocal
 
+source $HOME/.local/bin/z.sh
+
 alias v=nvim
 alias vim=nvim
 alias vimdiff=nvim -d
