@@ -214,7 +214,10 @@ ls.add_snippets(nil, {
                         t({"\\begin{itemize}",
                         "\t\\item "}), i(1), d(2, rec_ls, {}),
                         t({"", "\\end{itemize}"}), i(0)
-                })
+                }),
+                s({trig = "mk"}, {
+                        t("$"), i(1), t("$"), i(0)
+                }),
         },
         c = {
                 -- include snippets
@@ -321,7 +324,7 @@ ls.add_snippets(nil, {
                 --         d(3, capture_insert, {}, 1, "++"), t({")", "\t"}), i(4), t({"", ""}), i(0)
                 -- })
         }
-        })
+})
 -- 
 -- -- autotriggered snippets have to be defined in a separate table, luasnip.autosnippets.
 -- ls.autosnippets = {
@@ -334,3 +337,18 @@ ls.add_snippets(nil, {
 
 -- Load VSCode-like snippets
 require("luasnip/loaders/from_vscode").load({ paths = { "~/.local/share/nvim/site/pack/packer/start/friendly-snippets" } })                                                                                                                   
+
+function leave_snippet()
+    if
+        ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
+        and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
+        and not require('luasnip').session.jump_active
+    then
+        require('luasnip').unlink_current()
+    end
+end
+
+-- stop snippets when you leave to normal mode
+vim.api.nvim_command([[
+    autocmd ModeChanged * lua leave_snippet()
+]])
