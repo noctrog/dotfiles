@@ -76,6 +76,10 @@ inoreabbrev <expr> __
           \ <SID>isAtStartOfLine('__') ?
           \ '<c-o>:silent! TableModeDisable<cr>' : '__'
 
+let g:vimtex_compiler_latexmk = {
+            \ 'build_dir' : 'build',
+            \}
+
 " Vim-compe keybinds with nvim-autopairs support
 " inoremap <silent><expr> <C-Space> compe#complete()
 " inoremap <silent><expr> <CR>      compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))
