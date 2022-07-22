@@ -75,12 +75,12 @@ cmd([[
 
 -- 2 spaces for selected filetypes
 cmd([[
-	autocmd Filetype xml,html,xhtml,css,scss,yaml,c,cpp setlocal shiftwidth=2 tabstop=2
+	autocmd Filetype xml,html,xhtml,css,scss,yaml setlocal shiftwidth=2 tabstop=2
 ]])
 
 -- 4 spaces for selected filetypes
 cmd([[
-	autocmd Filetype julia setlocal shiftwidth=4 tabstop=4
+	autocmd Filetype julia,c,cpp setlocal shiftwidth=4 tabstop=4
 ]])
 
 --------------------------------------------------------------------------
