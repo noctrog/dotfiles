@@ -72,7 +72,7 @@ return require('packer').startup(function()
 	-- Syntax
 	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 	use {"nvim-treesitter/playground", requires = "nvim-treesitter/nvim-treesitter"}
-	use {"nvim-treesitter/nvim-treesitter-textobjects", requires = "nvim-treesitter/nvim-treesitter"}
+	-- use {"nvim-treesitter/nvim-treesitter-textobjects", requires = "nvim-treesitter/nvim-treesitter"}
 	-- Git interface
 	use {"TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
         use {"lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim"}
