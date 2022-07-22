@@ -67,6 +67,7 @@ return require('packer').startup(function()
 	-- LSP
 	use {"neovim/nvim-lspconfig"}
 	use {"glepnir/lspsaga.nvim"}
+        use {"SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig"}
 
 	-- Syntax
 	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
