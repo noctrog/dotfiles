@@ -30,6 +30,7 @@ wk.register({
 	},
 	-- Tabs
 	t = {
+                t = { "<cmd>Telescope<cr>", "Telescope" },
 		n = { "<cmd>tabnew<cr>", "New tab" },
 		c = { "<cmd>tabclose<cr>", "Close tab"},
 		l = { "<cmd>tabnext<cr>", "Next tab"},
