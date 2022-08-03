@@ -103,8 +103,3 @@ require('lspconfig').sumneko_lua.setup {
     },
   },
 }
-
--- LSPSaga
--- local saga = require 'lspsaga'
--- saga.init_lsp_saga()
-
