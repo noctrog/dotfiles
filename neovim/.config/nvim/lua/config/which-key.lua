@@ -64,6 +64,9 @@ wk.register({
 	--
 	n = {
 		h = { "<cmd>nohl<cr>", ":nohl" },
+                c = { "<cmd>Neorg gtd capture<cr>", "Neorg gtd capture"},
+                v = { "<cmd>Neorg gtd views<cr>", "Neorg gtd views"},
+                e = { "<cmd>Neorg gtd edit<cr>", "Neorg gtd edit"}
 	},
         -- org mode
         o = {
