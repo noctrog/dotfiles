@@ -127,5 +127,8 @@ return require('packer').startup(function()
         use {"ledger/vim-ledger"}
         -- Table mode
         use {"dhruvasagar/vim-table-mode"}
+        -- Markdown
+        use({ "iamcco/markdown-preview.nvim",
+              run = function() vim.fn["mkdp#util#install"]() end, })
 end)
 
