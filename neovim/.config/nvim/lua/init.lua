@@ -29,6 +29,8 @@ require('config.completion')
 require('nvim-autopairs').setup({
         disable_filetype = { "TelescopePrompt", "vim" },
 })
+-- Remove trailing whitespaces
+require("retrail").setup()
 
 
 -- Neogit initialize
