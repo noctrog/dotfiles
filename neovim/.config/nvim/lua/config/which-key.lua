@@ -77,6 +77,16 @@ wk.register({
                 F = { "<cmd>Neogen file<cr>", "Neogen file" },
                 c = { "<cmd>Neogen class<cr>", "Neogen class" },
                 t = { "<cmd>Neogen type<cr>", "Neogen type" },
-        }
+        },
+        -- Debugging
+        d = {
+                b = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>", "DAP Toggle Breakpoint" },
+                B = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", "DAP Set BP w/ cond" },
+                c = { "<cmd>lua require'dap'.continue()<CR>", "DAP Continue" },
+                n = { "<cmd>lua require'dap'.step_over()<CR>", "DAP Step Over" },
+                s = { "<cmd>lua require'dap'.step_into()<CR>", "DAP Step Into" },
+                r = { "<cmd>lua require'dap'.repl.open()<CR>", "DAP REPL" },
+                t = { "<cmd>lua require'dap'.terminate()<CR>", "DAP Terminate session"}
+        },
 }, { prefix = "<leader>" })
 

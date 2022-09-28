@@ -77,4 +77,7 @@ require('Comment').setup()
 -- Neogen
 require('neogen').setup()
 
+-- Debugger
+require("config.nvim-dap")
+
 return M
