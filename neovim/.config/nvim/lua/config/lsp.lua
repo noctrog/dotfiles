@@ -17,7 +17,7 @@ require("aerial").setup({
 
 local on_attach = function(client, bufnr)
   require'aerial'.on_attach(client, bufnr)
-  require'nvim-navic'.attach(client, bufnr) 
+  require'nvim-navic'.attach(client, bufnr)
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -45,7 +45,7 @@ end
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- LSP Config
 capabilities.textDocument.completion.completionItem.snippetSupport = true
