@@ -49,7 +49,7 @@ vim.api.nvim_exec([[
 --    autocmd!
 --    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 --    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
---augroup END 
+--augroup END
 
 --------------------------------------------------------------------------
 -- Memory, CPU
@@ -80,7 +80,7 @@ cmd([[
 
 -- 4 spaces for selected filetypes
 cmd([[
-	autocmd Filetype julia,c,cpp setlocal shiftwidth=4 tabstop=4
+	autocmd Filetype julia,c,cpp,matlab setlocal shiftwidth=4 tabstop=4
 ]])
 
 --------------------------------------------------------------------------
