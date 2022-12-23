@@ -16,7 +16,6 @@ require("aerial").setup({
 })
 
 local on_attach = function(client, bufnr)
-  require'aerial'.on_attach(client, bufnr)
   require'nvim-navic'.attach(client, bufnr)
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')

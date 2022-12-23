@@ -16,7 +16,7 @@ return require('packer').startup(function()
 	------------------------------------------------------------------------
 	----------------------------- Utilities --------------------------------
 	------------------------------------------------------------------------
-	
+
 	-- tpope magic
 	use {'tpope/vim-surround'}
         use {'tpope/vim-unimpaired'}
@@ -105,12 +105,6 @@ return require('packer').startup(function()
                 'hoob3rt/lualine.nvim',
                 requires = {'kyazdani42/nvim-web-devicons', opt = true}
         }
-	-- use {
-		-- 'famiu/feline.nvim',
-		-- requires = {'kyazdani42/nvim-web-devicons', opt = true}
-	-- }
-	-- Bar prettifier
-	-- use {'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
 	-- The best theme of them all
 	use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 
@@ -122,7 +116,7 @@ return require('packer').startup(function()
 	-- Org mode
 	use {'kristijanhusak/orgmode.nvim'}
 	-- Neorg
-	use {"nvim-neorg/neorg", requires = {{"nvim-lua/plenary.nvim"}, 
+	use {"nvim-neorg/neorg", requires = {{"nvim-lua/plenary.nvim"},
                 {"nvim-neorg/neorg-telescope"} }}
 	-- Latex
 	use {"lervag/vimtex"}
