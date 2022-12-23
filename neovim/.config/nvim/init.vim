@@ -15,21 +15,8 @@ lua require('gui')
 
 " let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-" show hover doc
-nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
-" scroll down hover doc or scroll in definition preview
-nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
-" scroll up hover doc
-nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
-" jump diagnostic
-nnoremap <silent> [e <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
-nnoremap <silent> ]e <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>
-
 " Highlight on yank
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=50, on_visual=true}
-
-" Copy to the end of the line, no longer required, merged in #13268.
-nnoremap Y y$  
 
 " Keeping it centered
 nnoremap n nzzzv
@@ -52,7 +39,7 @@ nnoremap <c-k> :m .-2<cr>==
 
 " Luansippets use TAB
 " TODO convert to LUA
-imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
 
 snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
