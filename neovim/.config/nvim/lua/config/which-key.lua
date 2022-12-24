@@ -46,10 +46,6 @@ wk.register({
 		s = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature help"},
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
 	},
-	-- Hop
-	[";"] = {
-		"<cmd>:HopChar2<cr>", "Hop"
-	},
         -- Aerial
         a = {
                 "<cmd>AerialToggle!<cr>", "Aerial Toggle"

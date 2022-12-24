@@ -22,6 +22,8 @@ o.clipboard = "unnamed"
 --------------------------------------------------------------------------
 -- Neovim UI
 --------------------------------------------------------------------------
+o.hlsearch = false
+wo.signcolumn = 'yes'
 o.syntax = 'enable' -- enable syntax highlighting
 wo.number = true    -- show line number
 wo.relativenumber = true -- relative line numbering
@@ -44,6 +46,7 @@ o.scrolloff = 8
 vim.api.nvim_exec([[
   set undodir=~/.vim/undodir
   set undofile]], true)
+o.completeopt = 'menuone,noselect'
 
 --augroup numbertoggle
 --    autocmd!
@@ -75,7 +78,7 @@ cmd([[
 
 -- 2 spaces for selected filetypes
 cmd([[
-	autocmd Filetype xml,html,xhtml,css,scss,yaml setlocal shiftwidth=2 tabstop=2
+	autocmd Filetype xml,html,xhtml,css,scss,yaml,lua setlocal shiftwidth=2 tabstop=2
 ]])
 
 -- 4 spaces for selected filetypes
