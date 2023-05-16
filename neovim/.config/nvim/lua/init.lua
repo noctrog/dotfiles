@@ -40,6 +40,9 @@ require("config.gitsigns")
 -- Which key
 require("config.which-key")
 
+-- Obsidian
+require('config.obsidian')
+
 -- Neorg
 require("config.neorg")
 

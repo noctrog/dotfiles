@@ -114,6 +114,8 @@ return require('packer').startup(function()
 	------------------------------------------------------------------------
         -- GPG Encription
   use {"jamessan/vim-gnupg"}
+  -- Obsidian
+  use {'epwalsh/obsidian.nvim'}
 	-- Org mode
 	use {'kristijanhusak/orgmode.nvim'}
 	-- Neorg
