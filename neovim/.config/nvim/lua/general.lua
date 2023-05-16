@@ -16,7 +16,7 @@ o.wrap = false       -- disable line breaking
 o.sidescroll = 1     -- horizontal scrolling
 o.sidescrolloff = 4  -- horizontal scrolling offset
 o.inccommand = 'nosplit' -- show live changes in search and replace
-o.textwidth = 80
+o.textwidth = 100
 o.clipboard = "unnamed"
 
 --------------------------------------------------------------------------
@@ -37,7 +37,7 @@ vim.wo.foldtext =
 vim.wo.fillchars = "fold:\\"
 vim.wo.foldnestmax = 3
 vim.wo.foldminlines = 1
-wo.colorcolumn = '80' -- show line length marker at 80 columns
+wo.colorcolumn = '100' -- show line length marker at 80 columns
 o.splitright = true
 o.splitbelow = true
 o.smartcase = true  -- ignore lowercase for the whole pattern
