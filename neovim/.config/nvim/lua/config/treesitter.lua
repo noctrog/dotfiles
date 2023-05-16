@@ -29,7 +29,7 @@ treesitter_conf.setup {
 
 require('nvim-treesitter.configs').setup {
 	ensure_installed = { "cpp", "c", "python", "latex", "rust", "go", "lua", "markdown",
-			                 "query", "vim", "json", "julia", "org", "help" },
+			                 "query", "vim", "json", "julia", "org" },
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
   incremental_selection = {
