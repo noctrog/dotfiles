@@ -58,7 +58,7 @@ local servers = {
   pylsp = {},
   texlab = {},
   rust_analyzer = {},
-  sumneko_lua = {
+  lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
