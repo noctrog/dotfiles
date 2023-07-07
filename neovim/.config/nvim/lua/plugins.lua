@@ -45,6 +45,16 @@ return require('packer').startup(function()
        'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'L3MON4D3/LuaSnip',
        'saadparwaiz1/cmp_luasnip', 'rafamadriz/friendly-snippets'}
   }
+  -- Close unedited buffers
+  use {
+    'axkirillov/hbac.nvim',
+    requires = {
+      -- these are optional, add them, if you want the telescope module
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons'
+    }
+  }
 
 	------------------------------------------------------------------------
 	----------------------------- Programming ------------------------------
@@ -61,6 +71,7 @@ return require('packer').startup(function()
          'j-hui/fidget.nvim',    -- lsp status
       }
   }
+  use {'j-hui/fidget.nvim', tag = 'legacy'}
 
 	-- Syntax
 	use {'nvim-treesitter/nvim-treesitter',
