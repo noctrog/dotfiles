@@ -78,6 +78,7 @@ return require('packer').startup(function()
          'j-hui/fidget.nvim',    -- lsp status
       }
   }
+  use {'j-hui/fidget.nvim', tag = 'legacy'}
 
 	-- Syntax
 	use {'nvim-treesitter/nvim-treesitter',
