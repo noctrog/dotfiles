@@ -21,11 +21,10 @@ return require('packer').startup(function()
 	use {'tpope/vim-surround'}
   use {'tpope/vim-unimpaired'}
   use {'tpope/vim-repeat'}
-  use {'tpope/vim-obsession'} -- allows to resurrect nvim with tmux
 	-- Telescope
 	use {
 		'nvim-telescope/telescope.nvim',
-		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+		requires = {'nvim-lua/plenary.nvim'}
 	}
 	use {"nvim-telescope/telescope-fzy-native.nvim"}
 	-- Autopairs
@@ -44,6 +43,24 @@ return require('packer').startup(function()
        requires = {'hrsh7th/cmp-nvim-lua', 'hrsh7th/cmp-nvim-lsp',
        'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'L3MON4D3/LuaSnip',
        'saadparwaiz1/cmp_luasnip', 'rafamadriz/friendly-snippets'}
+  }
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  }
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
   }
 
 	------------------------------------------------------------------------
@@ -81,15 +98,6 @@ return require('packer').startup(function()
   -- Languages
   use {'numtostr/comment.nvim'}
   use {'stevearc/aerial.nvim'}
-  use({
-    "JuliaEditorSupport/julia-vim",
-    ft = { "julia" },
-    fn = { "LaTeXToUnicode#Refresh" },
-    config = function()
-            vim.g.latex_to_unicode_tab = "off"
-            vim.g.latex_to_unicode_auto = 0
-    end,
-  })
   use {'sbdchd/neoformat'}
   use {
     "danymat/neogen",

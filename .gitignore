@@ -1,0 +1,15 @@
+config/.config/emacs/auto-save-list
+config/.config/emacs/eln-cache
+config/.config/emacs/eshell
+config/.config/emacs/straight
+config/.config/emacs/transient
+config/.config/emacs/url
+config/.config/emacs/var
+config/.config/emacs/.emacs.desktop
+config/.config/emacs/.lsp-session-v1
+config/.config/emacs/.org-id-locations
+config/.config/emacs/bookmarks
+config/.config/emacs/network-security.data
+config/.config/emacs/projectile-bookmarks.eld
+config/.config/emacs/projects
+config/.config/emacs/recentf

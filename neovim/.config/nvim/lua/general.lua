@@ -71,6 +71,10 @@ vim.api.nvim_exec([[set autoindent]], true) -- keeps indentation level of previo
 vim.api.nvim_exec([[set smartindent]], true) -- autoindent new lines
 vim.api.nvim_exec([[set cindent]], true) -- stricter indent rules for c programs
 
+-- copilot
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
 -- remove line lenght marker for selected filetypes
 cmd([[
 	autocmd Filetype text,markdown,xml,html,xhtml setlocal cc=0

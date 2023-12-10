@@ -54,7 +54,9 @@ end
 
 -- Enable the following language servers
 local servers = {
-  clangd = {},
+  clangd = {
+    filetypes = {"c", "cpp", "objc", "objcpp", "cuda"},
+  },
   pylsp = {},
   texlab = {},
   rust_analyzer = {},
