@@ -38,6 +38,8 @@ return require('packer').startup(function()
 	}
 	-- Undotree
 	use {"mbbill/undotree"}
+  -- Auto buffer close
+  use { 'axkirillov/hbac.nvim' }
   -- Completion
 	use {"hrsh7th/nvim-cmp",
        requires = {'hrsh7th/cmp-nvim-lua', 'hrsh7th/cmp-nvim-lsp',
