@@ -1,35 +1,14 @@
-local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
-
-parser_configs.norg = {
-    install_info = {
-        url = "https://github.com/nvim-neorg/tree-sitter-norg",
-        files = { "src/parser.c", "src/scanner.cc" },
-        branch = "main"
-    },
-}
-
-parser_configs.org = {
-  install_info = {
-    url = 'https://github.com/milisims/tree-sitter-org',
-    revision = 'main',
-    files = {'src/parser.c', 'src/scanner.cc'},
-  },
-  filetype = 'org',
-}
-
-
 local treesitter_conf = require("nvim-treesitter.configs")
+
 treesitter_conf.setup {
 	highlight = {
 		enable = true,
-                disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
-                additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
 	},
 }
 
 require('nvim-treesitter.configs').setup {
 	ensure_installed = { "cpp", "c", "python", "latex", "rust", "go", "lua", "markdown",
-			                 "query", "vim", "json", "julia", "org" },
+			                 "query", "vim", "json", "julia"},
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
   incremental_selection = {

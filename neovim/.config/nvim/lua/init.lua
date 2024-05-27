@@ -46,24 +46,6 @@ require('config.obsidian')
 -- Neorg
 require("config.neorg")
 
--- Org mode
-require('orgmode').setup({
-  org_hide_leading_stars = true,
-  org_indent_mode = 'noindent',
-  org_highlight_latex_and_related = 'entities',
-  org_agenda_files = {'~/Sync/org/agenda/*'},
-  org_agenda_templates = {
-          t = { description = 'Task', template = '* TODO %?\nSCHEDULED: %t',
-                target = '~/Sync/org/agenda/tasks.org'},
-          u = { description = 'University', template = '* TODO %?\nDEADLINE: %t',
-                target = '~/Sync/org/agenda/university.org'},
-          b = { description = 'BibTex', template = '%?\n\n',
-                target = '~/Sync/org/references.bib'},
-  },
-  org_todo_keywords = {'TODO(t)', '|', 'SKIPPED(s)', 'DONE(d)'},
-})
-require('orgmode').setup_ts_grammar()
-
 -- Markdown
 vim.g.mkdp_auto_start = 0
 vim.g.mkdp_auto_close = 1

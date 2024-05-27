@@ -93,7 +93,7 @@ return require('packer').startup(function()
        after = 'nvim-treesitter',
   }
   -- Debugger
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
   use { 'mfussenegger/nvim-dap-python', requires = {"mfussenegger/nvim-dap"} }
 	-- Git interface
 	use {"TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
@@ -127,15 +127,8 @@ return require('packer').startup(function()
   use {"jamessan/vim-gnupg"}
   -- Obsidian
   use {'epwalsh/obsidian.nvim'}
-	-- Org mode
-	use {'kristijanhusak/orgmode.nvim'}
-	-- Neorg
-	-- use {"nvim-neorg/neorg", requires = {{"nvim-lua/plenary.nvim"},
-  --                {"nvim-neorg/neorg-telescope"} }}
 	-- Latex
 	use {"lervag/vimtex"}
-  -- Ledger
-  use {"ledger/vim-ledger"}
   -- Table mode
   use {"dhruvasagar/vim-table-mode"}
   -- Remove trailing whitespaces
