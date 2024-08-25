@@ -87,7 +87,7 @@ cmd([[
 
 -- 4 spaces for selected filetypes
 cmd([[
-	autocmd Filetype julia,c,cpp,matlab setlocal shiftwidth=4 tabstop=4
+	autocmd Filetype julia,c,cpp,matlab,glsl setlocal shiftwidth=4 tabstop=4
 ]])
 
 --------------------------------------------------------------------------
@@ -95,4 +95,6 @@ cmd([[
 --------------------------------------------------------------------------
 -- Markdown
 cmd([[autocmd Filetype markdown setlocal tw=80]])
+-- GLSL
+cmd([[autocmd BufNewFile,BufRead *.fs,*.vs :set filetype=glsl]])
 
