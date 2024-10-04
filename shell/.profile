@@ -10,7 +10,3 @@ export GTK_THEME=Materia:dark
 
 # MATLAB needs the following env variable in order to show its window properly
 export _JAVA_AWT_WM_NONREPARENTING=1
-
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
