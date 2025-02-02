@@ -54,7 +54,7 @@ add_to_path() {
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Install the Rust toolchain
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # Install rust programs
 cargo install du-dust zoxide zellij gitui bat bottom --locked
@@ -62,7 +62,7 @@ cargo install --locked --features clipboard broot
 cargo install --git https://github.com/RaphGL/Tuckr.git
 
 # Install starship
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh -s -- -b ~/.local/bin -y
 
 # Install neovim
 arch=$(get_arch)  # Will output "x86_64" or "arm64"
