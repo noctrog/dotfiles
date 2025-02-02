@@ -58,9 +58,10 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # Install rust programs
 . $HOME/.cargo/env
-cargo install du-dust zoxide zellij gitui bat bottom --locked
+cargo install du-dust zoxide zellij cargo-cache --locked
 cargo install --locked --features clipboard broot
 cargo install --git https://github.com/RaphGL/Tuckr.git
+cargo cache --autoclean
 
 # Install starship
 curl -sS https://starship.rs/install.sh | sh -s -- -b ~/.local/bin -y
