@@ -71,7 +71,7 @@ download_path="/tmp/nvim-${os}-${arch}.tar.gz"
 extract_path="$HOME/.local/share"
 url="https://github.com/neovim/neovim/releases/download/stable/nvim-${os}-${arch}.tar.gz"
 curl -L --progress-bar -o "$download_path" "$url"
-tar xzf "$download_path" -C "$extract_path"
+mkdir -p $extract_path && tar xzf "$download_path" -C "$extract_path"
 ln -sf "$extract_path/nvim-$os-$arch/bin/nvim" "$HOME/.local/bin/nvim"
 
 # Create symlinks from dotfiles
