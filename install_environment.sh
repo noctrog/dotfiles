@@ -50,6 +50,7 @@ add_to_path() {
 }
 
 # Install uv
+touch $HOME/.profile
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Install the Rust toolchain
