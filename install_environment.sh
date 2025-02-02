@@ -25,7 +25,6 @@ add_to_path() {
         */bash)
             echo "$PATH_LINE" >> "$HOME/.bashrc"
             echo "$CARGO_LINE" >> "$HOME/.bashrc"
-            echo "$"
 	    echo 'eval "$(starship init bash)"' >> "$HOME/.bashrc"
 	    echo 'eval "$(zoxide init bash)"' >> "$HOME/.bashrc"
             source "$HOME/.bashrc"
@@ -78,7 +77,7 @@ ln -sf "$extract_path/nvim-$os-$arch/bin/nvim" "$HOME/.local/bin/nvim"
 
 # Create symlinks from dotfiles
 $HOME/.cargo/bin/tuckr add \*
-tuckr add neovim shell starship
+tuckr add -fy neovim shell starship zellij
 
 # Add .local/bin to the path
 add_to_path
