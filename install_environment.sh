@@ -18,7 +18,7 @@ get_os() {
 
 add_to_path() {
     PATH_LINE='export PATH="$HOME/.local/bin:$PATH"'
-    CARGO_LINE='export PATH="$HOME/.cargo/bin:$PATH"'
+    CARGO_LINE='source $HOME/.cargo/env'
     
     # Detect current shell
     case "$SHELL" in
@@ -26,15 +26,15 @@ add_to_path() {
             echo "$PATH_LINE" >> "$HOME/.bashrc"
             echo "$CARGO_LINE" >> "$HOME/.bashrc"
             echo "$"
-	    echo 'eval "$(starship init bash)"'
-	    echo 'eval "$(zoxide init bash)"'
+	    echo 'eval "$(starship init bash)"' >> "$HOME/.bashrc"
+	    echo 'eval "$(zoxide init bash)"' >> "$HOME/.bashrc"
             source "$HOME/.bashrc"
             ;;
         */zsh)
             echo "$PATH_LINE" >> "$HOME/.zshrc"
             echo "$CARGO_LINE" >> "$HOME/.zshrc"
-	    echo 'eval "$(starship init zsh)"'
-	    echo 'eval "$(zoxide init zsh)"'
+	    echo 'eval "$(starship init zsh)"' >> "$HOME/.zshrc"
+	    echo 'eval "$(zoxide init zsh)"' >> "$HOME/.zshrc"
             source "$HOME/.zshrc"
             ;;
         */fish)
@@ -57,6 +57,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # Install rust programs
+. $HOME/.cargo/env
 cargo install du-dust zoxide zellij gitui bat bottom --locked
 cargo install --locked --features clipboard broot
 cargo install --git https://github.com/RaphGL/Tuckr.git
