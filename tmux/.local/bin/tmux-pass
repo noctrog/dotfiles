@@ -1,6 +1,0 @@
-#!/bin/sh
-
-vault="$HOME/.password-store"
-password=$(cd $vault && find . -type f -iname "*.gpg" ! -path "./.git/*" | sed -e 's/^.\///' | sed -e 's/.gpg$//'| fzf)
-
-pass show -c $password
