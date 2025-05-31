@@ -58,8 +58,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # Install rust programs
 . $HOME/.cargo/env
-cargo install du-dust zoxide zellij cargo-cache cargo-update viu --locked
-cargo install --locked --features clipboard broot
+cargo install --locked du-dust zoxide zellij cargo-cache cargo-update viu yazi-fm yazi-cli 
 cargo install --git https://github.com/RaphGL/Tuckr.git
 cargo cache --autoclean
 
