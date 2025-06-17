@@ -1,0 +1,37 @@
+theme = "gruvbox"
+
+[editor]
+line-number = 'relative'
+cursorline = true
+mouse = true
+color-modes = true
+true-color = true  # Required for themes
+clipboard-provider = "termcode"  # OSC 52
+indent-guides.render = true
+indent-guides.skip-levels = 1
+
+[editor.cursor-shape]
+insert = 'bar'
+normal = 'block'
+select = 'underline'
+
+[editor.file-picker]
+hidden = false
+parents = false
+
+[editor.soft-wrap]
+enable = false
+
+[editor.lsp]
+display-messages = true
+auto-signature-help = true
+display-signature-help-docs = true
+
+# key mappings
+[keys.normal]
+ret = 'expand_selection'
+D = 'kill_to_line_end'
+Z = {Z = ':x'}
+
+[keys.normal."C-w"]
+c = ":quit"
