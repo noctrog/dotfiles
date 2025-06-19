@@ -32,6 +32,8 @@ display-signature-help-docs = true
 ret = 'expand_selection'
 D = 'kill_to_line_end'
 Z = {Z = ':x'}
+# Python print macro. This should be made available only for python on a future helix update
+"@" = {p = '@gsvglcprint("<esc>Pa:<space><esc>la<space><esc>pgs'}
 
 [keys.normal."C-w"]
 c = ":quit"
