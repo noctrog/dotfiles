@@ -33,7 +33,19 @@ ret = 'expand_selection'
 D = 'kill_to_line_end'
 Z = {Z = ':x'}
 # Python print macro. This should be made available only for python on a future helix update
-"@" = {p = '@gsvglcprint("<esc>Pa:<space><esc>la<space><esc>pgs'}
+"@" = {p = '@gsvglcprint("<esc>Pa:<space><esc>la,<space><esc>pgs'}
+# Lazygit integration
+C-g = [
+  ":write-all",
+  ":new",
+  ":insert-output lazygit",
+  ":buffer-close!",
+  ":redraw",
+  ":reload-all",
+]
 
 [keys.normal."C-w"]
 c = ":quit"
+
+[keys.select]
+C-j = 'join_selections_space'
