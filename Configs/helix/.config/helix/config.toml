@@ -1,4 +1,4 @@
-theme = "gruvbox"
+theme = "gruvbox_light"
 
 [editor]
 line-number = 'relative'
@@ -20,7 +20,7 @@ hidden = false
 parents = false
 
 [editor.soft-wrap]
-enable = false
+enable = true
 
 [editor.lsp]
 display-messages = true
@@ -32,6 +32,7 @@ display-signature-help-docs = true
 ret = 'expand_selection'
 D = 'kill_to_line_end'
 Z = {Z = ':x'}
+C-x = ':reset-diff-change'
 # Python print macro. This should be made available only for python on a future helix update
 "@" = {p = '@gsvglcprint("<esc>Pa:<space><esc>la,<space><esc>pgs'}
 # Lazygit integration
@@ -49,3 +50,4 @@ c = ":quit"
 
 [keys.select]
 C-j = 'join_selections_space'
+g = {q = ":reflow 100"}
