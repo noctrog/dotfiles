@@ -1,5 +1,6 @@
 # Use custom format
 format = '''$all'''
+palette = 'catppuccin_mocha'
 
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
@@ -9,11 +10,60 @@ add_newline = true
 
 [username]
 show_always = true
-style_user = 'blue'
+style_user = 'blue bold'
 
 [hostname]
 ssh_only = false
-style = 'white'
+style = 'mauve'
 
 [directory]
-style = 'white bold'
+style = 'lavender bold'
+
+[palettes.catppuccin_mocha]
+rosewater = '#f5e0dc'
+flamingo = '#f2cdcd'
+pink = '#f5c2e7'
+mauve = '#cba6f7'
+red = '#f38ba8'
+maroon = '#eba0ac'
+peach = '#fab387'
+yellow = '#f9e2af'
+green = '#a6e3a1'
+teal = '#94e2d5'
+sky = '#89dceb'
+sapphire = '#74c7ec'
+blue = '#89b4fa'
+lavender = '#b4befe'
+text = '#cdd6f4'
+subtext1 = '#bac2de'
+subtext0 = '#a6adc8'
+overlay2 = '#9399b2'
+overlay1 = '#7f849c'
+overlay0 = '#6c7086'
+surface2 = '#585b70'
+surface1 = '#45475a'
+surface0 = '#313244'
+base = '#1e1e2e'
+mantle = '#181825'
+crust = '#11111b'
+
+[palettes.gruvbox_dark]
+blue = '#83a598'
+mauve = '#d3869b'
+lavender = '#8ec07c'
+green = '#b8bb26'
+red = '#fb4934'
+
+[palettes.gruvbox_light]
+blue = '#076678'
+mauve = '#8f3f71'
+lavender = '#427b58'
+green = '#79740e'
+red = '#9d0006'
+
+[palettes.tokyonight_dark]
+blue = '#7aa2f7'
+mauve = '#bb9af7'
+lavender = '#7dcfff'
+green = '#9ece6a'
+red = '#f7768e'

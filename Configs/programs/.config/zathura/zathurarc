@@ -1,95 +1,42 @@
-# Dracula color theme for Zathura
-# link:( https://github.com/dracula/dracula-theme#color-palette )
-# Swaps Foreground for Background to get a light version
-# Comment after the color is the color's name, as it appears in the palette
+# BEGIN DOTFILES THEME
+# Catppuccin Mocha
+set notification-error-bg       "#f38ba8"
+set notification-error-fg       "#1e1e2e"
+set notification-warning-bg     "#fab387"
+set notification-warning-fg     "#1e1e2e"
+set notification-bg             "#1e1e2e"
+set notification-fg             "#cdd6f4"
 
+set completion-bg               "#1e1e2e"
+set completion-fg               "#cdd6f4"
+set completion-group-bg         "#1e1e2e"
+set completion-group-fg         "#89b4fa"
+set completion-highlight-bg     "#45475a"
+set completion-highlight-fg     "#cdd6f4"
 
-# NORD
-# Light/Default mode settings:
-#
-#set notification-error-bg       "#BF616A" # Red
-#set notification-error-fg       "#D8DEE9" # Foreground
-#set notification-warning-bg     "#D08770" # Orange
-#set notification-warning-fg     "#44475a" # Selection
-#set notification-bg             "#2e3440" # Background
-#set notification-fg             "#D8DEE9" # Foreground
+set index-bg                    "#1e1e2e"
+set index-fg                    "#cdd6f4"
+set index-active-bg             "#45475a"
+set index-active-fg             "#cdd6f4"
 
-#set completion-bg               "#2e3440" # Background
-#set completion-fg               "#689d6a" # Comment
-#set completion-group-bg         "#2e3440" # Background
-#set completion-group-fg         "#689d6a" # Comment
-#set completion-highlight-bg     "#44475a" # Selection
-#set completion-highlight-fg     "#D8DEE9" # Foreground
+set inputbar-bg                 "#1e1e2e"
+set inputbar-fg                 "#cdd6f4"
+set statusbar-bg                "#181825"
+set statusbar-fg                "#cdd6f4"
 
-#set index-bg                    "#2e3440" # Background
-#set index-fg                    "#D8DEE9" # Foreground
-#set index-active-bg             "#44475a" # Current Line
-#set index-active-fg             "#D8DEE9" # Foreground
+set highlight-color             "#f9e2af"
+set highlight-active-color      "#89b4fa"
 
-#set inputbar-bg                 "#2e3440" # Background
-#set inputbar-fg                 "#D8DEE9" # Foreground
-#set statusbar-bg                "#2e3440" # Background
-#set statusbar-fg                "#D8DEE9" # Foreground
-
-#set highlight-color             "#D08770" # Orange
-#set highlight-active-color      "#83a598" # Pink
-
-#set default-bg                  "#2e3440" # Background
-#set default-fg                  "#D8DEE9" # Foreground
-
-#set render-loading              true
-#set render-loading-fg           "#2e3440" # Background
-#set render-loading-bg           "#D8DEE9" # Foreground
-
-# Recolor mode settings
-#
-#
-set recolor-lightcolor          "#2e3440" # Background
-set recolor-darkcolor           "#D8DEE9" # Foreground
-
-# GRUVBOX
-# Light/Default mode settings:
-# 
-#
-set notification-error-bg       "#cc241d" # Red
-set notification-error-fg       "#fbf1c7" # Foreground
-set notification-warning-bg     "#d79921" # Orange
-set notification-warning-fg     "#44475a" # Selection
-set notification-bg             "#161819" # Background
-set notification-fg             "#fbf1c7" # Foreground
-
-set completion-bg               "#161819" # Background
-set completion-fg               "#689d6a" # Comment
-set completion-group-bg         "#161819" # Background
-set completion-group-fg         "#689d6a" # Comment
-set completion-highlight-bg     "#44475a" # Selection
-set completion-highlight-fg     "#fbf1c7" # Foreground
-
-set index-bg                    "#161819" # Background
-set index-fg                    "#fbf1c7" # Foreground
-set index-active-bg             "#44475a" # Current Line
-set index-active-fg             "#fbf1c7" # Foreground
-
-set inputbar-bg                 "#161819" # Background
-set inputbar-fg                 "#fbf1c7" # Foreground
-set statusbar-bg                "#161819" # Background
-set statusbar-fg                "#fbf1c7" # Foreground
-
-set highlight-color             "#d79921" # Orange
-set highlight-active-color      "#83a598" # Pink
-
-set default-bg                  "#161819" # Background
-set default-fg                  "#fbf1c7" # Foreground
+set default-bg                  "#1e1e2e"
+set default-fg                  "#cdd6f4"
 
 set render-loading              true
-set render-loading-fg           "#161819" # Background
-set render-loading-bg           "#fbf1c7" # Foreground
+set render-loading-fg           "#1e1e2e"
+set render-loading-bg           "#cdd6f4"
 
-# Recolor mode settings
-#
-#
-set recolor-lightcolor          "#161819" # Background
-set recolor-darkcolor           "#fbf1c7" # Foreground
+set recolor-lightcolor          "#1e1e2e"
+set recolor-darkcolor           "#cdd6f4"
+# END DOTFILES THEME
 
 # Startup options
 #

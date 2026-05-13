@@ -252,10 +252,69 @@ plugins {
 //     }
 // }
 
+// BEGIN DOTFILES THEMES
+themes {
+    catppuccin-mocha {
+        fg 205 214 244
+        bg 30 30 46
+        black 24 24 37
+        red 243 139 168
+        green 166 227 161
+        yellow 249 226 175
+        blue 137 180 250
+        magenta 245 194 231
+        cyan 137 220 235
+        white 205 214 244
+        orange 250 179 135
+    }
+    gruvbox-dark {
+        fg 235 219 178
+        bg 40 40 40
+        black 40 40 40
+        red 204 36 29
+        green 152 151 26
+        yellow 215 153 33
+        blue 69 133 136
+        magenta 177 98 134
+        cyan 104 157 106
+        white 235 219 178
+        orange 214 93 14
+    }
+    gruvbox-light {
+        fg 60 56 54
+        bg 251 241 199
+        black 40 40 40
+        red 204 36 29
+        green 152 151 26
+        yellow 215 153 33
+        blue 69 133 136
+        magenta 177 98 134
+        cyan 104 157 106
+        white 251 241 199
+        orange 214 93 14
+    }
+    tokyonight-dark {
+        fg 192 202 245
+        bg 26 27 38
+        black 21 22 30
+        red 247 118 142
+        green 158 206 106
+        yellow 224 175 104
+        blue 122 162 247
+        magenta 187 154 247
+        cyan 125 207 255
+        white 192 202 245
+        orange 255 158 100
+    }
+}
+// END DOTFILES THEMES
+
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "gruvbox"
+// BEGIN DOTFILES SELECTED THEME
+theme "catppuccin-mocha"
+// END DOTFILES SELECTED THEME
 
 // The name of the default layout to load on startup
 // Default: "default"

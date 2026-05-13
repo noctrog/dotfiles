@@ -116,8 +116,7 @@ return require('packer').startup(function()
     'hoob3rt/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
-	-- The best theme of them all
-	use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+	require("theme").use_packer(use)
   use {'lukas-reineke/indent-blankline.nvim'}
 
 	------------------------------------------------------------------------
@@ -137,4 +136,3 @@ return require('packer').startup(function()
   use({ "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end, })
 end)
-
