@@ -11,7 +11,8 @@ DOTFILES_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
 THEME_FILE="$DOTFILES_DIR/.theme"
 DEFAULT_THEME="catppuccin-mocha"
 VERSION_DIR="$HOME/.local/share/.dotfiles-tool-versions"
-CARGO_PACKAGES=(du-dust zoxide zellij cargo-cache cargo-update viu tuckr)
+CARGO_PACKAGES=(du-dust zoxide zellij cargo-cache viu tuckr)
+CARGO_UPDATE_RUSTFLAGS="--cfg=rustix_use_libc"
 
 usage() {
     cat <<EOF
@@ -99,6 +100,17 @@ run() {
         printf '\n'
     else
         "$@"
+    fi
+}
+
+run_with_rustflags() {
+    extra_rustflags="$1"
+    shift
+
+    if [ -n "${RUSTFLAGS:-}" ]; then
+        RUSTFLAGS="$RUSTFLAGS $extra_rustflags" run "$@"
+    else
+        RUSTFLAGS="$extra_rustflags" run "$@"
     fi
 }
 
@@ -879,6 +891,7 @@ install_or_update_rust_toolchain() {
 install_or_update_rust_programs() {
     if [ "$DRY_RUN" -eq 1 ]; then
         echo "Would install/update cargo packages: ${CARGO_PACKAGES[*]}"
+        echo "Would install/update cargo-update with RUSTFLAGS=$CARGO_UPDATE_RUSTFLAGS"
         echo "Would clean cargo cache"
         return
     fi
@@ -887,10 +900,16 @@ install_or_update_rust_programs() {
 
     cargo install --locked "${CARGO_PACKAGES[@]}"
 
+    if ! command -v cargo-install-update >/dev/null 2>&1; then
+        run_with_rustflags "$CARGO_UPDATE_RUSTFLAGS" cargo install --locked cargo-update
+    fi
+
     if command -v cargo-install-update >/dev/null 2>&1; then
         for package in "${CARGO_PACKAGES[@]}"; do
             cargo install-update "$package"
         done
+
+        run_with_rustflags "$CARGO_UPDATE_RUSTFLAGS" cargo install-update cargo-update
     fi
 
     cargo cache --autoclean
@@ -1016,6 +1035,7 @@ install_or_update_hunkdiff() {
     run rm -rf "$extracted_dir" "$install_dir"
     download_and_extract_archive "$url" "$download_path" "$extract_path" "gz"
     run mv "$extracted_dir" "$install_dir"
+    run chmod +x "$install_dir/hunk"
     run ln -sf "$install_dir/hunk" "$HOME/.local/bin/hunk"
     run ln -sf "$install_dir/hunk" "$HOME/.local/bin/hunkdiff"
 
@@ -1055,13 +1075,19 @@ cleanup_binary_tools() {
 }
 
 sync_dotfiles() {
+    groups=(neovim helix shell starship zellij)
+
+    if is_macos; then
+        groups+=(ghostty)
+    fi
+
     if [ "$DRY_RUN" -eq 1 ]; then
-        echo "Would sync dotfiles with Tuckr"
+        echo "Would sync dotfiles with Tuckr: ${groups[*]}"
         return
     fi
 
     "$HOME/.cargo/bin/tuckr" add \*
-    "$HOME/.cargo/bin/tuckr" add -fy neovim helix ghostty shell starship zellij
+    "$HOME/.cargo/bin/tuckr" add -fy "${groups[@]}"
 }
 
 add_to_path() {
