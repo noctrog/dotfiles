@@ -627,6 +627,8 @@ apply_theme() {
         exit 1
     fi
 
+    echo "Applying theme: $theme"
+
     helix_theme="$(theme_helix_name "$theme")"
     ghostty_theme="$(theme_ghostty_name "$theme")"
     starship_palette="$(theme_starship_palette "$theme")"
@@ -1075,7 +1077,7 @@ cleanup_binary_tools() {
 }
 
 sync_dotfiles() {
-    groups=(neovim helix shell starship zellij)
+    groups=(neovim helix scripts shell starship zellij)
 
     if is_macos; then
         groups+=(ghostty)
@@ -1086,11 +1088,13 @@ sync_dotfiles() {
         return
     fi
 
-    "$HOME/.cargo/bin/tuckr" add \*
+    echo "Syncing dotfiles with Tuckr: ${groups[*]}"
     "$HOME/.cargo/bin/tuckr" add -fy "${groups[@]}"
 }
 
 add_to_path() {
+    echo "Configuring shell integration for $SHELL"
+
     path_line='export PATH="$HOME/.local/bin:$PATH"'
     cargo_line='source $HOME/.cargo/env'
 
