@@ -1,3 +1,12 @@
 [[language]]
 name = 'python'
 auto-format = true
+
+# Use the repository's .clang-format file when formatting C++ buffers.
+[[language]]
+name = 'cpp'
+auto-format = true
+formatter = { command = 'clang-format', args = [
+  '--style=file',
+  '--assume-filename=%{buffer_name}',
+] }
