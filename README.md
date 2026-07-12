@@ -1,6 +1,6 @@
 # My personal dotfiles
 
-These are the configs for my programs: neovim, helix, zellij, starship, uv, hunkdiff, Ghostty, cmux, ...
+These are the configs for my programs: neovim, helix, zellij, starship, uv, hunkdiff, Ghostty, cmux, worktree, ...
 
 The shared UI theme is managed by `environment.sh`. The default is Catppuccin Mocha.
 

@@ -11,7 +11,7 @@ DOTFILES_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
 THEME_FILE="$DOTFILES_DIR/.theme"
 DEFAULT_THEME="catppuccin-mocha"
 VERSION_DIR="$HOME/.local/share/.dotfiles-tool-versions"
-CARGO_PACKAGES=(du-dust zoxide zellij cargo-cache viu tuckr)
+CARGO_PACKAGES=(du-dust zoxide zellij cargo-cache viu tuckr worktree)
 CARGO_UPDATE_RUSTFLAGS="--cfg=rustix_use_libc"
 
 usage() {
@@ -1104,12 +1104,14 @@ add_to_path() {
             append_line_once "$HOME/.bashrc" "$cargo_line"
             append_line_once "$HOME/.bashrc" 'eval "$(starship init bash)"'
             append_line_once "$HOME/.bashrc" 'eval "$(zoxide init bash)"'
+            append_line_once "$HOME/.bashrc" 'eval "$(worktree-bin init bash)"'
             ;;
         */zsh)
             append_line_once "$HOME/.zshrc" "$path_line"
             append_line_once "$HOME/.zshrc" "$cargo_line"
             append_line_once "$HOME/.zshrc" 'eval "$(starship init zsh)"'
             append_line_once "$HOME/.zshrc" 'eval "$(zoxide init zsh)"'
+            append_line_once "$HOME/.zshrc" 'eval "$(worktree-bin init zsh)"'
             ;;
         */fish)
             append_line_once "$HOME/.config/fish/config.fish" "fish_add_path $HOME/.local/bin"
