@@ -1045,6 +1045,169 @@ install_or_update_hunkdiff() {
     write_installed_version "hunkdiff" "$hunkdiff_version"
 }
 
+get_gh_arch() {
+    case "$(uname -m)" in
+        x86_64) echo "amd64" ;;
+        arm64|aarch64) echo "arm64" ;;
+        *) echo "unsupported" ;;
+    esac
+}
+
+# gh supports multiple accounts per host since 2.40.0.
+GH_MIN_VERSION="2.40.0"
+
+gh_is_recent() {
+    command -v gh >/dev/null 2>&1 || return 1
+
+    version=$(gh --version | sed -n '1s/^gh version \([0-9][0-9.]*\).*/\1/p')
+    [ -n "$version" ] || return 1
+    [ "$(printf '%s\n%s\n' "$GH_MIN_VERSION" "$version" | sort -V | head -n 1)" = "$GH_MIN_VERSION" ]
+}
+
+install_gh() {
+    if gh_is_recent; then
+        echo "gh already installed: $(command -v gh)"
+        return
+    fi
+
+    if command -v gh >/dev/null 2>&1; then
+        echo "gh at $(command -v gh) is older than $GH_MIN_VERSION; installing a newer one"
+    fi
+
+    if is_macos; then
+        if [ "$DRY_RUN" -eq 1 ]; then
+            echo "Would install gh with Homebrew"
+            return
+        fi
+
+        ensure_homebrew
+        brew install gh
+        return
+    fi
+
+    arch=$(get_gh_arch)
+    os=$(get_os)
+    require_supported_platform "gh" "$os" "$arch"
+
+    if [ "$DRY_RUN" -eq 1 ]; then
+        echo "Would fetch latest gh release from cli/cli"
+        echo "Would download: https://github.com/cli/cli/releases/download/<latest>/gh_<latest>_linux_${arch}.tar.gz"
+        echo "Would install gh into $HOME/.local/share/gh_<latest>_linux_$arch"
+        echo "Would link $HOME/.local/bin/gh"
+        return
+    fi
+
+    gh_tag=$(github_latest_tag "cli/cli")
+    gh_version="${gh_tag#v}"
+    archive_base="gh_${gh_version}_linux_${arch}"
+    extract_path="$HOME/.local/share"
+    install_dir="$extract_path/$archive_base"
+    download_path="/tmp/$archive_base.tar.gz"
+    url="https://github.com/cli/cli/releases/download/$gh_tag/$archive_base.tar.gz"
+
+    run rm -rf "$install_dir"
+    download_and_extract_archive "$url" "$download_path" "$extract_path" "gz"
+    run ln -sf "$install_dir/bin/gh" "$HOME/.local/bin/gh"
+    write_installed_version "gh" "$gh_tag"
+}
+
+configure_gh_git_credentials() {
+    if [ "$DRY_RUN" -eq 1 ]; then
+        echo "Would configure git to use gh as the credential helper for github.com and gist.github.com"
+        return
+    fi
+
+    gh_bin=$(command -v gh)
+
+    # Same as `gh auth setup-git`, but works before `gh auth login` has run.
+    for host in github.com gist.github.com; do
+        git config --global --unset-all "credential.https://$host.helper" || true
+        git config --global --add "credential.https://$host.helper" ""
+        git config --global --add "credential.https://$host.helper" "!$gh_bin auth git-credential"
+    done
+
+    if ! gh auth status >/dev/null 2>&1; then
+        echo "gh is not authenticated yet. Run: gh auth login"
+    fi
+}
+
+install_or_update_herdr() {
+    if [ "$DRY_RUN" -eq 1 ]; then
+        if command -v herdr >/dev/null 2>&1; then
+            echo "Would update herdr"
+        else
+            echo "Would install herdr into $HOME/.local/bin"
+        fi
+        return
+    fi
+
+    if command -v herdr >/dev/null 2>&1; then
+        herdr update
+    else
+        curl -fsSL https://herdr.dev/install.sh | sh
+    fi
+}
+
+install_or_update_claude_code() {
+    if [ "$DRY_RUN" -eq 1 ]; then
+        if command -v claude >/dev/null 2>&1; then
+            echo "Would update Claude Code"
+        else
+            echo "Would install Claude Code into $HOME/.local/bin"
+        fi
+        return
+    fi
+
+    if command -v claude >/dev/null 2>&1; then
+        claude update
+    else
+        curl -fsSL https://claude.ai/install.sh | bash
+    fi
+}
+
+# nvm.sh is not compatible with `set -u`, so relax it while nvm runs.
+with_nvm() {
+    set +u
+    export NVM_DIR="$HOME/.nvm"
+    . "$NVM_DIR/nvm.sh"
+    "$@"
+    set -u
+}
+
+install_or_update_nvm() {
+    if [ "$DRY_RUN" -eq 1 ]; then
+        echo "Would fetch latest nvm release from nvm-sh/nvm"
+        echo "Would install/update nvm into $HOME/.nvm"
+        echo "Would install the latest Node.js LTS with nvm and make it the default"
+        return
+    fi
+
+    nvm_version=$(github_latest_tag "nvm-sh/nvm")
+    current_version=$(installed_version "nvm")
+
+    if [ "$current_version" = "$nvm_version" ] && [ -s "$HOME/.nvm/nvm.sh" ]; then
+        echo "nvm already up to date: $nvm_version"
+    else
+        # The shell configs already load nvm, so keep the installer away from them.
+        mkdir -p "$HOME/.nvm"
+        curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh" \
+            | NVM_DIR="$HOME/.nvm" PROFILE=/dev/null bash
+        write_installed_version "nvm" "$nvm_version"
+    fi
+
+    with_nvm nvm install --lts
+    with_nvm nvm alias default 'lts/*'
+}
+
+install_or_update_codex() {
+    if [ "$DRY_RUN" -eq 1 ]; then
+        echo "Would install/update Codex CLI with npm: @openai/codex"
+        return
+    fi
+
+    with_nvm npm install -g @openai/codex@latest
+}
+
 cleanup_binary_tools() {
     arch=$(get_helix_arch)
     os=$(get_os)
@@ -1112,6 +1275,8 @@ add_to_path() {
             append_line_once "$HOME/.zshrc" 'eval "$(starship init zsh)"'
             append_line_once "$HOME/.zshrc" 'eval "$(zoxide init zsh)"'
             append_line_once "$HOME/.zshrc" 'eval "$(worktree-bin init zsh)"'
+            append_line_once "$HOME/.zshrc" 'export NVM_DIR="$HOME/.nvm"'
+            append_line_once "$HOME/.zshrc" '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
             ;;
         */fish)
             append_line_once "$HOME/.config/fish/config.fish" "fish_add_path $HOME/.local/bin"
@@ -1146,6 +1311,15 @@ install_or_update_binary_tools() {
     install_or_update_hunkdiff
 }
 
+install_or_update_dev_tools() {
+    install_gh
+    configure_gh_git_credentials
+    install_or_update_herdr
+    install_or_update_claude_code
+    install_or_update_nvm
+    install_or_update_codex
+}
+
 install_or_update_macos_apps() {
     if ! is_macos; then
         echo "Skipping macOS apps: not running on macOS"
@@ -1163,6 +1337,7 @@ main() {
         install)
             install_base_environment
             install_or_update_binary_tools
+            install_or_update_dev_tools
             install_or_update_macos_apps
             apply_theme "$(current_theme)"
             sync_dotfiles
@@ -1171,6 +1346,7 @@ main() {
         update)
             update_base_environment
             install_or_update_binary_tools
+            install_or_update_dev_tools
             install_or_update_macos_apps
             apply_theme "$(current_theme)"
             sync_dotfiles

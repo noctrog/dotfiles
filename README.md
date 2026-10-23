@@ -13,7 +13,7 @@ git clone https://github.com/noctrog/dotfiles .dotfiles
 cd .dotfiles && ./environment.sh
 ```
 
-The installation sets up Rust, installs the CLI tools, downloads the latest Neovim, Helix, and hunkdiff binaries for the current platform, and links the dotfiles with Tuckr. On macOS, it also installs Ghostty and cmux with Homebrew. It might take a few minutes.
+The installation sets up Rust, installs the CLI tools, downloads the latest Neovim, Helix, and hunkdiff binaries for the current platform, installs herdr, Claude Code, nvm with the latest Node.js LTS, and the Codex CLI (through npm), installs `gh` if it is missing and configures git to use it as the GitHub credential helper, and links the dotfiles with Tuckr. On macOS, it also installs Ghostty and cmux with Homebrew. It might take a few minutes.
 
 You can also run the install mode explicitly:
 
@@ -29,7 +29,7 @@ To update the installed tools later, run:
 cd .dotfiles && ./environment.sh update
 ```
 
-The update mode refreshes Rust, cargo-installed tools, Starship, Neovim stable, the latest Helix release, and the latest hunkdiff release. On macOS, it also upgrades the Ghostty and cmux Homebrew casks.
+The update mode refreshes Rust, cargo-installed tools, Starship, Neovim stable, the latest Helix release, the latest hunkdiff release, herdr, Claude Code, nvm, Node.js LTS, and the Codex CLI. On macOS, it also upgrades the Ghostty and cmux Homebrew casks.
 
 Individual binary tools can be updated separately:
 
